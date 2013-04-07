@@ -1,0 +1,175 @@
+.jsmind-Stage {
+    position: relative;
+    background-color: white;
+}
+
+.jsmind-Stage  .paper {
+
+}
+
+.jsmind-Stage .map {
+    display: block;
+    position: absolute;
+    white-space: pre;
+    top: 0px;
+}
+
+#canvas textarea {
+    outline: 0
+}
+
+#tk_rootcontainer {
+    margin: 0 50px
+}
+
+#tk_rootchildren_left {
+    direction: rtl;
+    text-align: right
+}
+
+#tk_rootchildren_right {
+    direction: ltr;
+    text-align: left
+}
+
+#tk_rootchildren_left,#tk_rootchildren_right,#tk_rootcontainer {
+    display: inline-block;
+    vertical-align: middle
+}
+
+#tk_rootchildren_left>.tk_container,#tk_rootchildren_right>.tk_container {
+    margin-bottom: 20px
+}
+
+.tk_label {
+    position: relative;
+    padding: .2em 1em;
+    font-size: 100%;
+    z-index: 30;
+    cursor: move;
+    line-height: 125%;
+    direction: ltr;
+    text-align: center
+}
+
+.tk_open_container {
+    position: relative;
+    vertical-align: baseline
+}
+
+.ie_vertical_align .tk_open_container,.ie_vertical_align #tk_rootchildren_left,.ie_vertical_align #tk_rootchildren_right,.ie_vertical_align #tk_rootcontainer {
+    vertical-align: middle
+}
+
+.tk_container {
+    white-space: pre
+}
+
+.tk_container,.tk_label {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.viewonly .tk_label {
+    -moz-user-select: -moz-text;
+    -khtml-user-select: text;
+    -webkit-user-select: text;
+    -o-user-select: text;
+    -ms-user-select: text;
+    user-select: text
+}
+
+.tk_label,.tk_container,.tk_children,.tk_open,.tk_open_container {
+    display: inline-block
+}
+
+.tk_label.multiple {
+    width: 20px!important;
+    height: 20px!important;
+    background: white url("/images/plus_export.gif") no-repeat 29px 11px;
+    text-indent: 50px;
+    overflow: hidden
+}
+
+.tk_label.multiple .tk_image_container {
+    display: none
+}
+
+.tk_open {
+    vertical-align: bottom;
+    position: relative;
+    margin: 0;
+    z-index: 60;
+    left: -0.2em;
+    overflow: hidden;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    bottom: -0.37em
+}
+
+#tk_rootchildren_left .tk_open,.left_pane .tk_open {
+    left: .15em
+}
+
+.tk_children>.tk_container {
+    display: block
+}
+
+.b-ie8 .tk_children {
+    margin-left: .1px
+}
+
+.tk_container>.tk_label,.tk_container>.tk_open,.tk_container>.tk_children {
+    vertical-align: middle
+}
+
+.tk_children.single_child {
+    vertical-align: baseline
+}
+
+.tk_container {
+    z-index: 10
+}
+
+.tk_container.left_pane,.tk_children.left_pane {
+    z-index: 10;
+    direction: rtl;
+    text-align: right
+}
+
+.tk_label.root_child {
+    padding: .2em 1em
+}
+
+.tk_label.root {
+    padding: .6em 1em;
+    position: absolute;
+    z-index: 20
+}
+
+.tk_label.selected {
+    z-index: 65
+}
+
+.jsmind-Stage .map .tk_label.root {
+    position: relative
+}
+
+.tk_label.root_child {
+    border: 0 solid white;
+    margin: 3px;
+    color: #000;
+    -webkit-border-radius: .7em;
+    -moz-border-radius: .7em;
+    -ms-border-radius: .7em;
+    -o-border-radius: .7em;
+    border-radius: .7em;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 120%;
+}

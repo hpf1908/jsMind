@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jsMind</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script src="../seajs/sea.js?t=20130306"></script>
+</head>
+<body>
+<div id="stage"></div>
+<script type="text/javascript">
+  seajs.config({
+    // 激活 shim 插件
+    plugins: ['shim'],
+    // shim 配置项
+    alias: {
+      // jQuery 的 shim 配置
+      'jQuery'  : {
+        src: 'js/lib/jquery-1.9.1.min.js',
+        exports: 'jQuery'
+      },
+      'Raphael'  : {
+        src: 'js/lib/raphael.js',
+        exports: 'Raphael'
+      },
+      'Class'  : 'js/lib/class.js',
+      'Queue'  : 'js/lib/queue.js',
+      'Stack'  : 'js/lib/stack.js'
+    }
+  });
+
+  seajs.use('test/index.js',function (app) {
+    app.init();     
+  });
+</script>
+</body>
+</html>
