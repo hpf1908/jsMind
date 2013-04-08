@@ -46,14 +46,14 @@ define(function(require, exports, module) {
 
             this.canvas = canvas;
 
-            var paper = $('<div class="paper"></div>');
+            var paperElm = $('<div class="paper"></div>');
 
-            paper.width(this.opts.canvasWidth)
+            paperElm.width(this.opts.canvasWidth)
                  .height(this.opts.canvasHeight);
 
-            this.paper = paper;
-            canvas.append(paper);
-            this.rPaper = Raphael(paper.get(0) , this.opts.canvasWidth, this.opts.canvasHeight);
+            this.paperElm = paperElm;
+            canvas.append(paperElm);
+            this.rPaper = Raphael(paperElm.get(0) , this.opts.canvasWidth, this.opts.canvasHeight);
 
             var mapElm = $('<div class="map"></div>');
             canvas.append(mapElm);
@@ -62,9 +62,9 @@ define(function(require, exports, module) {
         _prepareTreeMap : function() {
 
             this.map = new Map({
-                container : this.mapElm
+                container : this.mapElm,
+                rPaper: this.rPaper
             });
-
         },
         getMap : function() {
             return this.map;

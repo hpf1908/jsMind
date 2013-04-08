@@ -19,21 +19,23 @@ define(function(require, exports, module) {
 
     var Path = Class.create({
         initialize: function(paper , options) {
-            
             this.paper = paper;
             this.opts = Util.extend({
             },options);
         },
-        setPos : function(from , to) {
+        set : function(from , to) {
 
-            if(this.rPath) {
-                this.rPath.remove();
-            }
-
+            this.clear();
             // var pathStr = Raphael.format("M{0} {1}L{2} {3}", from.x, from.y, to.x, to.y);
             // var pathStr = Raphael.format("M{0} {1}S{2} {3} {4} {5}", from.x, from.y, 80 ,50 , to.x, to.y);
             var pathStr = Raphael.format("M{0} {1}T{2} {3}", from.x, from.y, to.x, to.y);
             this.rPath= this.paper.path(pathStr);
+        },
+        clear : function() {
+            if(this.rPath) {
+                this.rPath.remove();
+                this.rPath = null;
+            }
         }
     });
 

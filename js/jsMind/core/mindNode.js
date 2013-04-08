@@ -5,6 +5,7 @@ define(function(require, exports, module) {
 
     var Class    = require('Class');
     var $        = require('jQuery');
+    var Events   = require('Events');
     var Util     = require('../helper/util');
     var Queue    = require('Queue');
     var Template = require('../helper/template');
@@ -21,6 +22,7 @@ define(function(require, exports, module) {
                 fakeElem : null
             }, viewObject);
 
+            this.id = Util.uuid();
             this.parent = parent;
             this.leftSibling = null;
             this.rightSibling = null;
@@ -48,7 +50,9 @@ define(function(require, exports, module) {
             this.elem = $(html);
             this.labelElem = this.elem.find('.tk_label');
             this.childsElem = this.elem.find('.tk_children');
+            this.posElem = this.elem.find('.tk_open_container');
             this._bindToElem();
+            this.elem.attr('id',this.id);
         },
         _bindToElem : function() {
             this.elem.data('mindNode',this);
@@ -77,6 +81,15 @@ define(function(require, exports, module) {
         getElement : function() {
             return this.elem;
         },
+        offset : function() {
+            return this.posElem.offset();
+        },
+        size : function() {
+            return {
+                width  : this.posElem.width(),
+                height : this.posElem.height()
+            }
+        },
         addChild : function(node) {
 
             if(this.childs.length > 0 ) {
@@ -89,6 +102,9 @@ define(function(require, exports, module) {
             this.childs.push(node);
             //添加ui节点
             this.childsElem.append(node.elem);
+            //设置parent
+            node.parent = this;
+            this.trigger('appendChild', this, node);
             return true;
         },
         removeChild : function(child){
@@ -123,8 +139,11 @@ define(function(require, exports, module) {
                 var node = this.childs.splice(index , 1)[0];
                 node.leftSibling = null;
                 node.rightSibling = null;
+                node.parent = null;
                 //删除掉ui节点
                 node.elem.remove();
+                //回调
+                this.trigger('removeChild', this, node);
                 return node;
             } else {
                 return null;
@@ -194,6 +213,9 @@ define(function(require, exports, module) {
             this.deepthFirstSearchItem(this , callback);
         }
     });
+
+    //混入原型对象
+    Events.mixTo(MindNode);
 
     return MindNode;
 });

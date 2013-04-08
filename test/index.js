@@ -53,7 +53,10 @@ define(function(require, exports, module) {
                  });
 
                  map.addToRightTree(node);
-             }
+
+                 // console.log('right');
+                 // console.log(node.getPos());
+            }
         }
     }
 });

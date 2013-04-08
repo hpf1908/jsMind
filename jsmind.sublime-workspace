@@ -4,6 +4,134 @@
 		"selected_items":
 		[
 			[
+				"te",
+				"testFunc"
+			],
+			[
+				"add",
+				"addToLeftTree"
+			],
+			[
+				"v",
+				"viewObject"
+			],
+			[
+				"ri",
+				"rightRoot"
+			],
+			[
+				"le",
+				"leftRoot"
+			],
+			[
+				"lef",
+				"leftRootNode"
+			],
+			[
+				"fa",
+				"fakeElem"
+			],
+			[
+				"ma",
+				"map"
+			],
+			[
+				"js",
+				"jsMind"
+			],
+			[
+				"re",
+				"require"
+			],
+			[
+				"setr",
+				"setRightTreeRoot"
+			],
+			[
+				"get",
+				"getRightTreeRoot"
+			],
+			[
+				"ro",
+				"root"
+			],
+			[
+				"set",
+				"setLeftTreeRoot"
+			],
+			[
+				"mi",
+				"MindNode"
+			],
+			[
+				"op",
+				"opts"
+			],
+			[
+				"tk",
+				"tk_title"
+			],
+			[
+				"la",
+				"labelElem"
+			],
+			[
+				"remo",
+				"remove"
+			],
+			[
+				"el",
+				"elem"
+			],
+			[
+				"chi",
+				"childsElem"
+			],
+			[
+				"ch",
+				"childsElem"
+			],
+			[
+				"pa",
+				"parentNode"
+			],
+			[
+				"opt",
+				"opts"
+			],
+			[
+				"tem",
+				"Template"
+			],
+			[
+				"tr",
+				"TreeNode"
+			],
+			[
+				"ui",
+				"UINode"
+			],
+			[
+				"u",
+				"util"
+			],
+			[
+				"node",
+				"nodesMap"
+			],
+			[
+				"in",
+				"incrementNum"
+			],
+			[
+				"o",
+				"obj"
+			],
+			[
+				"no",
+				"nodeTemplate"
+			],
+			[
 				"que",
 				"queue"
 			],
@@ -16,52 +144,16 @@
 				"Stack"
 			],
 			[
-				"re",
-				"return"
-			],
-			[
-				"le",
-				"leftNode"
-			],
-			[
-				"ri",
-				"rightNode"
-			],
-			[
 				"rig",
 				"rightNode"
-			],
-			[
-				"lef",
-				"leftNode"
-			],
-			[
-				"tr",
-				"TreeNode"
-			],
-			[
-				"no",
-				"none"
 			],
 			[
 				"app",
 				"append"
 			],
 			[
-				"get",
-				"getNode"
-			],
-			[
 				"ca",
 				"canvasHeight"
-			],
-			[
-				"op",
-				"opts"
-			],
-			[
-				"pa",
-				"path"
 			],
 			[
 				"ut",
@@ -70,10 +162,6 @@
 			[
 				"fun",
 				"function"
-			],
-			[
-				"el",
-				"elm"
 			],
 			[
 				"sha",
@@ -120,10 +208,6 @@
 				"leftMaxNode"
 			],
 			[
-				"la",
-				"lastBranchIndex"
-			],
-			[
 				"br",
 				"break"
 			],
@@ -156,10 +240,6 @@
 				"branchCount"
 			],
 			[
-				"in",
-				"indexStack"
-			],
-			[
 				"bn",
 				"BMinusTreeNode"
 			],
@@ -178,18 +258,6 @@
 			[
 				"de",
 				"degree"
-			],
-			[
-				"set",
-				"setNodeAtIndex"
-			],
-			[
-				"mi",
-				"minusNode"
-			],
-			[
-				"node",
-				"nodes"
 			],
 			[
 				"fi",
@@ -256,10 +324,6 @@
 				"vertex"
 			],
 			[
-				"ma",
-				"MAX_VALUE"
-			],
-			[
 				"vet",
 				"vertex"
 			],
@@ -316,19 +380,11 @@
 				"vetex"
 			],
 			[
-				"ch",
-				"checkLoop"
-			],
-			[
 				"fro",
 				"fromId"
 			],
 			[
 				"ad",
-				"addEdge"
-			],
-			[
-				"add",
 				"addEdge"
 			],
 			[
@@ -342,10 +398,6 @@
 			[
 				"wi",
 				"weight"
-			],
-			[
-				"v",
-				"vertexs"
 			],
 			[
 				"ini",
@@ -420,10 +472,6 @@
 				"notAvlHeadParent"
 			],
 			[
-				"fa",
-				"findFlag"
-			],
-			[
 				"for",
 				"for	for (…) {…}"
 			],
@@ -440,20 +488,8 @@
 				"callback"
 			],
 			[
-				"remo",
-				"removeChild"
-			],
-			[
 				"rem",
 				"removeChildAt"
-			],
-			[
-				"chi",
-				"child"
-			],
-			[
-				"te",
-				"tempNodeR"
 			],
 			[
 				"he",
@@ -478,60 +514,24 @@
 			[
 				"sy",
 				"syncFile"
-			],
-			[
-				"wa",
-				"watcher"
-			],
-			[
-				"cr",
-				"createJs"
-			],
-			[
-				"tim",
-				"time"
-			],
-			[
-				"sea",
-				"seajs"
-			],
-			[
-				"lo",
-				"logger"
-			],
-			[
-				"m",
-				"mname"
-			],
-			[
-				"wat",
-				"watch"
-			],
-			[
-				"tmp",
-				"tmpl"
-			],
-			[
-				"find",
-				"findOneAsync"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "js/jsMind/ui/node.js",
+			"file": "js/jsMind/core/path.js",
 			"settings":
 			{
-				"buffer_size": 1120,
+				"buffer_size": 1398,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/jsMind/stage.js",
+			"file": "test/index.html",
 			"settings":
 			{
-				"buffer_size": 3751,
+				"buffer_size": 787,
 				"line_ending": "Unix"
 			}
 		}
@@ -560,31 +560,41 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/tree.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/stack.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/queue.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/node.js",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/manager.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/uiNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/treeNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/map.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/manager.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/node.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/node.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/stack.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/nodeManager.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/tree.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/queue.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/paper.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/log.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/template.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/uiNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/uiPath.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/path.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/node.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/treeNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/model/treeNode.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/paper.js",
-		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/label.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/template.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/log.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
 		"/Users/hpf1908/projects/javascript/jsmind/css/map.css",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/util/util.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/shape.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/test/shape2.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/test2/shape3.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/test/shape1.js",
@@ -677,17 +687,7 @@
 		"/Users/hpf1908/projects/gitsearch/routes.js",
 		"/Users/hpf1908/projects/node-oauth/examples/express-gdata/server.js",
 		"/Users/hpf1908/projects/gitsearch/node_modules/node-oauth/lib/oauth.js",
-		"/Users/hpf1908/projects/gitsearch/node_modules/node-oauth/index.js",
-		"/Users/hpf1908/projects/node-oauth/lib/oauth.js",
-		"/Users/hpf1908/projects/node-oauth/tests/oauth2.js",
-		"/Users/hpf1908/projects/node-oauth/Readme.md",
-		"/Users/hpf1908/projects/node-oauth/examples/term.ie.oauth-PLAINTEXT.js",
-		"/Users/hpf1908/projects/node-oauth/examples/term.ie.oauth-HMAC-SHA1.js",
-		"/Users/hpf1908/projects/node-oauth/examples/express-gdata/views/google_contacts.ejs",
-		"/Users/hpf1908/projects/node-oauth/examples/express-gdata/views/google_calendars.ejs",
-		"/Users/hpf1908/projects/gitsearch/config.js",
-		"/Users/hpf1908/projects/gitsearch/controllers/api.js",
-		"/Users/hpf1908/projects/gitsearch/views/index.html"
+		"/Users/hpf1908/projects/gitsearch/node_modules/node-oauth/index.js"
 	],
 	"find":
 	{
@@ -705,6 +705,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_prepareTreeMap",
+			"data",
 			"new TreeNode",
 			"=",
 			"Debug",
@@ -830,8 +832,6 @@
 			"detection",
 			"saveData",
 			"this.data",
-			"savedata",
-			"intersects",
 			"savedata"
 		],
 		"highlight": true,
@@ -850,23 +850,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/jsMind/ui/node.js",
+					"file": "js/jsMind/core/path.js",
 					"settings":
 					{
-						"buffer_size": 1120,
+						"buffer_size": 1398,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								671,
-								671
+								759,
+								759
 							]
 						],
 						"settings":
@@ -883,24 +883,24 @@
 				},
 				{
 					"buffer": 1,
-					"file": "js/jsMind/stage.js",
+					"file": "test/index.html",
 					"settings":
 					{
-						"buffer_size": 3751,
+						"buffer_size": 787,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3057,
-								3709
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,

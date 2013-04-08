@@ -1,4 +1,4 @@
-javascript mindMap
+a mindMap written by javascript , not finished yet
 
 @todo: 
 
