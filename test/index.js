@@ -6,56 +6,80 @@ define(function(require, exports, module) {
     var Stage = require('js/jsMind/stage');
     var MindNode = require('js/jsMind/core/MindNode');
 
+    var addChildsToNode = function(node , childsNum) {
+
+        for (var i = 0; i < childsNum; i++) {
+             var child = new MindNode(null , {
+                title : '测试节点'
+             });
+             node.addChild(child);
+        }
+        return node;
+    }
+
     return {
         init : function() {
 
-            var testFunc = this['test add'];
+            // var testFunc = this['test root childs'];
+            var testFunc = this['test has with childs'];
 
             testFunc();
         },
-        'test add' : function() {
+        'test root childs' : function() {
 
              var stage = new Stage({
-                width  : 300,
-                height : 300,
+                elem   : '#stage'
+              });
+
+             var map = stage.getMap();
+             var leftNum = 3;
+             var rightNum = 5;
+
+             for (var i = 0; i < leftNum; i++) {
+                 var node = new MindNode(null , {
+                    title : '测试节点'
+                 });
+                 map.addToLeftTree(node);
+             }
+             
+            for (var i = 0; i < rightNum; i++) {
+                 var node = new MindNode(null , {
+                    title : 'right' + i
+                 });
+
+                 map.addToRightTree(node);
+            }
+        },
+        'test has with childs' : function() {
+
+            var stage = new Stage({
                 elem   : '#stage'
               });
 
              var map = stage.getMap();
 
-             for (var i = 0; i < 3; i++) {
+             for (var i = 0; i < 2; i++) {
                  var node = new MindNode(null , {
-                    title : 'left' + i,
-                    isRootChild : true
+                    title : 'left' + i
                  });
 
                  map.addToLeftTree(node);
-
-                 var child = new MindNode(null , {
-                    title : 'child' + i,
-                    isRootChild : false
-                 });
-
-                 node.addChild(child);
-
-                 var child = new MindNode(null , {
-                    title : 'child' + i,
-                    isRootChild : false
-                 });
-
-                 node.addChild(child);
+                 addChildsToNode(node , 3);
              }
              
             for (var i = 0; i < 3; i++) {
-                 var node = new MindNode(null , {
-                    title : 'right' + i,
-                    isRootChild : true
+                var node = new MindNode(null , {
+                    title : 'right' + i
                  });
 
-                 map.addToRightTree(node);
+                addChildsToNode(node , 4);
 
-                 // console.log('right');
-                 // console.log(node.getPos());
+                var parent = new MindNode(null , {
+                    title : 'right' + i
+                });
+
+                node.addTo(parent);
+                map.addToRightTree(parent);
             }
         }
     }

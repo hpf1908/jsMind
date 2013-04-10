@@ -17,10 +17,8 @@ define(function(require, exports, module) {
 
             this.opts = Util.extend({
                 elem        : null,
-                width       : 0,
-                height      : 0,
-                canvasWidth : 10000,
-                canvasHeight: 6000
+                width       : 10000,
+                height      : 6000
             },options);
 
             this.elem = $(this.opts.elem);
@@ -34,22 +32,16 @@ define(function(require, exports, module) {
         },
         _prepareStage : function() {
 
-            var canvas = $('<div class="canvas"></div>');
+            var canvas = $('<div class="canvas classic"></div>');
 
             this.elem.width(this.opts.width)
                      .height(this.opts.height)
                      .addClass('jsmind-Stage')
                      .append(canvas);
 
-            canvas.width(this.opts.canvasWidth)
-                       .height(this.opts.canvasHeight);
-
             this.canvas = canvas;
 
             var paperElm = $('<div class="paper"></div>');
-
-            paperElm.width(this.opts.canvasWidth)
-                 .height(this.opts.canvasHeight);
 
             this.paperElm = paperElm;
             canvas.append(paperElm);

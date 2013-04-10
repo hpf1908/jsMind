@@ -104,16 +104,16 @@
     position: relative;
     margin: 0;
     z-index: 60;
-    left: -0.2em;
+    left: 0.1em;
     overflow: hidden;
     cursor: pointer;
     width: 16px;
     height: 16px;
-    bottom: -0.37em
+    bottom: -0.50em
 }
 
 #tk_rootchildren_left .tk_open,.left_pane .tk_open {
-    left: .15em
+    left: .30em
 }
 
 .tk_children>.tk_container {
@@ -150,6 +150,21 @@
     padding: .6em 1em;
     position: absolute;
     z-index: 20
+}
+
+.classic .tk_label.root {
+    border: 3px solid #1d93ff;
+    margin: 0;
+    color: #000;
+    background-color: #50baff;
+    -webkit-border-radius: .7em;
+    -moz-border-radius: .7em;
+    -ms-border-radius: .7em;
+    -o-border-radius: .7em;
+    border-radius: .7em;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 120%;
 }
 
 .tk_label.selected {

@@ -7,6 +7,13 @@ define(function(require, exports, module) {
     var Util     = require('../helper/util');
     var MindNode = require('./mindNode');
     var Path     = require('./path');
+    var Const    = require('./const');
+
+    var DirectionEnum = Const.DirectionEnum;
+
+    var CaculateDistance = function(from , to) {
+        return Math.sqrt(Math.pow(to.x - from.x,2) +  Math.pow(to.y - from.y,2));
+    }
 
     var Map = Class.create({
         initialize: function(options) {
@@ -53,6 +60,7 @@ define(function(require, exports, module) {
                 fakeElem : this.leftChildRootElm
             });
 
+            leftRoot.direction = DirectionEnum.left;
             this.leftRootNode = leftRoot;
 
             var rightRoot = new MindNode(null , {
@@ -62,23 +70,50 @@ define(function(require, exports, module) {
                 fakeElem : this.rightChildRootElm
             });
 
+            rightRoot.direction = DirectionEnum.right;
             this.rightRootNode = rightRoot;
         },
         _bindEvents : function() {
+
             this.leftRootNode.on('appendChild' , this._nodeAppend, this);
             this.rightRootNode.on('appendChild', this._nodeAppend, this);
+
+            this.elem.delegate('.j_open' , 'click' , function() {
+
+                var nodeElem = $(this).parents('.tk_container');
+                var node = nodeElem.data('mindNode');
+                
+                if(node) {
+                    node.toggleChilds();
+                }
+            });
         },
         _nodeAppend : function(parentNode , appendNode) {
 
             var self = this;
 
-            //需要更新连接线
-            this.needUpdatePaths();
-
             //遍历节点，依次添加事件
             appendNode.breadthFirstSearch(function(node) {
+                if(node.parent) {
+                    node.direction = node.parent.direction;
+                }
+
+                if(node.parent.isFake()) {
+                    node.setRootVisibleNode();
+                }
                 node.on('appendChild' , self._nodeAppend, self);
+                node.on('all' , self._nodeEventsHandler, self);
             });
+
+            //需要更新连接线
+            this.needUpdatePaths();
+        },
+        _nodeEventsHandler : function(event) {
+            if(event == 'openChilds') {
+                this.needUpdatePaths();
+            } else if(event == 'closeChilds') {
+                this.needUpdatePaths();
+            }
         },
         setTitle : function(title) {
             this.rootElem.find('.tk_title').html(title);
@@ -91,10 +126,12 @@ define(function(require, exports, module) {
         },
         addToLeftTree : function(node) {
             var root = this.getLeftTreeRoot();
+            node.direction = DirectionEnum.left;
             root.addChild(node);
         },
         addToRightTree : function(node) {
             var root = this.getRightTreeRoot();
+            node.direction = DirectionEnum.right;
             root.addChild(node);
         },
         add : function(node) {
@@ -109,14 +146,6 @@ define(function(require, exports, module) {
                     self.updatePaths();
                     self._pathUpdateTimer = null;
                 },0);
-            }
-        },
-        getNodePos : function(node) {
-            var nodeOffset = node.offset();
-            var size = node.size();
-            return {
-                x : nodeOffset.left + size.width / 2.0 - this._parentOffset.left,
-                y : nodeOffset.top  + size.height / 2.0 - this._parentOffset.top
             }
         },
         getRootPos : function() {
@@ -141,15 +170,16 @@ define(function(require, exports, module) {
             this._addBranchPaths(this.rightRootNode);
         },
         _addRootPaths : function() {
-
-            var nodes = this.leftRootNode.getChilds().concat(this.rightRootNode.getChilds());
             var from = this.getRootPos();
-
-            for (var i = 0 , len = nodes.length; i < len; i++) {
-                var node = nodes[i];
-                var to   = this.getNodePos(node);
-                this.addPath(from , to);
-            };
+            this._addNodesPaths(from , this.leftRootNode.getChilds());
+            this._addNodesPaths(from , this.rightRootNode.getChilds());
+        },
+        _addNodesPaths : function(fromPos , targets) {
+             for (var i = 0 , len = targets.length; i < len; i++) {
+                var node = targets[i];
+                var toPos   = node.connectPos(this._parentOffset);
+                this.addPath(fromPos , toPos);
+            }
         },
         /**
          * 更新两侧的子树的连接
@@ -159,19 +189,37 @@ define(function(require, exports, module) {
             var self = this;
             rootNode.breadthFirstSearch(function(node){
                 if(node != rootNode && node.parent != rootNode) {
-                    self.addPathWithNode(node.parent, node);
+                    if(node.parent.isOpened) {
+                        self.addPathWithNode(node.parent, node);
+                    }
                 }
             });
         },
         addPathWithNode : function(fromNode, toNode) {
-            var from = this.getNodePos(fromNode);
-            var to   = this.getNodePos(toNode);
-            this.addPath(from , to);
+            var from = fromNode.connectPos(this._parentOffset);
+            var to   = toNode.connectPos(this._parentOffset);
+            var middle = toNode.anchorPos(this._parentOffset);
+            this.addPath(from , middle, to);
         },
-        addPath : function(from , to) {
-            var path = new Path(this.rPaper);
-            path.set(from , to);
-            this.paths.push(path);
+        addPath : function(from , middle , to) {
+
+            if(arguments.length == 3) {
+                var path = new Path(this.rPaper);
+
+                console.log(CaculateDistance(from , middle));
+                if(CaculateDistance(from , middle) < 10) {
+                    path.smoothCurveTo(from, to);
+                } else {
+                    path.smoothCurveTo(from , middle);
+                    path.smoothCurveTo(middle, to);
+                }
+                this.paths.push(path);
+            } else {
+                var path = new Path(this.rPaper);
+                to = middle;
+                path.smoothCurveTo(from , to);
+                this.paths.push(path);
+            }
         },
         clearPaths : function() {
 

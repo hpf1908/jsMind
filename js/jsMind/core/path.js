@@ -1,5 +1,5 @@
 /**
- * shape 
+ * path 
  */
 define(function(require, exports, module) {
 
@@ -22,20 +22,22 @@ define(function(require, exports, module) {
             this.paper = paper;
             this.opts = Util.extend({
             },options);
+            this.paths = [];
         },
-        set : function(from , to) {
-
-            this.clear();
-            // var pathStr = Raphael.format("M{0} {1}L{2} {3}", from.x, from.y, to.x, to.y);
-            // var pathStr = Raphael.format("M{0} {1}S{2} {3} {4} {5}", from.x, from.y, 80 ,50 , to.x, to.y);
-            var pathStr = Raphael.format("M{0} {1}T{2} {3}", from.x, from.y, to.x, to.y);
-            this.rPath= this.paper.path(pathStr);
+        smoothCurveTo : function(from , to) {
+            var pathStr = Raphael.format("M{0} {1}S{2} {3} {4} {5}", from.x, from.y, from.x ,to.y , to.x, to.y);
+            this.paths.push(this.paper.path(pathStr));
+        },
+        lineTo : function(from , to) {
+            var pathStr = Raphael.format("M{0} {1}L{2} {3}", from.x, from.y , to.x, to.y);
+            this.paths.push(this.paper.path(pathStr));
         },
         clear : function() {
-            if(this.rPath) {
-                this.rPath.remove();
-                this.rPath = null;
+            for (var i = 0 , len = this.paths.length; i < len; i++) {
+                var path = this.paths[i];
+                path.remove();
             }
+            this.paths = [];
         }
     });
 

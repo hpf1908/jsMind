@@ -9,6 +9,10 @@ define(function(require, exports, module) {
     var Util     = require('../helper/util');
     var Queue    = require('Queue');
     var Template = require('../helper/template');
+    var Const    = require('./const');
+    var Config   = require('./config');
+
+    var DirectionEnum = Const.DirectionEnum;
 
     var MindNode = Class.create({
         initialize: function(parent , viewObject) {
@@ -17,15 +21,17 @@ define(function(require, exports, module) {
 
             this.viewObject = Util.extend({
                 title : 'empty',
-                isRootChild : false,
                 isFake : false,
-                fakeElem : null
+                fakeElem : null,
+                autoOpen : true
             }, viewObject);
 
             this.id = Util.uuid();
             this.parent = parent;
             this.leftSibling = null;
             this.rightSibling = null;
+            this.isOpened = false;
+            this.direction = DirectionEnum.none;
 
             if(parent) {
                 this.floor = parent.floor + 1;
@@ -41,16 +47,20 @@ define(function(require, exports, module) {
             } else {
                 this.elem = $(this.viewObject.fakeElem);
                 this.childsElem = this.elem;
+                this.openElm = this.elem;
             }
         },
         _createUi : function() {
 
-            var html = Template.parse(this._template(), this.viewObject);
+            var html = Template.parse(this._template(), {
+                title : this.viewObject.title
+            });
 
             this.elem = $(html);
             this.labelElem = this.elem.find('.tk_label');
             this.childsElem = this.elem.find('.tk_children');
             this.posElem = this.elem.find('.tk_open_container');
+            this.openElm = this.posElem.find('.tk_open');
             this._bindToElem();
             this.elem.attr('id',this.id);
         },
@@ -61,16 +71,19 @@ define(function(require, exports, module) {
 
             return ['<div class="tk_container">',
                         '<div class="tk_open_container">',
-                            '<div class="tk_label <% if(isRootChild) { %>root_child<%}%>" style="cursor: default;">',
+                            '<div class="tk_label" style="cursor: default;">',
                                 '<div class="tk_title"><%=title%></div>',
                             '</div>',
-                            '<img class="tk_open" style="display:none;" draggable="false">',
+                            '<img class="tk_open j_open" style="display:none;" draggable="false">',
                         '</div>',
-                        '<div class="tk_children"></div>',
+                        '<div class="tk_children" style="display:none;"></div>',
                     '</div>'].join('');
         },
         setTitle : function(title) {
             this.labelElem.find('.tk_title').html(title);
+        },
+        setRootVisibleNode : function() {
+            this.labelElem.addClass('root_child');
         },
         show : function() {
             this.elem.show();
@@ -84,11 +97,75 @@ define(function(require, exports, module) {
         offset : function() {
             return this.posElem.offset();
         },
+        anchorPos : function(relativeOffset) {
+
+            if(this.isFake()) {
+                return { x : 0 , y: 0 }
+            } else {
+                var offset = this.offset();
+                var size = this.size();
+
+                if(this.direction == DirectionEnum.right) {
+                    return {
+                        x : offset.left - relativeOffset.left,
+                        y : offset.top + size.height - relativeOffset.top
+                    }
+                } else {
+                    return {
+                        x : offset.left + size.width - relativeOffset.left,
+                        y : offset.top + size.height - relativeOffset.top
+                    }
+                }
+            }
+        },
+        /**
+         * 连接点的位置
+         */
+        connectPos : function(relativeOffset) {
+            
+            if(this.isFake()) {
+                return { x : 0 , y: 0 }
+            } else {
+
+                if(this.isOpened) {
+                    var width = this.openElm.width();
+                    var height = this.openElm.height();
+                    var offset = this.openElm.offset();
+
+                    return {
+                        x : offset.left + width / 2.0 - relativeOffset.left,
+                        y : offset.top  + height / 2.0 - relativeOffset.top
+                    }
+                } else {
+
+                    var offset = this.offset();
+                    var size = this.size();
+
+                    if(this.direction == DirectionEnum.left) {
+                        return {
+                            x : offset.left - relativeOffset.left,
+                            y : offset.top + size.height - relativeOffset.top
+                        }
+                    } else {
+                        return {
+                            x : offset.left + size.width - relativeOffset.left,
+                            y : offset.top + size.height - relativeOffset.top
+                        }
+                    }
+                }
+            }
+        },
         size : function() {
             return {
                 width  : this.posElem.width(),
                 height : this.posElem.height()
             }
+        },
+        isFake : function() {
+            return this.viewObject.isFake;
+        },
+        addTo : function(parent) {
+            parent.addChild(this);
         },
         addChild : function(node) {
 
@@ -104,8 +181,47 @@ define(function(require, exports, module) {
             this.childsElem.append(node.elem);
             //设置parent
             node.parent = this;
+
+            //判断是否自动展开子节点
+            if(this.viewObject.autoOpen) {
+                this.openChilds();
+            }
             this.trigger('appendChild', this, node);
             return true;
+        },
+        openChilds : function() {
+            if(this.childs.length > 0) {
+                this.isOpened = true;
+                this.openElm.attr('src',Config.node.closeImgSrc);
+                this.openElm.show();
+                this.childsElem.css('display','inline-block');
+                this.trigger('openChilds', this);
+            } else {
+                this.isOpened = false;
+                this.openElm.hide();
+                this.childsElem.hide();
+            }
+        },
+        closeChilds : function() {
+
+            if(this.childs.length > 0) {
+                this.isOpened = false;
+                this.openElm.attr('src',Config.node.openImgSrc);
+                this.openElm.show();
+                this.childsElem.hide();
+                this.trigger('closeChilds', this);
+            } else {
+                this.isOpened = false;
+                this.openElm.hide();
+                this.childsElem.hide();
+            }
+        },
+        toggleChilds : function() {
+            if(this.isOpened) {
+                this.closeChilds();
+            } else {
+                this.openChilds();
+            }
         },
         removeChild : function(child){
             for (var i = this.childs.length - 1; i >= 0; i--) {
