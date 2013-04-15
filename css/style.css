@@ -118,7 +118,7 @@
 }
 
 #tk_rootchildren_left .tk_open,.left_pane .tk_open {
-    left: .0em
+    left: -0.1em
 }
 
 .tk_children>.tk_container {
@@ -148,7 +148,8 @@
 }
 
 .tk_label.root_child {
-    padding: .2em 1em
+    padding: .2em 1em;
+    padding-bottom: 0.1em;
 }
 
 .tk_label.root {
@@ -182,7 +183,6 @@
 
 .tk_label.root_child {
     border: 0 solid white;
-    margin: 3px;
     color: #000;
     -webkit-border-radius: .7em;
     -moz-border-radius: .7em;

@@ -84,7 +84,6 @@ define(function(require, exports, module) {
         },
         setRootVisibleNode : function() {
             this.labelElem.addClass('root_child');
-            this.openElm.addClass('root_open');
         },
         show : function() {
             this.elem.show();

@@ -81,7 +81,7 @@ define(function(require, exports, module) {
                 addChildsToNode(node , 3);
             }
              
-            for (var i = 0; i < 3; i++) {
+            for (var i = 0; i < 5; i++) {
                 var node = new MindNode(null , {
                     title : 'right' + i
                  });
@@ -97,7 +97,7 @@ define(function(require, exports, module) {
                 var newNode = new MindNode(null , {
                     title : 'right' + i
                 });
-                
+
                 parent.addTo(newNode);
 
                 map.addToRightTree(newNode);
