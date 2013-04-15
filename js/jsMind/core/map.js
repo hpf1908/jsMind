@@ -8,6 +8,7 @@ define(function(require, exports, module) {
     var MindNode = require('./mindNode');
     var Path     = require('./path');
     var Const    = require('./const');
+    var Events   = require('Events');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -20,7 +21,9 @@ define(function(require, exports, module) {
 
             this.opts = Util.extend({
                 container : null,
-                rPaper : null
+                rPaper : null,
+                canvasWidth : 10000,
+                canvasHeight: 6000
             },options);
 
             var str =  ['<div id="tk_rootchildren_left" class="tk_children"></div>',
@@ -40,10 +43,8 @@ define(function(require, exports, module) {
 
             //记录当前的raphael对象
             this.rPaper = this.opts.rPaper;
-            //记录当前父节点的offset
-            this._parentOffset = this.elem.parent().offset();
             //更新连接线的timer
-            this._pathUpdateTimer = null;
+            this._repaintTimer = null;
             //初始化连线
             this.paths = [];
             //创建ui
@@ -106,13 +107,13 @@ define(function(require, exports, module) {
             });
 
             //需要更新连接线
-            this.needUpdatePaths();
+            this.needRepaint();
         },
         _nodeEventsHandler : function(event) {
             if(event == 'openChilds') {
-                this.needUpdatePaths();
+                this.needRepaint();
             } else if(event == 'closeChilds') {
-                this.needUpdatePaths();
+                this.needRepaint();
             }
         },
         setTitle : function(title) {
@@ -137,25 +138,37 @@ define(function(require, exports, module) {
         add : function(node) {
             this.addToLeftTree(node);
         },
-        needUpdatePaths : function() {
+        needRepaint : function() {
 
-            if(!this._pathUpdateTimer) {
+            if(!this._repaintTimer) {
                 var self = this;
-                this._pathUpdateTimer = setTimeout(function() {
+                this._repaintTimer = setTimeout(function() {
                     //更新列表
-                    self.updatePaths();
-                    self._pathUpdateTimer = null;
+                    self.doRepaint();
+                    self._repaintTimer = null;
                 },0);
             }
+        },
+        _parentOffset : function() {
+            return this.elem.parent().offset();
         },
         getRootPos : function() {
             var rootWidth  = this.rootElem.width();
             var rootHeight = this.rootElem.height();
             var rootOffset = this.rootElem.offset();
+            var parentOffset = this._parentOffset();
             return {
-                x : rootOffset.left + rootWidth / 2.0 - this._parentOffset.left,
-                y : rootOffset.top  + rootHeight / 2.0 - this._parentOffset.top
+                x : rootOffset.left + rootWidth / 2.0 - parentOffset.left,
+                y : rootOffset.top  + rootHeight / 2.0 - parentOffset.top
             }
+        },
+        doRepaint : function() {
+
+            this.alignCenter();
+
+            this.updatePaths();
+
+            this.trigger('doRepaint');
         },
         updatePaths : function() {
 
@@ -175,10 +188,14 @@ define(function(require, exports, module) {
             this._addNodesPaths(from , this.rightRootNode.getChilds());
         },
         _addNodesPaths : function(fromPos , targets) {
-             for (var i = 0 , len = targets.length; i < len; i++) {
+
+            var parentOffset = this._parentOffset();
+
+            for (var i = 0 , len = targets.length; i < len; i++) {
                 var node = targets[i];
-                var toPos   = node.connectPos(this._parentOffset);
-                this.addPath(fromPos , toPos);
+                var toPos   = node.connectPos(parentOffset);
+                var middle = node.anchorPos(parentOffset);
+                this.addPath(fromPos , middle , toPos);
             }
         },
         /**
@@ -187,18 +204,19 @@ define(function(require, exports, module) {
         _addBranchPaths : function(rootNode) {
 
             var self = this;
-            rootNode.breadthFirstSearch(function(node){
-                if(node != rootNode && node.parent != rootNode) {
-                    if(node.parent.isOpened) {
-                        self.addPathWithNode(node.parent, node);
-                    }
+            rootNode.breadthFirstSearch(function(node) {
+                return !node.isOpened;
+            }, function(node){
+                if(node != rootNode && node.parent != rootNode)  {
+                    self.addPathWithNode(node.parent, node);
                 }
             });
         },
         addPathWithNode : function(fromNode, toNode) {
-            var from = fromNode.connectPos(this._parentOffset);
-            var to   = toNode.connectPos(this._parentOffset);
-            var middle = toNode.anchorPos(this._parentOffset);
+            var parentOffset = this._parentOffset();
+            var from = fromNode.connectPos(parentOffset);
+            var to   = toNode.connectPos(parentOffset);
+            var middle = toNode.anchorPos(parentOffset);
             this.addPath(from , middle, to);
         },
         addPath : function(from , middle , to) {
@@ -206,7 +224,7 @@ define(function(require, exports, module) {
             if(arguments.length == 3) {
                 var path = new Path(this.rPaper);
 
-                console.log(CaculateDistance(from , middle));
+                // console.log(CaculateDistance(from , middle));
                 if(CaculateDistance(from , middle) < 10) {
                     path.smoothCurveTo(from, to);
                 } else {
@@ -229,8 +247,56 @@ define(function(require, exports, module) {
             };
 
             this.paths = [];
+        },
+        width : function() {
+            return this.elem.width();
+        },
+        height : function() {
+            return this.elem.height();
+        },
+        setPos : function(pos) {
+
+            this.elem.css('left',pos.x + 'px').css('top', pos.y + 'px');
+            this.needRepaint();
+        },
+        /**
+         * 相对于map的中心位置
+         */
+        centerPosInMap : function() {
+
+            var mapOffset = this.elem.offset();
+            var rootOffset = this.rootElem.offset();
+
+            return {
+                x : rootOffset.left - mapOffset.left ,
+                y : rootOffset.top - mapOffset.top
+            }
+        },
+        /**
+         * 设置map为中央
+         */
+        alignCenter : function() {
+
+            var canvasWidth  = this.opts.canvasWidth;
+            var canvasHeight = this.opts.canvasHeight;
+
+            var posX = canvasWidth / 2.0;
+            var posY = canvasHeight / 2.0;
+
+            var centerPosInMap = this.centerPosInMap();
+
+            posX = posX - centerPosInMap.x;
+            posY = posY - centerPosInMap.y;
+
+            this.setPos({
+                x : posX,
+                y : posY
+            });
         }
     });
+
+    //混入原型对象
+    Events.mixTo(Map);
 
     return Map;
 });

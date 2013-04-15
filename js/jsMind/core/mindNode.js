@@ -74,9 +74,9 @@ define(function(require, exports, module) {
                             '<div class="tk_label" style="cursor: default;">',
                                 '<div class="tk_title"><%=title%></div>',
                             '</div>',
-                            '<img class="tk_open j_open" style="display:none;" draggable="false">',
+                            '<img class="tk_open j_open" style="visibility:hidden;" draggable="false">',
                         '</div>',
-                        '<div class="tk_children" style="display:none;"></div>',
+                        '<div class="tk_children" style="visibility:hidden;"></div>',
                     '</div>'].join('');
         },
         setTitle : function(title) {
@@ -84,6 +84,7 @@ define(function(require, exports, module) {
         },
         setRootVisibleNode : function() {
             this.labelElem.addClass('root_child');
+            this.openElm.addClass('root_open');
         },
         show : function() {
             this.elem.show();
@@ -193,13 +194,13 @@ define(function(require, exports, module) {
             if(this.childs.length > 0) {
                 this.isOpened = true;
                 this.openElm.attr('src',Config.node.closeImgSrc);
-                this.openElm.show();
-                this.childsElem.css('display','inline-block');
+                this.openElm.css('visibility','');
+                this.childsElem.css('display','inline-block').css('visibility','');
                 this.trigger('openChilds', this);
             } else {
                 this.isOpened = false;
-                this.openElm.hide();
-                this.childsElem.hide();
+                this.openElm.css('visibility','hidden');
+                this.childsElem.css('visibility','hidden');
             }
         },
         closeChilds : function() {
@@ -207,13 +208,13 @@ define(function(require, exports, module) {
             if(this.childs.length > 0) {
                 this.isOpened = false;
                 this.openElm.attr('src',Config.node.openImgSrc);
-                this.openElm.show();
-                this.childsElem.hide();
+                this.openElm.css('visibility','');
+                this.childsElem.css('visibility','hidden');
                 this.trigger('closeChilds', this);
             } else {
                 this.isOpened = false;
-                this.openElm.hide();
-                this.childsElem.hide();
+                this.openElm.css('visibility','hidden');
+                this.childsElem.css('visibility','hidden');
             }
         },
         toggleChilds : function() {
@@ -304,16 +305,27 @@ define(function(require, exports, module) {
 
             return degree;
         },
-        breadthFirstSearch : function(callback){
+        breadthFirstSearch : function(shouldStop , callback){
             var queue = new Queue();
             queue.enQueue(this);
+
+            if(arguments.length == 1) {
+                callback = shouldStop;
+                shouldStop = function() {
+                    return false;
+                }
+            }
 
             while(!queue.empty()) {
                 var node = queue.deQueue();
                 callback && callback(node);
-                for(var i = 0; i < node.childs.length; i++) {
-                    queue.enQueue(node.childs[i]);
+
+                if(!shouldStop(node)) {
+                    for(var i = 0; i < node.childs.length; i++) {
+                        queue.enQueue(node.childs[i]);
+                    }
                 }
+         
             }
         },
         deepthFirstSearchItem : function(node , callback){

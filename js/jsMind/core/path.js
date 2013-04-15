@@ -25,8 +25,16 @@ define(function(require, exports, module) {
             this.paths = [];
         },
         smoothCurveTo : function(from , to) {
-            var pathStr = Raphael.format("M{0} {1}S{2} {3} {4} {5}", from.x, from.y, from.x ,to.y , to.x, to.y);
-            this.paths.push(this.paper.path(pathStr));
+            var pathStr = Raphael.format("M{0} {1}Q{2} {3} {4} {5}", from.x, from.y, from.x ,to.y , to.x, to.y);
+            // var pathStr = Raphael.format("M{0} {1}Q{2} {3}", from.x, from.y, to.x, to.y);
+            var path = this.paper.path(pathStr);
+            path.attr({
+                'stroke-width' : 2.2,
+                'stroke-linecap' : 'round',
+                'stroke' : '#969696',
+                // 'fill' : '#969696'
+            });
+            this.paths.push(path);
         },
         lineTo : function(from , to) {
             var pathStr = Raphael.format("M{0} {1}L{2} {3}", from.x, from.y , to.x, to.y);

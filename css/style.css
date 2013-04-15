@@ -1,6 +1,7 @@
 .jsmind-Stage {
     position: relative;
     background-color: white;
+    overflow: auto;
 }
 
 .jsmind-Stage  .paper {
@@ -14,8 +15,12 @@
     top: 0px;
 }
 
-#canvas textarea {
+.canvas textarea {
     outline: 0
+}
+
+.canvas {
+    position: absolute;
 }
 
 #tk_rootcontainer {
@@ -113,7 +118,7 @@
 }
 
 #tk_rootchildren_left .tk_open,.left_pane .tk_open {
-    left: .30em
+    left: .0em
 }
 
 .tk_children>.tk_container {
@@ -187,4 +192,28 @@
     font-weight: bold;
     font-style: normal;
     font-size: 120%;
+}
+
+.default .tk_label.root_child {
+    border: 2px solid #bdbfc1;
+    margin: 1px;
+    color: #4c5053;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…pZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#fff),color-stop(100%,#f4faff));
+    background-image: -webkit-linear-gradient(#fff,#f4faff);
+    background-image: -moz-linear-gradient(#fff,#f4faff);
+    background-image: -o-linear-gradient(#fff,#f4faff);
+    background-image: linear-gradient(#fff,#f4faff);
+    -webkit-border-radius: 1.8em;
+    -moz-border-radius: 1.8em;
+    -ms-border-radius: 1.8em;
+    -o-border-radius: 1.8em;
+    border-radius: 1.8em;
+    -webkit-box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    -moz-box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 100%;
 }

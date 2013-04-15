@@ -3,8 +3,9 @@
  */
 define(function(require, exports, module) {
 
-    var Stage = require('js/jsMind/stage');
+    var Stage    = require('js/jsMind/stage');
     var MindNode = require('js/jsMind/core/MindNode');
+    var $        = require('jQuery');
 
     var addChildsToNode = function(node , childsNum) {
 
@@ -17,6 +18,15 @@ define(function(require, exports, module) {
         return node;
     }
 
+    var autoResize = function(stage) {
+        $(window).bind('resize' , function() {
+            var width = $(window).width() - 30;
+            var height = $(window).height() - 30;
+            stage.setSize( width , height );
+        });
+    }
+
+
     return {
         init : function() {
 
@@ -27,15 +37,17 @@ define(function(require, exports, module) {
         },
         'test root childs' : function() {
 
-             var stage = new Stage({
+            var stage = new Stage({
                 elem   : '#stage'
-              });
+            });
 
-             var map = stage.getMap();
-             var leftNum = 3;
-             var rightNum = 5;
+            var map = stage.getMap();
+            var leftNum = 3;
+            var rightNum = 5;
 
-             for (var i = 0; i < leftNum; i++) {
+            autoResize(stage);
+
+            for (var i = 0; i < leftNum; i++) {
                  var node = new MindNode(null , {
                     title : '测试节点'
                  });
@@ -56,30 +68,39 @@ define(function(require, exports, module) {
                 elem   : '#stage'
               });
 
-             var map = stage.getMap();
+            var map = stage.getMap();
 
-             for (var i = 0; i < 2; i++) {
-                 var node = new MindNode(null , {
+            autoResize(stage);
+
+            for (var i = 0; i < 2; i++) {
+                var node = new MindNode(null , {
                     title : 'left' + i
-                 });
+                });
 
-                 map.addToLeftTree(node);
-                 addChildsToNode(node , 3);
-             }
+                map.addToLeftTree(node);
+                addChildsToNode(node , 3);
+            }
              
             for (var i = 0; i < 3; i++) {
                 var node = new MindNode(null , {
                     title : 'right' + i
                  });
 
-                addChildsToNode(node , 4);
+                addChildsToNode(node , Math.floor(Math.random() * 10));
 
                 var parent = new MindNode(null , {
-                    title : 'right' + i
+                    title : 'test' + i
                 });
 
                 node.addTo(parent);
-                map.addToRightTree(parent);
+
+                var newNode = new MindNode(null , {
+                    title : 'right' + i
+                });
+                
+                parent.addTo(newNode);
+
+                map.addToRightTree(newNode);
             }
         }
     }
