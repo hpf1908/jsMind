@@ -2,17 +2,10 @@ a mindMap written by javascript , not finished yet
 
 @todo: 
 
-1 . 布局模型 
-2 . 样式，包括线条以及形状
-3 . 交互（拖拽，双击、导航）
-
-layout
-
-stage
-  view
-    control
-      - editButton
-      - line
+1. 可编辑创建，编辑面板，创建面板
+2. 编辑时支持拖拽
+3. 可以撤销
+4. 定义描述的数据结构
 
 deps:
 

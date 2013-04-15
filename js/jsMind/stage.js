@@ -22,7 +22,8 @@ define(function(require, exports, module) {
                 width       : $(window).width() - 30,
                 height      : $(window).height() -30,
                 canvasWidth : 10000,
-                canvasHeight: 6000
+                canvasHeight: 6000,
+                enableDrag  : true
             },options);
 
             this.elem = $(this.opts.elem);
@@ -35,6 +36,7 @@ define(function(require, exports, module) {
             }
 
             this.scrollToCenter();
+            this._bindEvents();
         },
         _prepareStage : function() {
 
@@ -70,6 +72,47 @@ define(function(require, exports, module) {
 
             this.map.on('doRepaint' , this._didMapRepaint, this);
 
+        },
+        _bindEvents : function() {
+
+            var self = this;
+
+            this.elem.bind('mousemove',function(e) {
+                self._moveDrag(e);
+            }).bind('mousedown' , function(e){
+
+                if(e.which == 1 && self.opts.enableDrag) {
+                    self._startDrag(e);
+                }
+
+            }).bind('mouseup',function(e){
+                self._endDrag();
+            });
+        },
+        _startDrag : function(e) {
+            this._onDrag = true; 
+            this._lastPos = {
+                x : e.clientX,
+                y : e.clientY
+            }
+        },
+        _moveDrag : function(e){
+
+            if(this._onDrag) {
+                var distanceX = e.clientX - this._lastPos.x;
+                var distanceY = e.clientY - this._lastPos.y;
+                var top  = this.elem.scrollTop();
+                var left = this.elem.scrollLeft(); 
+
+                this.elem.scrollTop(top - distanceY).scrollLeft(left - distanceX);
+                this._lastPos = {
+                    x : e.clientX,
+                    y : e.clientY
+                }
+            }
+        },
+        _endDrag : function() {
+            this._onDrag = false;
         },
         _didMapRepaint : function() {
             //在底层重绘后执行相关操作

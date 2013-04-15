@@ -4,60 +4,176 @@
 		"selected_items":
 		[
 			[
-				"get",
-				"getChilds"
+				"pad",
+				"padding-bottom"
 			],
 			[
-				"le",
-				"leftRootNode"
+				"add",
+				"addClass"
 			],
 			[
-				"_add",
-				"_addRootPaths"
+				"op",
+				"openElm"
 			],
 			[
-				"no",
-				"node"
+				"roo",
+				"root_child"
 			],
 			[
-				"o",
-				"offset"
-			],
-			[
-				"ro",
-				"rootElem"
+				"ti",
+				"this"
 			],
 			[
 				"pa",
 				"parent"
 			],
 			[
-				"add",
-				"addPath"
+				"le",
+				"length"
+			],
+			[
+				"sta",
+				"stageHeight"
+			],
+			[
+				"can",
+				"canvasHeight"
+			],
+			[
+				"top",
+				"top"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"po",
+				"posY"
+			],
+			[
+				"ro",
+				"rootOffset"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"ca",
+				"canvasHeight"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"a",
+				"attr"
+			],
+			[
+				"chi",
+				"childs"
+			],
+			[
+				"no",
+				"node"
+			],
+			[
+				"_no",
+				"_nodeEventsHandler"
+			],
+			[
+				"is",
+				"isOpened"
+			],
+			[
+				"cl",
+				"closeChilds"
+			],
+			[
+				"node",
+				"node"
+			],
+			[
+				"tes",
+				"testFunc"
+			],
+			[
+				"l",
+				"labelElem"
+			],
+			[
+				"mi",
+				"middle"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"di",
+				"direction"
+			],
+			[
+				"par",
+				"parent"
+			],
+			[
+				"ri",
+				"right"
+			],
+			[
+				"d",
+				"direction"
+			],
+			[
+				"_ad",
+				"_addNodesPaths"
+			],
+			[
+				"fr",
+				"from"
+			],
+			[
+				"dr",
+				"direction"
+			],
+			[
+				"C",
+				"Const"
+			],
+			[
+				"ch",
+				"childs"
+			],
+			[
+				"re",
+				"relativeOffset"
+			],
+			[
+				"tk",
+				"tk_open"
+			],
+			[
+				"get",
+				"getChilds"
+			],
+			[
+				"_add",
+				"_addRootPaths"
+			],
+			[
+				"o",
+				"offset"
 			],
 			[
 				"cle",
 				"clearPaths"
 			],
 			[
-				"len",
-				"len"
-			],
-			[
-				"op",
-				"opts"
-			],
-			[
 				"up",
 				"pathUpdateTimer"
-			],
-			[
-				"ri",
-				"rightRootNode"
-			],
-			[
-				"tk",
-				"tk_open_container"
 			],
 			[
 				"_p",
@@ -88,20 +204,12 @@
 				"jsMind"
 			],
 			[
-				"re",
-				"require"
-			],
-			[
 				"setr",
 				"setRightTreeRoot"
 			],
 			[
 				"set",
 				"setLeftTreeRoot"
-			],
-			[
-				"mi",
-				"MindNode"
 			],
 			[
 				"la",
@@ -114,14 +222,6 @@
 			[
 				"el",
 				"elem"
-			],
-			[
-				"chi",
-				"childsElem"
-			],
-			[
-				"ch",
-				"childsElem"
 			],
 			[
 				"opt",
@@ -144,10 +244,6 @@
 				"util"
 			],
 			[
-				"node",
-				"nodesMap"
-			],
-			[
 				"in",
 				"incrementNum"
 			],
@@ -160,20 +256,12 @@
 				"require"
 			],
 			[
-				"sta",
-				"Stack"
-			],
-			[
 				"rig",
 				"rightNode"
 			],
 			[
 				"app",
 				"append"
-			],
-			[
-				"ca",
-				"canvasHeight"
 			],
 			[
 				"ut",
@@ -220,10 +308,6 @@
 				"bTree"
 			],
 			[
-				"l",
-				"links"
-			],
-			[
 				"left",
 				"leftMaxNode"
 			],
@@ -250,10 +334,6 @@
 			[
 				"ind",
 				"indexStack"
-			],
-			[
-				"is",
-				"isLeaf"
 			],
 			[
 				"bra",
@@ -336,20 +416,12 @@
 				"edges"
 			],
 			[
-				"top",
-				"topoResult"
-			],
-			[
 				"ver",
 				"vertex"
 			],
 			[
 				"vet",
 				"vertex"
-			],
-			[
-				"fr",
-				"for	for (…) {…}"
 			],
 			[
 				"to",
@@ -362,18 +434,6 @@
 			[
 				"计算机",
 				"计算机操作系统"
-			],
-			[
-				"a",
-				"A"
-			],
-			[
-				"con",
-				"construntor"
-			],
-			[
-				"di",
-				"dist"
 			],
 			[
 				"done",
@@ -416,10 +476,6 @@
 				"excepts"
 			],
 			[
-				"wi",
-				"weight"
-			],
-			[
 				"ini",
 				"initialIdsMap"
 			],
@@ -440,10 +496,6 @@
 				"prototype"
 			],
 			[
-				"ti",
-				"title"
-			],
-			[
 				"ou",
 				"ouputStr"
 			],
@@ -462,76 +514,24 @@
 			[
 				"wei",
 				"weight"
-			],
-			[
-				"me",
-				"mergeNode2"
-			],
-			[
-				"mer",
-				"mergeNode1"
-			],
-			[
-				"pc",
-				"pC"
-			],
-			[
-				"not",
-				"notAvlHead"
-			],
-			[
-				"avl",
-				"avlRLAdjust"
-			],
-			[
-				"nt",
-				"notAvlHeadParent"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
-				"bi",
-				"binaryNode5"
-			],
-			[
-				"fl",
-				"flagStack"
-			],
-			[
-				"c",
-				"callback"
-			],
-			[
-				"rem",
-				"removeChildAt"
-			],
-			[
-				"he",
-				"head"
-			],
-			[
-				"res",
-				"result"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "js/jsMind/core/map.js",
+			"file": "js/jsMind/stage.js",
 			"settings":
 			{
-				"buffer_size": 5999,
+				"buffer_size": 3124,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/jsMind/core/mindNode.js",
+			"file": "js/jsMind/core/map.js",
 			"settings":
 			{
-				"buffer_size": 7044,
+				"buffer_size": 9434,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "js/jsMind/core/path.js",
 			"settings":
 			{
-				"buffer_size": 1482,
+				"buffer_size": 1905,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,23 +547,23 @@
 			"file": "test/index.js",
 			"settings":
 			{
-				"buffer_size": 1525,
+				"buffer_size": 2703,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/jsMind/helper/util.js",
+			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 301,
+				"buffer_size": 4531,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/jsMind/stage.js",
+			"file": "js/jsMind/core/mindNode.js",
 			"settings":
 			{
-				"buffer_size": 2125,
+				"buffer_size": 11405,
 				"line_ending": "Unix"
 			}
 		}
@@ -592,17 +592,21 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/paper.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/const.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
+		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/config.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/paper.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
 		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/manager.js",
-		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/uiNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/treeNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/map.js",
@@ -624,7 +628,6 @@
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/treeNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/model/treeNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/label.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
 		"/Users/hpf1908/projects/javascript/jsmind/css/map.css",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/util/util.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/shape.js",
@@ -716,10 +719,7 @@
 		"/Users/hpf1908/projects/codeMonkey/utils/params.js",
 		"/Users/hpf1908/projects/codeMonkey/controllers/comment.js",
 		"/Users/hpf1908/projects/geek/controllers/home.js",
-		"/Users/hpf1908/projects/gitsearch/node_modules/oauth/index.js",
-		"/Users/hpf1908/projects/gitsearch/routes.js",
-		"/Users/hpf1908/projects/node-oauth/examples/express-gdata/server.js",
-		"/Users/hpf1908/projects/gitsearch/node_modules/node-oauth/lib/oauth.js"
+		"/Users/hpf1908/projects/gitsearch/node_modules/oauth/index.js"
 	],
 	"find":
 	{
@@ -737,6 +737,35 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"root_open",
+			"element.style {\ncursor: default;\n}\nMatched CSS Rules\n.root_child",
+			"element.style {\ncursor: default;\n}\nMatched CSS Rules\n.tk_label.root_child",
+			"root_child",
+			"rootChild",
+			".tk_open",
+			".default .tk_label.root_child",
+			"breadthFirstSearch",
+			"doRepaint",
+			"needRepaint",
+			"console",
+			"_parentOffset",
+			"_parent",
+			"_parentOffset",
+			"_[arent",
+			"_parentOffset",
+			"_pathUpdateTimer",
+			"needUpdatePaths",
+			"childsElem",
+			"root_child",
+			"isRootChild",
+			"getNodePos",
+			"openElm",
+			"tk_open",
+			"openElm",
+			"left",
+			".tk_open",
+			".tk_open_container",
+			"border",
 			"console",
 			"fake",
 			"_prepareTreeMap",
@@ -835,36 +864,7 @@
 			"getCodeFromFile",
 			"exist",
 			"console",
-			"idmap",
-			"regCode",
-			"it",
-			"watchFiles",
-			"watch",
-			"watchFiles",
-			"watch",
-			"listen",
-			"ComboJS",
-			"outputJS",
-			"tmpl",
-			"ComboJS",
-			"console",
-			"__getResult",
-			"script",
-			"parseHTML",
-			"parse",
-			"createHTML",
-			"createALL",
-			"parseHTML",
-			"with",
-			"nowith",
-			"idmap",
-			"__script",
-			"getLog",
-			"asyncLog",
-			"isPointInPath",
-			"detectionType",
-			"detection",
-			"saveData"
+			"idmap"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -882,23 +882,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/jsMind/core/map.js",
+					"file": "js/jsMind/stage.js",
 					"settings":
 					{
-						"buffer_size": 5999,
+						"buffer_size": 3124,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4719,
-								4719
+								580,
+								587
 							]
 						],
 						"settings":
@@ -908,25 +908,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1580.0,
+						"translation.y": 14.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "js/jsMind/core/mindNode.js",
+					"file": "js/jsMind/core/map.js",
 					"settings":
 					{
-						"buffer_size": 7044,
+						"buffer_size": 9434,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5051,
-								5060
+								697,
+								697
 							]
 						],
 						"settings":
@@ -936,7 +936,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1710.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -946,15 +946,15 @@
 					"file": "js/jsMind/core/path.js",
 					"settings":
 					{
-						"buffer_size": 1482,
+						"buffer_size": 1905,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								776,
-								776
+								1392,
+								1392
 							]
 						],
 						"settings":
@@ -963,8 +963,8 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 3.0,
+						"translation.y": 34.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -974,15 +974,15 @@
 					"file": "test/index.js",
 					"settings":
 					{
-						"buffer_size": 1525,
+						"buffer_size": 2703,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								746,
-								746
+								1744,
+								1744
 							]
 						],
 						"settings":
@@ -992,51 +992,53 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 802.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "js/jsMind/helper/util.js",
+					"file": "css/style.css",
 					"settings":
 					{
-						"buffer_size": 301,
+						"buffer_size": 4531,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								212,
-								212
+								2220,
+								2220
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1294.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "js/jsMind/stage.js",
+					"file": "js/jsMind/core/mindNode.js",
 					"settings":
 					{
-						"buffer_size": 2125,
+						"buffer_size": 11405,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1712,
-								1712
+								2896,
+								2896
 							]
 						],
 						"settings":
@@ -1046,7 +1048,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 368.0,
+						"translation.y": 866.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
