@@ -31,7 +31,8 @@ define(function(require, exports, module) {
         init : function() {
 
             // var testFunc = this['test root childs'];
-            var testFunc = this['test has with childs'];
+            // var testFunc = this['test has with childs'];
+            var testFunc = this['test has edit'];
 
             testFunc();
         },
@@ -65,7 +66,8 @@ define(function(require, exports, module) {
         'test has with childs' : function() {
 
             var stage = new Stage({
-                elem   : '#stage'
+                elem   : '#stage',
+                enableEdit  : false
               });
 
             var map = stage.getMap();
@@ -102,6 +104,14 @@ define(function(require, exports, module) {
 
                 map.addToRightTree(newNode);
             }
+        },
+        'test has edit' : function() {
+            var stage = new Stage({
+                elem   : '#stage',
+                enableEdit  : true
+            });
+
+            autoResize(stage);
         }
     }
 });

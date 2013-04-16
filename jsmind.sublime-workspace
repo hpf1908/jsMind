@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"cli",
+				"clientY"
+			],
+			[
+				"di",
+				"distanceX"
+			],
+			[
+				"sc",
+				"scrollLeft"
+			],
+			[
 				"pad",
 				"padding-bottom"
 			],
@@ -110,10 +122,6 @@
 			[
 				"len",
 				"length"
-			],
-			[
-				"di",
-				"direction"
 			],
 			[
 				"par",
@@ -506,14 +514,6 @@
 			[
 				"code",
 				"codesTable"
-			],
-			[
-				"ta",
-				"tailStart"
-			],
-			[
-				"wei",
-				"weight"
 			]
 		]
 	},
@@ -523,47 +523,15 @@
 			"file": "js/jsMind/stage.js",
 			"settings":
 			{
-				"buffer_size": 3124,
+				"buffer_size": 4396,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/jsMind/core/map.js",
+			"file": "readme.md",
 			"settings":
 			{
-				"buffer_size": 9434,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/jsMind/core/path.js",
-			"settings":
-			{
-				"buffer_size": 1905,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test/index.js",
-			"settings":
-			{
-				"buffer_size": 2703,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/style.css",
-			"settings":
-			{
-				"buffer_size": 4531,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/jsMind/core/mindNode.js",
-			"settings":
-			{
-				"buffer_size": 11405,
+				"buffer_size": 268,
 				"line_ending": "Unix"
 			}
 		}
@@ -592,27 +560,27 @@
 	},
 	"file_history":
 	[
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
 		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/const.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/config.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/paper.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/manager.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/uiNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/treeNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/map.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/manager.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/mindNode.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/ui/node.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/node.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/stack.js",
@@ -737,6 +705,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_bindEvents",
 			"root_open",
 			"element.style {\ncursor: default;\n}\nMatched CSS Rules\n.root_child",
 			"element.style {\ncursor: default;\n}\nMatched CSS Rules\n.tk_label.root_child",
@@ -863,8 +832,7 @@
 			"watchFiles",
 			"getCodeFromFile",
 			"exist",
-			"console",
-			"idmap"
+			"console"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -882,7 +850,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -890,15 +858,15 @@
 					"file": "js/jsMind/stage.js",
 					"settings":
 					{
-						"buffer_size": 3124,
+						"buffer_size": 4396,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								580,
-								587
+								2494,
+								2494
 							]
 						],
 						"settings":
@@ -908,147 +876,33 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 14.0,
+						"translation.y": 717.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "js/jsMind/core/map.js",
+					"file": "readme.md",
 					"settings":
 					{
-						"buffer_size": 9434,
+						"buffer_size": 268,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								697,
-								697
+								251,
+								251
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/jsMind/core/path.js",
-					"settings":
-					{
-						"buffer_size": 1905,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1392,
-								1392
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 3.0,
-						"translation.y": 34.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "test/index.js",
-					"settings":
-					{
-						"buffer_size": 2703,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1744,
-								1744
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 802.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "css/style.css",
-					"settings":
-					{
-						"buffer_size": 4531,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2220,
-								2220
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1294.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "js/jsMind/core/mindNode.js",
-					"settings":
-					{
-						"buffer_size": 11405,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2896,
-								2896
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 866.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

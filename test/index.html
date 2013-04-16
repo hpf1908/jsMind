@@ -19,6 +19,12 @@
         src: 'js/lib/jquery-1.9.1.min.js',
         exports: 'jQuery'
       },
+      // jquery.easing 插件的 shim 配置
+      'jquery.shortcuts': {
+        src: 'js/lib/jquery.shortcuts.js',
+        deps: ['jQuery'],
+        exports: 'jQuery'
+      },
       'Raphael'  : {
         src: 'js/lib/raphael.js',
         exports: 'Raphael'

@@ -73,6 +73,7 @@ define(function(require, exports, module) {
                         '<div class="tk_open_container">',
                             '<div class="tk_label" style="cursor: default;">',
                                 '<div class="tk_title"><%=title%></div>',
+                                '<span class="rhandle">&nbsp;</span>',
                             '</div>',
                             '<img class="tk_open j_open" style="visibility:hidden;" draggable="false">',
                         '</div>',
@@ -84,6 +85,9 @@ define(function(require, exports, module) {
         },
         setRootVisibleNode : function() {
             this.labelElem.addClass('root_child');
+        },
+        setNormalVisibleNode : function() {
+            this.labelElem.addClass('node');
         },
         show : function() {
             this.elem.show();
@@ -231,7 +235,7 @@ define(function(require, exports, module) {
             };
         },
         remove : function(){
-            if(this.parent != nil) {
+            if(this.parent) {
                 return this.parent.removeChild(this);
             } else {
                 return null;
@@ -279,6 +283,9 @@ define(function(require, exports, module) {
             } else {
                 return false;
             }
+        },
+        getChildAt : function(i) {
+            return this.childs[i];
         },
         getFirstChild : function(){
             return this.getChildAt(0);

@@ -17,13 +17,14 @@ define(function(require, exports, module) {
         initialize: function(options) {
 
             this.opts = Util.extend({
-                class       : 'classic',  //classic,default
+                class       : 'default',  //classic,default
                 elem        : null,
                 width       : $(window).width() - 30,
                 height      : $(window).height() -30,
                 canvasWidth : 10000,
                 canvasHeight: 6000,
-                enableDrag  : true
+                enableDrag  : true,
+                enableEdit  : false
             },options);
 
             this.elem = $(this.opts.elem);
@@ -67,7 +68,8 @@ define(function(require, exports, module) {
 
             this.map = new Map({
                 container : this.mapElm,
-                rPaper: this.rPaper
+                rPaper: this.rPaper,
+                enableEdit  : this.opts.enableEdit
             });
 
             this.map.on('doRepaint' , this._didMapRepaint, this);
