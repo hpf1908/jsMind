@@ -4,6 +4,78 @@
 		"selected_items":
 		[
 			[
+				"is",
+				"isFake"
+			],
+			[
+				"ri",
+				"rightRootNode"
+			],
+			[
+				"le",
+				"leftRootNode"
+			],
+			[
+				"par",
+				"parent"
+			],
+			[
+				"lef",
+				"left"
+			],
+			[
+				"_set",
+				"_setRootSelected"
+			],
+			[
+				"get",
+				"getChilds"
+			],
+			[
+				"r",
+				"return"
+			],
+			[
+				"rig",
+				"rightRootNode"
+			],
+			[
+				"add",
+				"addChild"
+			],
+			[
+				"mi",
+				"mindNode"
+			],
+			[
+				"_did",
+				"_didClickDown"
+			],
+			[
+				"sel",
+				"currentSelected"
+			],
+			[
+				"to",
+				"_toggleCurrentSelected"
+			],
+			[
+				"ro",
+				"rootElem"
+			],
+			[
+				"cu",
+				"currentSelected"
+			],
+			[
+				"el",
+				"elem"
+			],
+			[
+				"se",
+				"setSelected"
+			],
+			[
 				"cli",
 				"clientY"
 			],
@@ -20,10 +92,6 @@
 				"padding-bottom"
 			],
 			[
-				"add",
-				"addClass"
-			],
-			[
 				"op",
 				"openElm"
 			],
@@ -38,10 +106,6 @@
 			[
 				"pa",
 				"parent"
-			],
-			[
-				"le",
-				"length"
 			],
 			[
 				"sta",
@@ -62,10 +126,6 @@
 			[
 				"po",
 				"posY"
-			],
-			[
-				"ro",
-				"rootOffset"
 			],
 			[
 				"wi",
@@ -96,10 +156,6 @@
 				"_nodeEventsHandler"
 			],
 			[
-				"is",
-				"isOpened"
-			],
-			[
 				"cl",
 				"closeChilds"
 			],
@@ -116,20 +172,8 @@
 				"labelElem"
 			],
 			[
-				"mi",
-				"middle"
-			],
-			[
 				"len",
 				"length"
-			],
-			[
-				"par",
-				"parent"
-			],
-			[
-				"ri",
-				"right"
 			],
 			[
 				"d",
@@ -164,10 +208,6 @@
 				"tk_open"
 			],
 			[
-				"get",
-				"getChilds"
-			],
-			[
 				"_add",
 				"_addRootPaths"
 			],
@@ -194,10 +234,6 @@
 			[
 				"v",
 				"viewObject"
-			],
-			[
-				"lef",
-				"leftRootNode"
 			],
 			[
 				"fa",
@@ -228,10 +264,6 @@
 				"remove"
 			],
 			[
-				"el",
-				"elem"
-			],
-			[
 				"opt",
 				"opts"
 			],
@@ -258,14 +290,6 @@
 			[
 				"que",
 				"queue"
-			],
-			[
-				"r",
-				"require"
-			],
-			[
-				"rig",
-				"rightNode"
 			],
 			[
 				"app",
@@ -432,10 +456,6 @@
 				"vertex"
 			],
 			[
-				"to",
-				"topoResult"
-			],
-			[
 				"t",
 				"topoResult"
 			],
@@ -494,47 +514,11 @@
 			[
 				"getou",
 				"getOuputAdjById"
-			],
-			[
-				"vert",
-				"vertex"
-			],
-			[
-				"pr",
-				"prototype"
-			],
-			[
-				"ou",
-				"ouputStr"
-			],
-			[
-				"fo",
-				"for	for (…) {…}"
-			],
-			[
-				"code",
-				"codesTable"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "js/jsMind/stage.js",
-			"settings":
-			{
-				"buffer_size": 4396,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "readme.md",
-			"settings":
-			{
-				"buffer_size": 268,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -560,15 +544,17 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/lib/jquery.shortcuts.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/lib/events.js",
 		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/const.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/config.js",
@@ -685,9 +671,7 @@
 		"/Users/hpf1908/projects/gitsearch/views/home/login_success.html",
 		"/Users/hpf1908/projects/codeMonkey/controllers/auth.js",
 		"/Users/hpf1908/projects/codeMonkey/utils/params.js",
-		"/Users/hpf1908/projects/codeMonkey/controllers/comment.js",
-		"/Users/hpf1908/projects/geek/controllers/home.js",
-		"/Users/hpf1908/projects/gitsearch/node_modules/oauth/index.js"
+		"/Users/hpf1908/projects/codeMonkey/controllers/comment.js"
 	],
 	"find":
 	{
@@ -705,6 +689,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_didClickDelete",
+			"removeChild",
+			"needRepaint",
+			"setPos",
+			"alignCenter",
+			"needRepaint",
+			"alignCenter",
+			"doRepaint",
+			"needRepaint",
+			"getChildAt",
+			"browser",
+			"needrepaint",
+			"scrollToCenter",
+			".tk_label.node",
 			"_bindEvents",
 			"root_open",
 			"element.style {\ncursor: default;\n}\nMatched CSS Rules\n.root_child",
@@ -818,21 +816,7 @@
 			"getFileListFromStdout",
 			"cp",
 			"inputFolder",
-			"folder",
-			"console",
-			"callback",
-			"existsSync",
-			"src",
-			"filter",
-			"config",
-			"newFile",
-			"checkChange",
-			"getAllFile",
-			"checkChange",
-			"watchFiles",
-			"getCodeFromFile",
-			"exist",
-			"console"
+			"folder"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -850,63 +834,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/jsMind/stage.js",
-					"settings":
-					{
-						"buffer_size": 4396,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2494,
-								2494
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 717.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "readme.md",
-					"settings":
-					{
-						"buffer_size": 268,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								251,
-								251
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

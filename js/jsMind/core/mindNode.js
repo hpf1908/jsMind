@@ -11,6 +11,7 @@ define(function(require, exports, module) {
     var Template = require('../helper/template');
     var Const    = require('./const');
     var Config   = require('./config');
+    var EditTextArea = require('./editTextArea');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -44,6 +45,7 @@ define(function(require, exports, module) {
             if(!this.viewObject.isFake) {
                 this._createUi();
                 this.show();
+                this._initialEdit();
             } else {
                 this.elem = $(this.viewObject.fakeElem);
                 this.childsElem = this.elem;
@@ -64,6 +66,14 @@ define(function(require, exports, module) {
             this._bindToElem();
             this.elem.attr('id',this.id);
         },
+        _initialEdit : function() {
+            
+            this.editTextArea = new EditTextArea({
+                elem       : this.labelElem.find('input'),
+                isRootNode : false,
+                mindNode   : this
+            });
+        },
         _bindToElem : function() {
             this.elem.data('mindNode',this);
         },
@@ -74,6 +84,7 @@ define(function(require, exports, module) {
                             '<div class="tk_label" style="cursor: default;">',
                                 '<div class="tk_title"><%=title%></div>',
                                 '<span class="rhandle">&nbsp;</span>',
+                                '<input></input>',
                             '</div>',
                             '<img class="tk_open j_open" style="visibility:hidden;" draggable="false">',
                         '</div>',
@@ -82,6 +93,9 @@ define(function(require, exports, module) {
         },
         setTitle : function(title) {
             this.labelElem.find('.tk_title').html(title);
+        },
+        getTitle : function() {
+            return this.labelElem.find('.tk_title').html();
         },
         setRootVisibleNode : function() {
             this.labelElem.addClass('root_child');
@@ -262,6 +276,8 @@ define(function(require, exports, module) {
                 node.parent = null;
                 //删除掉ui节点
                 node.elem.remove();
+                //清除循环引用
+                node.editTextArea = null;
                 //回调
                 this.trigger('removeChild', this, node);
                 return node;

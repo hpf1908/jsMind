@@ -10,6 +10,7 @@ define(function(require, exports, module) {
     var Const    = require('./const');
     var Events   = require('Events');
     var $        = require('jquery.shortcuts');
+    var EditTextArea = require('./editTextArea');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -33,6 +34,7 @@ define(function(require, exports, module) {
                             '<div class="tk_label root">',
                                 '<span class="rhandle">&nbsp;</span>',
                                 '<div class="tk_title">jsMind</div>',
+                                '<input></input>',
                             '</div>',
                         '</div>',
                         '<div id="tk_rootchildren_right" class="tk_children"></div>'].join('');
@@ -60,6 +62,8 @@ define(function(require, exports, module) {
             this._setRootSelected();
             //将map居中
             this.alignCenter();
+            //初始化编辑
+            // this._initialEdit();
         },
         _createUi : function() {
 
@@ -103,8 +107,40 @@ define(function(require, exports, module) {
             });
 
             this.elem.delegate('.tk_label','click',function(){
-                self._doCurrentSelected(this);
+
+                self._toggleCurrentSelected(this);
+
+                if($(this).hasClass('edit')) {
+                   self._completeEdit(this);
+                }
             });
+
+            if(this.opts.enableEdit) {
+                this.elem.delegate('.tk_label','dblclick',function(){
+                    self.currentSelected = null;
+                    self._doCurrentSelected(this);
+                    $(this).addClass('edit');
+
+                    var nodeElem = $(this).parents('.tk_container');
+                    var node = nodeElem.data('mindNode');
+                    if(node) {
+                        node.editTextArea.focus();
+                        node.editTextArea.val(node.getTitle());
+                    } else {
+                        self.rootTextArea.focus();
+                        self.rootTextArea.val(self._getRootTitle());
+                    }
+                });
+            }
+        },
+        _initialEdit : function() {
+
+            if(this.opts.enableEdit) {
+                this.rootTextArea = new EditTextArea({
+                    elem       : this.rootElem.find('textarea'),
+                    isRootNode : true
+                });
+            }
         },
         _initialKeyboard : function() {
 
@@ -188,6 +224,7 @@ define(function(require, exports, module) {
 
             if(flag) {
                 $(elem).addClass('selected').addClass('current');
+                this.currentSelected = $(elem);
             } else {
                 $(elem).removeClass('selected').removeClass('current');
                 this.currentSelected = null;
@@ -413,7 +450,6 @@ define(function(require, exports, module) {
             return nodeElem.data('mindNode');
         },
         _didClickEnter : function() {
-
             if(this.currentSelected) {
                 if(this._isCurrentSelectedIsRoot()) {
                     this.add(new MindNode(null , {
@@ -428,6 +464,7 @@ define(function(require, exports, module) {
             }
         },
         _didClickRight : function() {
+
             if(this.currentSelected) {
                 if(this._isCurrentSelectedIsRoot()) {
                     if(this.rightRootNode.getChilds().length > 0) {
@@ -514,6 +551,28 @@ define(function(require, exports, module) {
                     mindNode.remove();
                 }
             } 
+        },
+        _completeEdit : function(elem) {
+
+            if(this.opts.enableEdit) {
+                elem = $(elem);
+                elem.removeClass('edit');
+                var nodeElem = elem.parents('.tk_container');
+                var node = nodeElem.data('mindNode');
+                if(node) {
+                    var val = node.editTextArea.val();
+                    node.setTitle(val);
+                } else {
+                    var val = this.rootTextArea.val();
+                    this._setRootTitle(val + ' ');
+                }
+            } 
+        },
+        _setRootTitle : function(val) {
+            this.rootElem.find('.tk_title').html(val);
+        },
+        _getRootTitle : function(){
+            return this.rootElem.find('.tk_title').html();
         }
     });
 

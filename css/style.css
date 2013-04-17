@@ -92,18 +92,6 @@
     display: inline-block
 }
 
-.tk_label.multiple {
-    width: 20px!important;
-    height: 20px!important;
-    background: white url("/images/plus_export.gif") no-repeat 29px 11px;
-    text-indent: 50px;
-    overflow: hidden
-}
-
-.tk_label.multiple .tk_image_container {
-    display: none
-}
-
 .tk_open {
     vertical-align: bottom;
     position: relative;
@@ -231,7 +219,6 @@
     border: 2px solid #bdbfc1;
     margin: 1px;
     color: #4c5053;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…pZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
     background-size: 100%;
     background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#fff),color-stop(100%,#f4faff));
     background-image: -webkit-linear-gradient(#fff,#f4faff);
@@ -316,4 +303,33 @@
     height: 12px;
     right: 0.1em;
     bottom: -0.2em;
+}
+
+/***** 可编辑状态 ******/
+.tk_label input {
+    border: 0px;
+    display: none;
+    background-color:transparent;
+    resize:none;
+    overflow: hidden; 
+    white-space: pre-wrap; 
+    height: 19px;
+    font-size: 100%;
+    color: #000;
+}
+
+.tk_label.node input {
+    height: 16px;
+}
+
+.tk_label.root input {
+    color: white;
+}
+
+.tk_label.edit input {
+    display: block;
+}
+
+.tk_label.edit .tk_title{
+    display: none;
 }
