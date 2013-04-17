@@ -69,22 +69,28 @@ define(function(require, exports, module) {
         _initialEdit : function() {
             
             this.editTextArea = new EditTextArea({
-                elem       : this.labelElem.find('input'),
-                isRootNode : false,
-                mindNode   : this
+                elem  : this.labelElem.find('textarea')
             });
+
+            this.editTextArea.on('blur', function() {
+                this.leaveEdit();
+            },this);
+
+            this.editTextArea.on('enter',function(){
+                this.editTextArea.blur();
+            },this);
         },
         _bindToElem : function() {
             this.elem.data('mindNode',this);
         },
         _template : function() {
 
-            return ['<div class="tk_container">',
+            return ['<div class="tk_container j_container">',
                         '<div class="tk_open_container">',
                             '<div class="tk_label" style="cursor: default;">',
                                 '<div class="tk_title"><%=title%></div>',
                                 '<span class="rhandle">&nbsp;</span>',
-                                '<input></input>',
+                                '<textarea></textarea>',
                             '</div>',
                             '<img class="tk_open j_open" style="visibility:hidden;" draggable="false">',
                         '</div>',
@@ -185,7 +191,7 @@ define(function(require, exports, module) {
         addTo : function(parent) {
             parent.addChild(this);
         },
-        addChild : function(node) {
+        addChild : function(node , parentElem) {
 
             if(this.childs.length > 0 ) {
                 var lastNode = this.childs[this.childs.length - 1];
@@ -196,7 +202,8 @@ define(function(require, exports, module) {
             
             this.childs.push(node);
             //添加ui节点
-            this.childsElem.append(node.elem);
+            parentElem = parentElem ? parentElem : this.childsElem;
+            parentElem.append(node.elem);
             //设置parent
             node.parent = this;
 
@@ -206,6 +213,9 @@ define(function(require, exports, module) {
             }
             this.trigger('appendChild', this, node);
             return true;
+        },
+        addChildInArray : function(childs) {
+
         },
         openChilds : function() {
             if(this.childs.length > 0) {
@@ -361,6 +371,37 @@ define(function(require, exports, module) {
         },
         deepthFirstSearch : function(callback){
             this.deepthFirstSearchItem(this , callback);
+        },
+        select : function() {
+            this._isSelected = true;
+            this.labelElem.addClass('selected').addClass('current');
+        },
+        deselect : function() {
+            this._isSelected = false;
+            this.labelElem.removeClass('selected').removeClass('current');
+        },
+        toggleSelect : function() {
+            if(this._isSelected) {
+                this.deselect();
+            } else {
+                this.select();
+            }
+        },
+        enterEdit : function() {
+            var self = this;
+            this._isEdit = true;
+            this.editTextArea.val(this.getTitle());    
+            this.labelElem.addClass('edit');
+            setTimeout(function() {
+                self.editTextArea.focus();
+            },0);
+        },
+        leaveEdit : function() {
+            this._isEdit = false;
+            this.setTitle(this.editTextArea.val());
+            this.labelElem.removeClass('edit');
+            this.trigger('leaveEdit');
+            Util.focusDocument();
         }
     });
 

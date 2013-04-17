@@ -306,7 +306,7 @@
 }
 
 /***** 可编辑状态 ******/
-.tk_label input {
+.tk_label textarea {
     border: 0px;
     display: none;
     background-color:transparent;
@@ -314,19 +314,20 @@
     overflow: hidden; 
     white-space: pre-wrap; 
     height: 19px;
+    width:60px;
     font-size: 100%;
     color: #000;
 }
 
-.tk_label.node input {
+.tk_label.node textarea {
     height: 16px;
 }
 
-.tk_label.root input {
+.tk_label.root textarea {
     color: white;
 }
 
-.tk_label.edit input {
+.tk_label.edit textarea {
     display: block;
 }
 

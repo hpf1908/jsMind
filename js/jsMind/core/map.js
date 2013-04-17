@@ -6,6 +6,7 @@ define(function(require, exports, module) {
     var Class    = require('Class');
     var Util     = require('../helper/util');
     var MindNode = require('./mindNode');
+    var MindRoot = require('./mindRoot');
     var Path     = require('./path');
     var Const    = require('./const');
     var Events   = require('Events');
@@ -29,116 +30,60 @@ define(function(require, exports, module) {
                 enableEdit : false
             },options);
 
-            var str =  ['<div id="tk_rootchildren_left" class="tk_children"></div>',
-                        '<div id="tk_rootcontainer">',
-                            '<div class="tk_label root">',
-                                '<span class="rhandle">&nbsp;</span>',
-                                '<div class="tk_title">jsMind</div>',
-                                '<input></input>',
-                            '</div>',
-                        '</div>',
-                        '<div id="tk_rootchildren_right" class="tk_children"></div>'].join('');
+            this.mindRoot = new MindRoot(null ,{
+                title : 'empty'
+            });
 
             this.elem = $(this.opts.container);
-            $(str).appendTo(this.elem);
+            // console.log()
+            this.mindRoot.elem.appendTo(this.elem);
 
-            this.rootElem = $('#tk_rootcontainer');
-            this.leftChildRootElm = $('#tk_rootchildren_left');
-            this.rightChildRootElm = $('#tk_rootchildren_right');
-
+            //当前选中的节点
+            this.currentSelected = null;
             //记录当前的raphael对象
             this.rPaper = this.opts.rPaper;
             //更新连接线的timer
             this._repaintTimer = null;
             //初始化连线
             this.paths = [];
-            //创建ui
-            this._createUi();
             //绑定事件
             this._bindEvents();
             //初始化键盘事件
             this._initialKeyboard();
             //初始化当前选中节点
-            this._setRootSelected();
+            this._doSelect(this.mindRoot);
             //将map居中
             this.alignCenter();
-            //初始化编辑
-            // this._initialEdit();
-        },
-        _createUi : function() {
 
-            var leftRoot = new MindNode(null , {
-                title : 'empty',
-                isRootChild : false,
-                isFake : true,
-                fakeElem : this.leftChildRootElm
-            });
-
-            leftRoot.direction = DirectionEnum.left;
-            this.leftRootNode = leftRoot;
-
-            var rightRoot = new MindNode(null , {
-                title : 'empty',
-                isRootChild : false,
-                isFake : true,
-                fakeElem : this.rightChildRootElm
-            });
-
-            rightRoot.direction = DirectionEnum.right;
-            this.rightRootNode = rightRoot;
+            Util.focusDocument();
         },
         _bindEvents : function() {
 
             var self = this;
 
-            this.leftRootNode.on('appendChild' , this._nodeAppend, this);
-            this.rightRootNode.on('appendChild', this._nodeAppend, this);
-            this.leftRootNode.on('all',this._nodeEventsHandler,this);
-            this.rightRootNode.on('all',this._nodeEventsHandler,this);
+            this.mindRoot.on('appendChild' , this._nodeAppend, this);
+            this.mindRoot.on('all',this._nodeEventsHandler,this);
 
             this.elem.delegate('.j_open' , 'click' , function() {
-
-                var nodeElem = $(this).parents('.tk_container');
-                var node = nodeElem.data('mindNode');
-                
+                var node = self._getNodeByChildElm(this);
                 if(node) {
                     node.toggleChilds();
                 }
             });
 
             this.elem.delegate('.tk_label','click',function(){
-
-                self._toggleCurrentSelected(this);
-
-                if($(this).hasClass('edit')) {
-                   self._completeEdit(this);
+                var node = self._getNodeByChildElm(this);
+                if(node) {
+                    self._doSelect(node);
                 }
             });
 
             if(this.opts.enableEdit) {
                 this.elem.delegate('.tk_label','dblclick',function(){
+                    var node = self._getNodeByChildElm(this);
                     self.currentSelected = null;
-                    self._doCurrentSelected(this);
-                    $(this).addClass('edit');
-
-                    var nodeElem = $(this).parents('.tk_container');
-                    var node = nodeElem.data('mindNode');
-                    if(node) {
-                        node.editTextArea.focus();
-                        node.editTextArea.val(node.getTitle());
-                    } else {
-                        self.rootTextArea.focus();
-                        self.rootTextArea.val(self._getRootTitle());
-                    }
-                });
-            }
-        },
-        _initialEdit : function() {
-
-            if(this.opts.enableEdit) {
-                this.rootTextArea = new EditTextArea({
-                    elem       : this.rootElem.find('textarea'),
-                    isRootNode : true
+                    self._doSelect(node);
+                    node.enterEdit();
                 });
             }
         },
@@ -194,41 +139,39 @@ define(function(require, exports, module) {
                 }
             });
 
+            $.Shortcuts.add({
+                type: 'down',
+                mask: 'Ctrl+Enter',
+                handler: function() {
+                    if(self.currentSelected) {
+                        self.currentSelected.enterEdit();
+                    }
+                } 
+            });
+
             $.Shortcuts.start();
         },
-        _doCurrentSelected : function(elem) {
-            if(this.opts.enableEdit) {
-                var labelElm = $(elem);
+        _doSelect : function(mindNode) {
 
-                if(this.currentSelected && this.currentSelected.get(0) == labelElm.get(0)) {
-                    this._toggleCurrentSelected(this.currentSelected);
-                } else {                
-                    this._setCurrentSelected(this.currentSelected , false);
-                    this._setCurrentSelected(labelElm , true);
-                    this.currentSelected = labelElm;  
-                }  
+            if(this.currentSelected) {
+                if(this.currentSelected != mindNode) {
+                    this.currentSelected.deselect();
+                } else {
+                    this.currentSelected.toggleSelect();
+                    return;
+                }
             }
-        },
-        _setRootSelected : function() {
-            this._doCurrentSelected(this.rootElem.find('.tk_label'));
-        },
-        _toggleCurrentSelected : function(elem) {
 
-            if($(elem).hasClass('selected')) {
-                this._setCurrentSelected(elem, false);
-            } else {
-                this._setCurrentSelected(elem, true);
+            if(mindNode) {
+                mindNode.select();
             }
-        },
-        _setCurrentSelected : function(elem , flag) {
 
-            if(flag) {
-                $(elem).addClass('selected').addClass('current');
-                this.currentSelected = $(elem);
-            } else {
-                $(elem).removeClass('selected').removeClass('current');
-                this.currentSelected = null;
-            }
+            this.currentSelected = mindNode;
+        },
+        _getNodeByChildElm : function(elm) {
+            var nodeElem = $(elm).parents('.j_container');
+            var node = nodeElem.data('mindNode');
+            return node;
         },
         _nodeAppend : function(parentNode , appendNode) {
 
@@ -236,11 +179,11 @@ define(function(require, exports, module) {
 
             //遍历节点，依次添加事件
             appendNode.breadthFirstSearch(function(node) {
-                if(node.parent) {
+                if(!node.parent.isRoot) {
                     node.direction = node.parent.direction;
                 }
 
-                if(node.parent.isFake()) {
+                if(node.parent.isRoot) {
                     node.setRootVisibleNode();
                 } else {
                     node.setNormalVisibleNode();
@@ -264,21 +207,11 @@ define(function(require, exports, module) {
         setTitle : function(title) {
             this.rootElem.find('.tk_title').html(title);
         },
-        getLeftTreeRoot : function() {
-            return this.leftRootNode;
-        },
-        getRightTreeRoot : function() {
-            return this.rightRootNode;
-        },
         addToLeftTree : function(node) {
-            var root = this.getLeftTreeRoot();
-            node.direction = DirectionEnum.left;
-            root.addChild(node);
+            this.mindRoot.addToLeft(node);
         },
         addToRightTree : function(node) {
-            var root = this.getRightTreeRoot();
-            node.direction = DirectionEnum.right;
-            root.addChild(node);
+           this.mindRoot.addToRight(node);
         },
         add : function(node) {
 
@@ -327,41 +260,18 @@ define(function(require, exports, module) {
 
             //更新之前先清除之前的
             this.clearPaths();
-            //更新第一层的节点
-            this._addRootPaths();
-            //更新左右两侧子树
-            this._addBranchPaths(this.leftRootNode);
-            this._addBranchPaths(this.rightRootNode);
+            //更新路径
+            this._addPaths();
         },
-        _addRootPaths : function() {
-            var from = this.getRootPos();
-            this._addNodesPaths(from , this.leftRootNode.getChilds());
-            this._addNodesPaths(from , this.rightRootNode.getChilds());
-        },
-        _addNodesPaths : function(fromPos , targets) {
-
-            var parentOffset = this._parentOffset();
-
-            for (var i = 0 , len = targets.length; i < len; i++) {
-                var node = targets[i];
-                var toPos   = node.connectPos(parentOffset);
-                var middle = node.anchorPos(parentOffset);
-                this.addPath(fromPos , middle , toPos);
-            }
-        },
-        /**
-         * 更新两侧的子树的连接
-         */
-        _addBranchPaths : function(rootNode) {
-
+        _addPaths : function() {
             var self = this;
-            rootNode.breadthFirstSearch(function(node) {
+            this.mindRoot.breadthFirstSearch(function(node) {
                 return !node.isOpened;
             }, function(node){
-                if(node != rootNode && node.parent != rootNode)  {
+                if(!node.isRoot)  {
                     self.addPathWithNode(node.parent, node);
                 }
-            });
+            }); 
         },
         addPathWithNode : function(fromNode, toNode) {
             var parentOffset = this._parentOffset();
@@ -414,10 +324,10 @@ define(function(require, exports, module) {
         centerPosInMap : function() {
 
             var mapOffset = this.elem.offset();
-            var rootOffset = this.rootElem.offset();
+            var rootOffset = this.mindRoot.rootElem.offset();
 
             return {
-                x : rootOffset.left - mapOffset.left ,
+                x : rootOffset.left - mapOffset.left,
                 y : rootOffset.top - mapOffset.top
             }
         },
@@ -443,13 +353,13 @@ define(function(require, exports, module) {
             });
         },
         _isCurrentSelectedIsRoot : function() {
-            return this.currentSelected && this.currentSelected.parent().get(0) == this.rootElem.get(0);
+            return this.currentSelected && this.currentSelected.isRoot;
         },
         _getCurrentSelectedNode : function() {
-            var nodeElem = $(this.currentSelected).parents('.tk_container');
-            return nodeElem.data('mindNode');
+            return this.currentSelected;
         },
         _didClickEnter : function() {
+
             if(this.currentSelected) {
                 if(this._isCurrentSelectedIsRoot()) {
                     this.add(new MindNode(null , {
@@ -467,50 +377,33 @@ define(function(require, exports, module) {
 
             if(this.currentSelected) {
                 if(this._isCurrentSelectedIsRoot()) {
-                    if(this.rightRootNode.getChilds().length > 0) {
-                        var labelElm =  this.rightRootNode.getFirstChild().labelElem;
-                        this._doCurrentSelected(labelElm);  
-                    }
+                    var firstRightChild = this.mindRoot.getFirstRightChild();
+                    firstRightChild && this._doSelect(firstRightChild);
                 } else {
                     var mindNode = this._getCurrentSelectedNode();
-
-                    if(mindNode.parent.isFake() && mindNode.direction == DirectionEnum.left) {
-                        this._setRootSelected();
+                    if(mindNode.direction == DirectionEnum.right) {
+                        if(mindNode.getChilds().length > 0) {
+                            this._doSelect(mindNode.getFirstChild());
+                        }
                     } else {
-                        if(mindNode.direction == DirectionEnum.right) {
-                            if(mindNode.getChilds().length > 0) {
-                                var labelElm = mindNode.getFirstChild().labelElem;
-                                this._doCurrentSelected(labelElm);
-                            }
-                        } else {
-                            var labelElm = mindNode.parent.labelElem;
-                            this._doCurrentSelected(labelElm);
-                        }    
-                    }
+                        this._doSelect(mindNode.parent);
+                    }    
                 }
             }
         },
         _didClickLeft : function() {
             if(this.currentSelected) {
                 if(this._isCurrentSelectedIsRoot()) {
-                    if(this.leftRootNode.getChilds().length > 0) {
-                        var labelElm =  this.leftRootNode.getFirstChild().labelElem;
-                        this._doCurrentSelected(labelElm);  
-                    }
+                    var firstLeftChild = this.mindRoot.getFirstLeftChild();
+                    firstLeftChild && this._doSelect(firstLeftChild);
                 } else {
                     var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.parent.isFake() && mindNode.direction == DirectionEnum.right) {
-                        this._setRootSelected();
+                    if(mindNode.direction != DirectionEnum.right) {
+                        if(mindNode.getChilds().length > 0) {
+                            this._doSelect(mindNode.getFirstChild());
+                        }
                     } else {
-                        if(mindNode.direction == DirectionEnum.right) {
-                            var labelElm = mindNode.parent.labelElem;
-                            this._doCurrentSelected(labelElm);
-                        } else {
-                             if(mindNode.getChilds().length > 0) {
-                                var labelElm = mindNode.getFirstChild().labelElem;
-                                this._doCurrentSelected(labelElm);
-                            }  
-                        }                  
+                        this._doSelect(mindNode.parent);
                     } 
                 }
             }
@@ -519,9 +412,15 @@ define(function(require, exports, module) {
             if(this.currentSelected) {
                 if(!this._isCurrentSelectedIsRoot()) {
                     var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.leftSibling) {
-                        var labelElem = mindNode.leftSibling.labelElem;
-                        this._doCurrentSelected(labelElem);
+                    if(mindNode.parent == this.mindRoot) {
+                        var leftSibling = this.mindRoot.getRootLeftSibling(mindNode);
+                        if(leftSibling) {
+                            this._doSelect(leftSibling);
+                        }
+                    } else {
+                        if(mindNode.leftSibling) {
+                            this._doSelect(mindNode.leftSibling);
+                        }
                     }
                 }
             }
@@ -530,9 +429,15 @@ define(function(require, exports, module) {
             if(this.currentSelected) {
                 if(!this._isCurrentSelectedIsRoot()) {
                     var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.rightSibling) {
-                        var labelElem = mindNode.rightSibling.labelElem;
-                        this._doCurrentSelected(labelElem);
+                    if(mindNode.parent == this.mindRoot) {
+                        var rightSibling = this.mindRoot.getRootRightSibling(mindNode);
+                        if(rightSibling) {
+                            this._doSelect(rightSibling);
+                        }
+                    } else {
+                        if(mindNode.rightSibling) {
+                            this._doSelect(mindNode.rightSibling);
+                        }
                     }
                 }
             }
@@ -542,29 +447,8 @@ define(function(require, exports, module) {
             if(this.currentSelected) {
                 if(!this._isCurrentSelectedIsRoot()) {
                     var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.parent.isFake()) {
-                        this._setRootSelected();
-                    } else {
-                        var labelElm = mindNode.parent.labelElem;
-                        this._doCurrentSelected(labelElm);
-                    }
+                    this._doSelect(mindNode.parent);
                     mindNode.remove();
-                }
-            } 
-        },
-        _completeEdit : function(elem) {
-
-            if(this.opts.enableEdit) {
-                elem = $(elem);
-                elem.removeClass('edit');
-                var nodeElem = elem.parents('.tk_container');
-                var node = nodeElem.data('mindNode');
-                if(node) {
-                    var val = node.editTextArea.val();
-                    node.setTitle(val);
-                } else {
-                    var val = this.rootTextArea.val();
-                    this._setRootTitle(val + ' ');
                 }
             } 
         },
