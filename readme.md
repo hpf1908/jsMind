@@ -1,5 +1,7 @@
 #思维导图类库
 
+## 建议用chrome运行，后续会兼容其他浏览器 
+
 ![示例](https://raw.github.com/hpf1908/jsMind/master/images/screenShot.png)
 
 #todolist: 

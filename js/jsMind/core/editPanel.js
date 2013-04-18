@@ -150,7 +150,7 @@ define(function(require, exports, module) {
             var top = offset.top - parentOffset.top;
             var left = offset.left - parentOffset.left;
 
-            if(mindNode.direction == left) {
+            if(mindNode.direction == DirectionEnum.left) {
                 left = left + mindNode.getEditPlaceElm().width();
                 left -= this.resizeElm.width();
 
