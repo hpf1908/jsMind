@@ -16,6 +16,8 @@ a mindMap written by javascript , not finished yet
 
 依赖项：
 
-1.raphael
-2.seajs 
-3.jquery
+1. raphael  
+2. seajs 
+3. jquery  
+
+

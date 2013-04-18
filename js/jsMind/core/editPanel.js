@@ -179,6 +179,8 @@ define(function(require, exports, module) {
             mindNode && mindNode.leaveEdit(this.val());
             this.editPanelElm.hide();
             Util.focusDocument();
+
+            this.trigger('leaveEdit',mindNode);
         },
         _changeToRoot : function() {
             this.resizeLabelElm.add(this.editLabelElm).addClass('root');

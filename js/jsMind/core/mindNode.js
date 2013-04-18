@@ -379,7 +379,7 @@ define(function(require, exports, module) {
         leaveEdit : function(value) {
             this._isEdit = false;
             this.labelElem.removeClass('edit');
-            this.setTitle(value);
+            this.setTitle(value.trim());
             this.trigger('leaveEdit');
         },
         getEditPlaceElm : function() {

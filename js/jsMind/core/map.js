@@ -163,9 +163,20 @@ define(function(require, exports, module) {
         },
         _initialEditPanel : function() {
 
+            var self = this;
+
             this.editPanel = new EditPanel({
                 elem       : this.elem
             });
+
+            this.editPanel.on('leaveEdit' , function(node){
+                if(node.getTitle().length == 0) {
+                   if(this.currentSelected == node && node.parent) {
+                     this._doSelect(node.parent);
+                   }
+                   node.remove();
+                }
+            },this);
         },
         _doSelect : function(mindNode) {
 
@@ -377,7 +388,7 @@ define(function(require, exports, module) {
         _didClickEnter : function() {
             if(this.currentSelected) {
                 var node = new MindNode(null , {
-                    title : 'test'
+                    title : ' '
                 });
 
                 if(this._isCurrentSelectedIsRoot()) {
@@ -393,7 +404,7 @@ define(function(require, exports, module) {
         _didClickSpace : function(){
             if(this.currentSelected) {
                 var node = new MindNode(null , {
-                    title : 'test'
+                    title : ' '
                 });
 
                 if(this._isCurrentSelectedIsRoot()) {
