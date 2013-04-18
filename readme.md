@@ -1,10 +1,10 @@
-a mindMap written by javascript , not finished yet
+#思维导图类库
 
-一个思维导图类库，尚未完成
+![示例](https://raw.github.com/hpf1908/jsMind/master/images/screenShot.png)
 
-@todolist: 
+#todolist: 
 
-1. 可编辑创建，编辑面板，创建面板
+1. 编辑面板，创建面板
 2. 编辑时支持拖拽
 3. 可以撤销
 4. 定义描述的数据结构
@@ -13,8 +13,9 @@ a mindMap written by javascript , not finished yet
 7. 性能优化
 8. 兼容性
 9. 安全性xss
+10. 支持非图形化的描述
 
-依赖项：
+#依赖项：
 
 1. raphael  
 2. seajs 
