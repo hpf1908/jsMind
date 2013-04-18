@@ -12,6 +12,7 @@ define(function(require, exports, module) {
     var Events   = require('Events');
     var $        = require('jquery.shortcuts');
     var EditPanel = require('./editPanel');
+    var JSON     = require('JSON');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -504,8 +505,67 @@ define(function(require, exports, module) {
         },
         leaveEdit : function(node) {
             this.editPanel.leaveEdit(node);
-        }
+        },
+        _generateJsonObject : function(node){
 
+            return {
+                id         : node.id,
+                title      : node.getTitle(),
+                direction  : node.direction,
+                parent     : node.parent ? node.parent.id : null,
+                isRootChild: node.parent && node.parent.isRoot ? true : false
+            }
+        },
+        /**
+         * 将当前思维导图保存为json
+         */
+        exportToJson : function() {
+
+            var nodes = [];
+            var self = this;
+
+            this.mindRoot.breadthFirstSearch(function(node) {
+                nodes.push(self._generateJsonObject(node));
+            });
+
+            return JSON.stringify(nodes);
+        },
+        /**
+         * 将当前思维导图从json导入
+         */
+        importFromJson : function(jsonstr) {
+
+            var nodes = JSON.parse(jsonstr);
+            var mindNodesMap = {};
+
+            for (var i = 0; i < nodes.length; i++) {
+                var node = nodes[i];
+
+                if(node.isRoot) {
+                    this.mindRoot.setTitle(node.title);
+                    continue;
+                }
+
+                var mindNode = new MindNode(null,{
+                    title : node.title
+                });
+                mindNode.direction = node.direction;
+                mindNodesMap[node.id] = mindNode;
+
+                if(!node.isRootChild) {
+                    var parentMindNode = mindNodesMap[node.parent];
+                    if(parentMindNode) {
+                        parentMindNode.addChild(mindNode);
+                    }
+                } else {
+                    if(mindNode.direction == DirectionEnum.left) {
+                        this.addToLeftTree(mindNode);
+                    } else {
+                        this.addToRightTree(mindNode);
+                    }
+                }
+            }
+        }
     });
 
     //混入原型对象
