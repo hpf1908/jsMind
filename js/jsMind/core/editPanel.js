@@ -131,7 +131,7 @@ define(function(require, exports, module) {
             var parentOffset = this.editPanelElm.parent().offset();
             this.editAreaElm.val(title);
             title = title.length > 0? title : ' ';
-            this.resizeLabelElm.html(title);
+            this.resizeLabelElm.text(title);
 
             var resizeLabelWidth = this.resizeLabelElm.width();
             var resizeLabelHeight = this.resizeLabelElm.height();

@@ -175,12 +175,14 @@ define(function(require, exports, module) {
                      this._doSelect(node.parent);
                    }
                    node.remove();
+                } else {
+                   this._doSelect(node , true);
                 }
             },this);
         },
-        _doSelect : function(mindNode) {
+        _doSelect : function(mindNode , invalidate) {
 
-            if(this.currentSelected) {
+            if(this.currentSelected && !invalidate) {
                 if(this.currentSelected != mindNode) {
                     this.currentSelected.deselect();
                 } else {

@@ -4,16 +4,68 @@
 		"selected_items":
 		[
 			[
-				"ed",
-				"editPanelElm"
+				"le",
+				"left"
 			],
 			[
 				"pa",
 				"parent"
 			],
 			[
-				"le",
-				"left"
+				"lef",
+				"leftNode"
+			],
+			[
+				"res",
+				"resizeElm"
+			],
+			[
+				"resi",
+				"resizeElm"
+			],
+			[
+				"va",
+				"val"
+			],
+			[
+				"get",
+				"getTitle"
+			],
+			[
+				"ed",
+				"edit"
+			],
+			[
+				"fo",
+				"focus"
+			],
+			[
+				"foc",
+				"focusEnd"
+			],
+			[
+				"edi",
+				"editAreaElm"
+			],
+			[
+				"cu",
+				"currentNode"
+			],
+			[
+				"r",
+				"rhandle"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"edit",
+				"editAreaElm"
+			],
+			[
+				"tk",
+				"tk_label"
 			],
 			[
 				"par",
@@ -22,10 +74,6 @@
 			[
 				"ti",
 				"title"
-			],
-			[
-				"edi",
-				"editPanelElm"
 			],
 			[
 				"_ini",
@@ -144,14 +192,6 @@
 				"_addPaths"
 			],
 			[
-				"lef",
-				"leftRoot"
-			],
-			[
-				"get",
-				"getRootPos"
-			],
-			[
 				"m",
 				"mindRoot"
 			],
@@ -170,10 +210,6 @@
 			[
 				"_setr",
 				"_setRootTitle"
-			],
-			[
-				"tk",
-				"tk_title"
 			],
 			[
 				"remo",
@@ -208,10 +244,6 @@
 				"isFake"
 			],
 			[
-				"r",
-				"return"
-			],
-			[
 				"rig",
 				"rightRootNode"
 			],
@@ -224,10 +256,6 @@
 				"_toggleCurrentSelected"
 			],
 			[
-				"cu",
-				"currentSelected"
-			],
-			[
 				"el",
 				"elem"
 			],
@@ -238,10 +266,6 @@
 			[
 				"sc",
 				"scrollLeft"
-			],
-			[
-				"pad",
-				"padding-bottom"
 			],
 			[
 				"roo",
@@ -490,30 +514,6 @@
 			[
 				"sp",
 				"splice"
-			],
-			[
-				"reu",
-				"result"
-			],
-			[
-				"lik",
-				"linkIndex"
-			],
-			[
-				"lin",
-				"linkStack"
-			],
-			[
-				"sl",
-				"splice"
-			],
-			[
-				"bm",
-				"BMinusTreeNode"
-			],
-			[
-				"f",
-				"findNextChild"
 			]
 		]
 	},
@@ -523,39 +523,7 @@
 			"file": "js/jsMind/core/map.js",
 			"settings":
 			{
-				"buffer_size": 14936,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
-			"settings":
-			{
-				"buffer_size": 3881,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/jsMind/core/mindNode.js",
-			"settings":
-			{
-				"buffer_size": 12588,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/jsMind/core/mindRoot.js",
-			"settings":
-			{
-				"buffer_size": 4398,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/style.css",
-			"settings":
-			{
-				"buffer_size": 7317,
+				"buffer_size": 16126,
 				"line_ending": "Unix"
 			}
 		}
@@ -584,21 +552,23 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editTextArea.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
 		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
+		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editTextArea.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/jquery.shortcuts.js",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/mindRoot.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editTextArea.js",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/events.js",
@@ -709,9 +679,7 @@
 		"/Users/hpf1908/projects/gitsearch/views/home/page.html",
 		"/Users/hpf1908/projects/gitsearch/app.js",
 		"/Users/hpf1908/projects/gitsearch/controllers/page.js",
-		"/Users/hpf1908/projects/gitsearch/node_modules/oauth/lib/oauth2.js",
-		"/Users/hpf1908/projects/node-oauth/lib/oauth2.js",
-		"/Users/hpf1908/projects/gitsearch/views/home/login_fail.html"
+		"/Users/hpf1908/projects/gitsearch/node_modules/oauth/lib/oauth2.js"
 	],
 	"find":
 	{
@@ -729,6 +697,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addToRight",
+			"enterEdit",
+			"_doSelect",
+			"enterEdit",
+			"remove",
+			"focus",
+			"focusEnd",
+			"editTextarea",
+			".edit",
 			"_parentOffset",
 			"_setRootTitle",
 			"leaveEdit",
@@ -847,16 +824,7 @@
 			"huffmanDecodeStringByTables",
 			"decodeHuffumanCodes",
 			"convertStringToBits",
-			"decodeHuffumanCodes",
-			"encodeHuffumanCodes",
-			"createHuffumanCodes",
-			"splice",
-			"console",
-			"checkIsNotAvlBTree",
-			"			\n",
-			"splice",
-			"bearer",
-			"token_type"
+			"decodeHuffumanCodes"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -874,7 +842,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -882,15 +850,15 @@
 					"file": "js/jsMind/core/map.js",
 					"settings":
 					{
-						"buffer_size": 14936,
+						"buffer_size": 16126,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14765,
-								14765
+								11762,
+								11772
 							]
 						],
 						"settings":
@@ -900,119 +868,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5968.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
-					"settings":
-					{
-						"buffer_size": 3881,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2927,
-								2927
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 977.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/jsMind/core/mindNode.js",
-					"settings":
-					{
-						"buffer_size": 12588,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2239,
-								2250
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 655.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "js/jsMind/core/mindRoot.js",
-					"settings":
-					{
-						"buffer_size": 4398,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								791,
-								791
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "css/style.css",
-					"settings":
-					{
-						"buffer_size": 7317,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6834,
-								6834
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4148.0,
+						"translation.y": 5316.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

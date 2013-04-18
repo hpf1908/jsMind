@@ -49,6 +49,8 @@ define(function(require, exports, module) {
                 this.childsElem = this.elem;
                 this.openElm = this.elem;
             }
+
+            this.setTitle(this.viewObject.title);
         },
         _createUi : function() {
 
@@ -81,10 +83,11 @@ define(function(require, exports, module) {
                     '</div>'].join('');
         },
         setTitle : function(title) {
-            this.labelElem.find('.tk_title').html(title);
+            this.title = title;
+            this.labelElem.find('.tk_title').text(title);
         },
         getTitle : function() {
-            return this.labelElem.find('.tk_title').html();
+            return this.title || '';
         },
         setRootVisibleNode : function() {
             this.labelElem.addClass('root_child');
