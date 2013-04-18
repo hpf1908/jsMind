@@ -21,11 +21,10 @@ define(function(require, exports, module) {
 
             return ['<div>',
                         '<div id="tk_rootchildren_left" class="tk_children"></div>',
-                        '<div id="tk_rootcontainer" class="j_container">',
+                        '<div id="tk_rootcontainer" class="j_container j_editPlace">',
                             '<div class="tk_label root">',
                                 '<span class="rhandle">&nbsp;</span>',
                                 '<div class="tk_title"><%=title%></div>',
-                                '<textarea></textarea>',
                             '</div>',
                         '</div>',
                         '<div id="tk_rootchildren_right" class="tk_children"></div>',
@@ -124,6 +123,9 @@ define(function(require, exports, module) {
                 }
             }
             return null;
+        },
+        getEditPlaceElm : function() {
+            return this.rootElem;
         }
     });
 

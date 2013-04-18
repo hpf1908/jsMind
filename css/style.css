@@ -308,7 +308,6 @@
 /***** 可编辑状态 ******/
 .tk_label textarea {
     border: 0px;
-    display: none;
     background-color:transparent;
     resize:none;
     overflow: hidden; 
@@ -317,6 +316,11 @@
     width:60px;
     font-size: 100%;
     color: #000;
+    padding: 0px;
+    word-wrap: normal;
+    word-wrap:break-word;
+    overflow:hidden;
+    word-break:break-all;
 }
 
 .tk_label.node textarea {
@@ -327,10 +331,26 @@
     color: white;
 }
 
-.tk_label.edit textarea {
-    display: block;
+.tk_label.edit .rhandle {
+    visibility: hidden;
 }
 
-.tk_label.edit .tk_title{
-    display: none;
+.resizer {
+    position: absolute;
+    top: -1500px;
+    left: -1500px;
 }
+
+.editPanel {
+    position: absolute;
+    z-index: 100;
+}
+
+.editPanel textarea {
+    position: absolute;
+}
+
+.edit.tk_label {
+    visibility: hidden;
+}
+

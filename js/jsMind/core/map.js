@@ -11,7 +11,7 @@ define(function(require, exports, module) {
     var Const    = require('./const');
     var Events   = require('Events');
     var $        = require('jquery.shortcuts');
-    var EditTextArea = require('./editTextArea');
+    var EditPanel = require('./editPanel');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -54,8 +54,10 @@ define(function(require, exports, module) {
             this._doSelect(this.mindRoot);
             //将map居中
             this.alignCenter();
-
+            //聚焦
             Util.focusDocument();
+            //初始化编辑
+            this._initialEditPanel();
         },
         _bindEvents : function() {
 
@@ -83,7 +85,7 @@ define(function(require, exports, module) {
                     var node = self._getNodeByChildElm(this);
                     self.currentSelected = null;
                     self._doSelect(node);
-                    node.enterEdit();
+                    self.enterEdit(node);
                 });
             }
         },
@@ -144,12 +146,26 @@ define(function(require, exports, module) {
                 mask: 'Ctrl+Enter',
                 handler: function() {
                     if(self.currentSelected) {
-                        self.currentSelected.enterEdit();
+                        self.enterEdit(self.currentSelected);
                     }
                 } 
             });
 
+            $.Shortcuts.add({
+                type: 'down',
+                mask: 'Space',
+                handler: function() {
+                    self._didClickSpace();
+                } 
+            });
+
             $.Shortcuts.start();
+        },
+        _initialEditPanel : function() {
+
+            this.editPanel = new EditPanel({
+                elem       : this.elem
+            });
         },
         _doSelect : function(mindNode) {
 
@@ -359,17 +375,34 @@ define(function(require, exports, module) {
             return this.currentSelected;
         },
         _didClickEnter : function() {
-
             if(this.currentSelected) {
+                var node = new MindNode(null , {
+                    title : 'test'
+                });
+
                 if(this._isCurrentSelectedIsRoot()) {
-                    this.add(new MindNode(null , {
-                        title : 'test'
-                    }));
+                    this.mindRoot.addToRight(node);
+                    this.enterEdit(node);
                 } else {
                     var mindNode = this._getCurrentSelectedNode();
-                    mindNode.addChild(new MindNode(null , {
-                        title : 'test'
-                    }));
+                    mindNode.addChild(node);
+                    this.enterEdit(node);
+                }
+            }
+        },
+        _didClickSpace : function(){
+            if(this.currentSelected) {
+                var node = new MindNode(null , {
+                    title : 'test'
+                });
+
+                if(this._isCurrentSelectedIsRoot()) {
+                    this.mindRoot.addToLeft(node);
+                    this.enterEdit(node);
+                } else {
+                    var mindNode = this._getCurrentSelectedNode();
+                    mindNode.addChild(node);
+                    this.enterEdit(node);
                 }
             }
         },
@@ -452,12 +485,14 @@ define(function(require, exports, module) {
                 }
             } 
         },
-        _setRootTitle : function(val) {
-            this.rootElem.find('.tk_title').html(val);
+        enterEdit : function(node) {
+            this._doSelect(node);
+            this.editPanel.enterEdit(node);
         },
-        _getRootTitle : function(){
-            return this.rootElem.find('.tk_title').html();
+        leaveEdit : function(node) {
+            this.editPanel.leaveEdit(node);
         }
+
     });
 
     //混入原型对象

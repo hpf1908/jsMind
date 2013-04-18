@@ -4,32 +4,208 @@
 		"selected_items":
 		[
 			[
-				"is",
-				"isFake"
+				"ed",
+				"editPanelElm"
 			],
 			[
-				"ri",
-				"rightRootNode"
-			],
-			[
-				"le",
-				"leftRootNode"
-			],
-			[
-				"par",
+				"pa",
 				"parent"
 			],
 			[
-				"lef",
+				"le",
 				"left"
 			],
 			[
+				"par",
+				"parentOffset"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"edi",
+				"editPanelElm"
+			],
+			[
+				"_ini",
+				"_initialEditPanel"
+			],
+			[
+				"_cha",
+				"_changeToNode"
+			],
+			[
+				"_ch",
+				"_changeToRootChild"
+			],
+			[
+				"re",
+				"resizeElm"
+			],
+			[
+				"s",
+				"self"
+			],
+			[
+				"en",
+				"enterEdit"
+			],
+			[
+				"sel",
+				"self"
+			],
+			[
+				"sett",
+				"setTimeout"
+			],
+			[
+				"_is",
+				"_isEdit"
+			],
+			[
+				"te",
+				"textarea"
+			],
+			[
+				"ei",
+				"editTextArea"
+			],
+			[
+				"chi",
+				"childs"
+			],
+			[
+				"ri",
+				"rightSibling"
+			],
+			[
+				"lf",
+				"leftSibling"
+			],
+			[
+				"mi",
+				"mindRoot"
+			],
+			[
+				"fa",
+				"fakeLeftRoot"
+			],
+			[
+				"Mi",
+				"MindNode"
+			],
+			[
+				"fi",
+				"firstRightChild"
+			],
+			[
+				"l",
+				"leftChilds"
+			],
+			[
+				"ro",
+				"rootElem"
+			],
+			[
+				"ma",
+				"mapOffset"
+			],
+			[
 				"_set",
-				"_setRootSelected"
+				"_doSelect"
+			],
+			[
+				"_ge",
+				"_getNodeByChildElm"
+			],
+			[
+				"current",
+				"currentSelected"
+			],
+			[
+				"se",
+				"select"
+			],
+			[
+				"de",
+				"deselect"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"_ad",
+				"_addPaths"
+			],
+			[
+				"lef",
+				"leftRoot"
 			],
 			[
 				"get",
-				"getChilds"
+				"getRootPos"
+			],
+			[
+				"m",
+				"mindRoot"
+			],
+			[
+				"min",
+				"mindRoot"
+			],
+			[
+				"di",
+				"direction"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"_setr",
+				"_setRootTitle"
+			],
+			[
+				"tk",
+				"tk_title"
+			],
+			[
+				"remo",
+				"removeClass"
+			],
+			[
+				"this",
+				"this"
+			],
+			[
+				"ini",
+				"_initialEdit"
+			],
+			[
+				"_in",
+				"_initialEdit"
+			],
+			[
+				"E",
+				"EditTextArea"
+			],
+			[
+				"op",
+				"opts"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"is",
+				"isFake"
 			],
 			[
 				"r",
@@ -40,28 +216,12 @@
 				"rightRootNode"
 			],
 			[
-				"add",
-				"addChild"
-			],
-			[
-				"mi",
-				"mindNode"
-			],
-			[
 				"_did",
 				"_didClickDown"
 			],
 			[
-				"sel",
-				"currentSelected"
-			],
-			[
 				"to",
 				"_toggleCurrentSelected"
-			],
-			[
-				"ro",
-				"rootElem"
 			],
 			[
 				"cu",
@@ -72,16 +232,8 @@
 				"elem"
 			],
 			[
-				"se",
-				"setSelected"
-			],
-			[
 				"cli",
 				"clientY"
-			],
-			[
-				"di",
-				"distanceX"
 			],
 			[
 				"sc",
@@ -92,20 +244,8 @@
 				"padding-bottom"
 			],
 			[
-				"op",
-				"openElm"
-			],
-			[
 				"roo",
 				"root_child"
-			],
-			[
-				"ti",
-				"this"
-			],
-			[
-				"pa",
-				"parent"
 			],
 			[
 				"sta",
@@ -144,10 +284,6 @@
 				"attr"
 			],
 			[
-				"chi",
-				"childs"
-			],
-			[
 				"no",
 				"node"
 			],
@@ -168,20 +304,12 @@
 				"testFunc"
 			],
 			[
-				"l",
-				"labelElem"
-			],
-			[
 				"len",
 				"length"
 			],
 			[
 				"d",
 				"direction"
-			],
-			[
-				"_ad",
-				"_addNodesPaths"
 			],
 			[
 				"fr",
@@ -198,14 +326,6 @@
 			[
 				"ch",
 				"childs"
-			],
-			[
-				"re",
-				"relativeOffset"
-			],
-			[
-				"tk",
-				"tk_open"
 			],
 			[
 				"_add",
@@ -228,20 +348,8 @@
 				"_preparePaper"
 			],
 			[
-				"te",
-				"testFunc"
-			],
-			[
 				"v",
 				"viewObject"
-			],
-			[
-				"fa",
-				"fakeElem"
-			],
-			[
-				"ma",
-				"map"
 			],
 			[
 				"js",
@@ -258,10 +366,6 @@
 			[
 				"la",
 				"labelElem"
-			],
-			[
-				"remo",
-				"remove"
 			],
 			[
 				"opt",
@@ -388,14 +492,6 @@
 				"splice"
 			],
 			[
-				"de",
-				"degree"
-			],
-			[
-				"fi",
-				"findKeyIndex"
-			],
-			[
 				"reu",
 				"result"
 			],
@@ -418,107 +514,51 @@
 			[
 				"f",
 				"findNextChild"
-			],
-			[
-				"ke",
-				"keys"
-			],
-			[
-				"p",
-				"pnode"
-			],
-			[
-				"va",
-				"value"
-			],
-			[
-				"ha",
-				"hashCode"
-			],
-			[
-				"co",
-				"converKeyToInt"
-			],
-			[
-				"ed",
-				"edge"
-			],
-			[
-				"edg",
-				"edges"
-			],
-			[
-				"ver",
-				"vertex"
-			],
-			[
-				"vet",
-				"vertex"
-			],
-			[
-				"t",
-				"topoResult"
-			],
-			[
-				"计算机",
-				"计算机操作系统"
-			],
-			[
-				"done",
-				"doneCount"
-			],
-			[
-				"mini",
-				"miniIndex"
-			],
-			[
-				"min",
-				"miniIndex"
-			],
-			[
-				"st",
-				"startIndex"
-			],
-			[
-				"id",
-				"id"
-			],
-			[
-				"ve",
-				"vetex"
-			],
-			[
-				"fro",
-				"fromId"
-			],
-			[
-				"ad",
-				"addEdge"
-			],
-			[
-				"edge",
-				"edges"
-			],
-			[
-				"ex",
-				"excepts"
-			],
-			[
-				"ini",
-				"initialIdsMap"
-			],
-			[
-				"pro",
-				"prototype"
-			],
-			[
-				"getou",
-				"getOuputAdjById"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "js/jsMind/core/map.js",
+			"settings":
+			{
+				"buffer_size": 14936,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
+			"settings":
+			{
+				"buffer_size": 3881,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/jsMind/core/mindNode.js",
+			"settings":
+			{
+				"buffer_size": 12588,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/jsMind/core/mindRoot.js",
+			"settings":
+			{
+				"buffer_size": 4398,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 7317,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -544,23 +584,27 @@
 	},
 	"file_history":
 	[
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editTextArea.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/lib/jquery.shortcuts.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
+		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
+		"/Users/hpf1908/projects/javascript/jsmind/js/lib/jquery.shortcuts.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/mindRoot.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
+		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editTextArea.js",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/events.js",
-		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/const.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/config.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/paper.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/manager.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/uiNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/treeNode.js",
@@ -667,11 +711,7 @@
 		"/Users/hpf1908/projects/gitsearch/controllers/page.js",
 		"/Users/hpf1908/projects/gitsearch/node_modules/oauth/lib/oauth2.js",
 		"/Users/hpf1908/projects/node-oauth/lib/oauth2.js",
-		"/Users/hpf1908/projects/gitsearch/views/home/login_fail.html",
-		"/Users/hpf1908/projects/gitsearch/views/home/login_success.html",
-		"/Users/hpf1908/projects/codeMonkey/controllers/auth.js",
-		"/Users/hpf1908/projects/codeMonkey/utils/params.js",
-		"/Users/hpf1908/projects/codeMonkey/controllers/comment.js"
+		"/Users/hpf1908/projects/gitsearch/views/home/login_fail.html"
 	],
 	"find":
 	{
@@ -689,6 +729,45 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_parentOffset",
+			"_setRootTitle",
+			"leaveEdit",
+			"enterEdit",
+			"leaveEdit",
+			"editTextArea",
+			"_completeEdit",
+			"getTitle",
+			"addChild",
+			"_doCurrentSelected",
+			"_getNodeByChildElm",
+			"centerPosInMap",
+			"alignCenter",
+			"centerPosInMap",
+			"_getNodeByChildElm",
+			"j_container",
+			"_getNodeByChildElm",
+			"_doSelect",
+			"_getNodeByChildElm",
+			"tk_container",
+			"_getCurrentSelectedNode",
+			"console",
+			"currentSelected",
+			"_doSelect",
+			"_getCurrentSelectedNode",
+			"_doSelect",
+			"currentSelected",
+			"_setRootSelected",
+			"direction",
+			"childsElem",
+			"leftRootNode",
+			"_addPaths",
+			"getRootPos",
+			"leftChildRootElm",
+			"_setRootSelected",
+			"_toggleCurrentSelected",
+			"title",
+			"_editTextArea",
+			"_nodeAppend",
 			"_didClickDelete",
 			"removeChild",
 			"needRepaint",
@@ -777,46 +856,7 @@
 			"			\n",
 			"splice",
 			"bearer",
-			"token_type",
-			"getOAuthAccessToken",
-			"redirect",
-			"action",
-			"google_cb",
-			"tmpl",
-			"watcher",
-			"callback",
-			",\n	'test copy file' : function(){\n\n	}",
-			"cache",
-			"changeFile",
-			"yes",
-			"write",
-			"relative",
-			"listen",
-			"ignoreRule",
-			"before",
-			"afterJS",
-			"beforeJS",
-			"filter",
-			"seajsRoot",
-			"document",
-			"script",
-			"test.js",
-			"exports",
-			"getTmplEngine",
-			"console",
-			"requires",
-			"scope",
-			"label",
-			"body",
-			"console",
-			"getAllFiles",
-			"getAllFile",
-			"getFileListFromStdout",
-			"_getAllFile",
-			"getFileListFromStdout",
-			"cp",
-			"inputFolder",
-			"folder"
+			"token_type"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -834,8 +874,149 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "js/jsMind/core/map.js",
+					"settings":
+					{
+						"buffer_size": 14936,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14765,
+								14765
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5968.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
+					"settings":
+					{
+						"buffer_size": 3881,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2927,
+								2927
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 977.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/jsMind/core/mindNode.js",
+					"settings":
+					{
+						"buffer_size": 12588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2239,
+								2250
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 655.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/jsMind/core/mindRoot.js",
+					"settings":
+					{
+						"buffer_size": 4398,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								791,
+								791
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "css/style.css",
+					"settings":
+					{
+						"buffer_size": 7317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6834,
+								6834
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4148.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

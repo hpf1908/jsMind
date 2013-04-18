@@ -11,7 +11,6 @@ define(function(require, exports, module) {
     var Template = require('../helper/template');
     var Const    = require('./const');
     var Config   = require('./config');
-    var EditTextArea = require('./editTextArea');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -45,7 +44,6 @@ define(function(require, exports, module) {
             if(!this.viewObject.isFake) {
                 this._createUi();
                 this.show();
-                this._initialEdit();
             } else {
                 this.elem = $(this.viewObject.fakeElem);
                 this.childsElem = this.elem;
@@ -66,31 +64,16 @@ define(function(require, exports, module) {
             this._bindToElem();
             this.elem.attr('id',this.id);
         },
-        _initialEdit : function() {
-            
-            this.editTextArea = new EditTextArea({
-                elem  : this.labelElem.find('textarea')
-            });
-
-            this.editTextArea.on('blur', function() {
-                this.leaveEdit();
-            },this);
-
-            this.editTextArea.on('enter',function(){
-                this.editTextArea.blur();
-            },this);
-        },
         _bindToElem : function() {
             this.elem.data('mindNode',this);
         },
         _template : function() {
 
             return ['<div class="tk_container j_container">',
-                        '<div class="tk_open_container">',
+                        '<div class="tk_open_container j_editPlace">',
                             '<div class="tk_label" style="cursor: default;">',
                                 '<div class="tk_title"><%=title%></div>',
                                 '<span class="rhandle">&nbsp;</span>',
-                                '<textarea></textarea>',
                             '</div>',
                             '<img class="tk_open j_open" style="visibility:hidden;" draggable="false">',
                         '</div>',
@@ -214,9 +197,6 @@ define(function(require, exports, module) {
             this.trigger('appendChild', this, node);
             return true;
         },
-        addChildInArray : function(childs) {
-
-        },
         openChilds : function() {
             if(this.childs.length > 0) {
                 this.isOpened = true;
@@ -274,10 +254,14 @@ define(function(require, exports, module) {
                     rightNode.leftSibling = leftNode;
                 } else if(index == 0) {
                     var rightNode = this.childs[index + 1];
-                    rightNode.leftSibling = null;
+                    if(rightNode) {
+                        rightNode.leftSibling = null;
+                    }
                 } else if(index == this.childs.length - 1) {
                     var leftNode = this.childs[index - 1];
-                    leftNode.rightSibling = null;
+                    if(leftNode) {
+                        leftNode.rightSibling = null;
+                    }
                 }
 
                 var node = this.childs.splice(index , 1)[0];
@@ -390,18 +374,16 @@ define(function(require, exports, module) {
         enterEdit : function() {
             var self = this;
             this._isEdit = true;
-            this.editTextArea.val(this.getTitle());    
             this.labelElem.addClass('edit');
-            setTimeout(function() {
-                self.editTextArea.focus();
-            },0);
         },
-        leaveEdit : function() {
+        leaveEdit : function(value) {
             this._isEdit = false;
-            this.setTitle(this.editTextArea.val());
             this.labelElem.removeClass('edit');
+            this.setTitle(value);
             this.trigger('leaveEdit');
-            Util.focusDocument();
+        },
+        getEditPlaceElm : function() {
+            return this.elem.find('.j_editPlace');
         }
     });
 
