@@ -49,16 +49,19 @@ define(function(require, exports, module) {
             this.paths = [];
             //绑定事件
             this._bindEvents();
-            //初始化键盘事件
-            this._initialKeyboard();
-            //初始化当前选中节点
-            this._doSelect(this.mindRoot);
             //将map居中
             this.alignCenter();
             //聚焦
             Util.focusDocument();
-            //初始化编辑
-            this._initialEditPanel();
+            //如果允许编辑再处理
+            if(this.opts.enableEdit) {
+                //初始化键盘事件
+                this._initialKeyboard();
+                //初始化当前选中节点
+                this._doSelect(this.mindRoot);
+                //初始化编辑
+                this._initialEditPanel();
+            }
         },
         _bindEvents : function() {
 
@@ -74,14 +77,14 @@ define(function(require, exports, module) {
                 }
             });
 
-            this.elem.delegate('.tk_label','click',function(){
-                var node = self._getNodeByChildElm(this);
-                if(node) {
-                    self._doSelect(node);
-                }
-            });
-
             if(this.opts.enableEdit) {
+                this.elem.delegate('.tk_label','click',function(){
+                    var node = self._getNodeByChildElm(this);
+                    if(node) {
+                        self._doSelect(node);
+                    }
+                });
+                
                 this.elem.delegate('.tk_label','dblclick',function(){
                     var node = self._getNodeByChildElm(this);
                     self.currentSelected = null;
