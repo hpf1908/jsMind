@@ -201,17 +201,18 @@ define(function(require, exports, module) {
                     // console.log('add new ');
                     this.actions.onAdd(node.parent , node);
                 } else if(srcValue.length > 0 && destValue.length == 0) {
-                    //此时为删除的
+                    //此时为用户编辑删除的
                     // console.log('remove');
                     this.actions.onRemove(node.parent , node);
+                    node.setTitle(srcValue);
                 } else if(srcValue != destValue && destValue.length > 0) {
                     //此时为编辑的
                     // console.log('edit');
                     this.actions.onEdit('title' , node , srcValue, destValue);
                 }
 
-                if(destValue == 0) {
-                   if(this.currentSelected == node && node.parent) {
+                if(destValue.length == 0) {
+                   if(node.parent) {
                      this._doSelect(node.parent);
                    }
                    node.remove();
