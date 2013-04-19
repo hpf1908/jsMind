@@ -3,16 +3,17 @@
  */
 define(function(require, exports, module) {
 
-    var Class    = require('Class');
-    var Util     = require('../helper/util');
-    var MindNode = require('./mindNode');
-    var MindRoot = require('./mindRoot');
-    var Path     = require('./path');
-    var Const    = require('./const');
-    var Events   = require('Events');
-    var $        = require('jquery.shortcuts');
+    var Class     = require('Class');
+    var Util      = require('../helper/util');
+    var MindNode  = require('./mindNode');
+    var MindRoot  = require('./mindRoot');
+    var Path      = require('./path');
+    var Const     = require('./const');
+    var Events    = require('Events');
+    var $         = require('jquery.shortcuts');
     var EditPanel = require('./editPanel');
-    var JSON     = require('JSON');
+    var JSON      = require('JSON');
+    var Actions   = require('./actions');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -61,6 +62,8 @@ define(function(require, exports, module) {
                 this._doSelect(this.mindRoot);
                 //初始化编辑
                 this._initialEditPanel();
+                //初始化动作记录
+                this._initialActions();
             }
         },
         _bindEvents : function() {
@@ -87,9 +90,11 @@ define(function(require, exports, module) {
                 
                 this.elem.delegate('.tk_label','dblclick',function(){
                     var node = self._getNodeByChildElm(this);
-                    self.currentSelected = null;
-                    self._doSelect(node);
-                    self.enterEdit(node);
+                    if(node) {
+                        self.currentSelected = null;
+                        self._doSelect(node);
+                        self.enterEdit(node);
+                    }
                 });
             }
         },
@@ -163,6 +168,22 @@ define(function(require, exports, module) {
                 } 
             });
 
+            $.Shortcuts.add({
+                type: 'down',
+                mask: 'Ctrl+Z',
+                handler: function() {
+                    self.actions.undo();
+                } 
+            });
+
+            $.Shortcuts.add({
+                type: 'down',
+                mask: 'Ctrl+Y',
+                handler: function() {
+                    self.actions.redo();
+                } 
+            });
+
             $.Shortcuts.start();
         },
         _initialEditPanel : function() {
@@ -173,8 +194,23 @@ define(function(require, exports, module) {
                 elem       : this.elem
             });
 
-            this.editPanel.on('leaveEdit' , function(node){
-                if(node.getTitle().length == 0) {
+            this.editPanel.on('leaveEdit' , function(node , srcValue , destValue){
+
+                //此时为新添加的
+                if(srcValue.length == 0 && destValue.length > 0) {
+                    // console.log('add new ');
+                    this.actions.onAdd(node.parent , node);
+                } else if(srcValue.length > 0 && destValue.length == 0) {
+                    //此时为删除的
+                    // console.log('remove');
+                    this.actions.onRemove(node.parent , node);
+                } else if(srcValue != destValue && destValue.length > 0) {
+                    //此时为编辑的
+                    // console.log('edit');
+                    this.actions.onEdit('title' , node , srcValue, destValue);
+                }
+
+                if(destValue == 0) {
                    if(this.currentSelected == node && node.parent) {
                      this._doSelect(node.parent);
                    }
@@ -184,6 +220,10 @@ define(function(require, exports, module) {
                 }
             },this);
         },
+        _initialActions : function() {
+
+            this.actions = new Actions(this);
+        },
         _doSelect : function(mindNode , invalidate) {
 
             if(this.currentSelected && !invalidate) {
@@ -191,6 +231,7 @@ define(function(require, exports, module) {
                     this.currentSelected.deselect();
                 } else {
                     this.currentSelected.toggleSelect();
+                    this.currentSelected = null;
                     return;
                 }
             }
@@ -203,6 +244,7 @@ define(function(require, exports, module) {
         },
         _getNodeByChildElm : function(elm) {
             var nodeElem = $(elm).parents('.j_container');
+            // console.log(nodeElem);
             var node = nodeElem.data('mindNode');
             return node;
         },
@@ -394,7 +436,7 @@ define(function(require, exports, module) {
         _didClickEnter : function() {
             if(this.currentSelected) {
                 var node = new MindNode(null , {
-                    title : ' '
+                    title : ''
                 });
 
                 if(this._isCurrentSelectedIsRoot()) {
@@ -410,7 +452,7 @@ define(function(require, exports, module) {
         _didClickSpace : function(){
             if(this.currentSelected) {
                 var node = new MindNode(null , {
-                    title : ' '
+                    title : ''
                 });
 
                 if(this._isCurrentSelectedIsRoot()) {
@@ -497,6 +539,7 @@ define(function(require, exports, module) {
             if(this.currentSelected) {
                 if(!this._isCurrentSelectedIsRoot()) {
                     var mindNode = this._getCurrentSelectedNode();
+                    this.actions.onRemove(mindNode.parent , mindNode);
                     this._doSelect(mindNode.parent);
                     mindNode.remove();
                 }

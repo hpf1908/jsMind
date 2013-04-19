@@ -171,16 +171,21 @@ define(function(require, exports, module) {
                 mindNode = this.currentNode;
             }
 
+            if(this.val().length == 0 && mindNode.isRoot) {
+                alert('输入不能为空哦');
+                return;
+            }
             this.resizeLabelElm.add(this.editLabelElm)
                                .removeClass('root')
                                .removeClass('root_child')
                                .removeClass('node');
 
+            var srcValue = mindNode.getTitle();
             mindNode && mindNode.leaveEdit(this.val());
             this.editPanelElm.hide();
             Util.focusDocument();
 
-            this.trigger('leaveEdit',mindNode);
+            this.trigger('leaveEdit',mindNode ,srcValue, this.val());
         },
         _changeToRoot : function() {
             this.resizeLabelElm.add(this.editLabelElm).addClass('root');

@@ -4,12 +4,56 @@
 		"selected_items":
 		[
 			[
-				"le",
-				"left"
+				"is",
+				"isRootChild"
 			],
 			[
 				"pa",
 				"parent"
+			],
+			[
+				"mi",
+				"mindNode"
+			],
+			[
+				"set",
+				"setTitle"
+			],
+			[
+				"add",
+				"addToRightTree"
+			],
+			[
+				"js",
+				"jsonStr"
+			],
+			[
+				"get",
+				"getMap"
+			],
+			[
+				"f",
+				"function"
+			],
+			[
+				"mind",
+				"MindNode"
+			],
+			[
+				"no",
+				"node"
+			],
+			[
+				"_g",
+				"_generateJsonObject"
+			],
+			[
+				"te",
+				"text"
+			],
+			[
+				"le",
+				"left"
 			],
 			[
 				"lef",
@@ -26,10 +70,6 @@
 			[
 				"va",
 				"val"
-			],
-			[
-				"get",
-				"getTitle"
 			],
 			[
 				"ed",
@@ -112,10 +152,6 @@
 				"_isEdit"
 			],
 			[
-				"te",
-				"textarea"
-			],
-			[
 				"ei",
 				"editTextArea"
 			],
@@ -130,10 +166,6 @@
 			[
 				"lf",
 				"leftSibling"
-			],
-			[
-				"mi",
-				"mindRoot"
 			],
 			[
 				"fa",
@@ -182,10 +214,6 @@
 			[
 				"remove",
 				"removeClass"
-			],
-			[
-				"add",
-				"addClass"
 			],
 			[
 				"_ad",
@@ -238,10 +266,6 @@
 			[
 				"co",
 				"color"
-			],
-			[
-				"is",
-				"isFake"
 			],
 			[
 				"rig",
@@ -308,10 +332,6 @@
 				"attr"
 			],
 			[
-				"no",
-				"node"
-			],
-			[
 				"_no",
 				"_nodeEventsHandler"
 			],
@@ -376,16 +396,8 @@
 				"viewObject"
 			],
 			[
-				"js",
-				"jsMind"
-			],
-			[
 				"setr",
 				"setRightTreeRoot"
-			],
-			[
-				"set",
-				"setLeftTreeRoot"
 			],
 			[
 				"la",
@@ -502,18 +514,6 @@
 			[
 				"bn",
 				"BMinusTreeNode"
-			],
-			[
-				"dele",
-				"deleteMinusNode"
-			],
-			[
-				"spl",
-				"splice"
-			],
-			[
-				"sp",
-				"splice"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "js/jsMind/core/map.js",
 			"settings":
 			{
-				"buffer_size": 16126,
+				"buffer_size": 18252,
 				"line_ending": "Unix"
 			}
 		}
@@ -552,22 +552,24 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
+		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
 		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
 		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editTextArea.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/jquery.shortcuts.js",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/mindRoot.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editTextArea.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
@@ -677,9 +679,7 @@
 		"/Users/hpf1908/projects/algorithm/sort/insert.js",
 		"/Users/hpf1908/projects/algorithm/readme.md",
 		"/Users/hpf1908/projects/gitsearch/views/home/page.html",
-		"/Users/hpf1908/projects/gitsearch/app.js",
-		"/Users/hpf1908/projects/gitsearch/controllers/page.js",
-		"/Users/hpf1908/projects/gitsearch/node_modules/oauth/lib/oauth2.js"
+		"/Users/hpf1908/projects/gitsearch/app.js"
 	],
 	"find":
 	{
@@ -697,6 +697,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addToLeft",
+			"breadthFirstSearch",
+			"_initialEditPanel",
+			"setTitle",
 			"addToRight",
 			"enterEdit",
 			"_doSelect",
@@ -820,11 +824,7 @@
 			"encodeHuffmanHeaderString",
 			"huffmanDecodeStringByTables",
 			"ceateHuffmanHeaderString",
-			"huffmanEncodeStringByTables",
-			"huffmanDecodeStringByTables",
-			"decodeHuffumanCodes",
-			"convertStringToBits",
-			"decodeHuffumanCodes"
+			"huffmanEncodeStringByTables"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -850,15 +850,15 @@
 					"file": "js/jsMind/core/map.js",
 					"settings":
 					{
-						"buffer_size": 16126,
+						"buffer_size": 18252,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11762,
-								11772
+								2448,
+								2609
 							]
 						],
 						"settings":
@@ -868,7 +868,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5316.0,
+						"translation.y": 791.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

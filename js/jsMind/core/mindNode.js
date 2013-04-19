@@ -84,6 +84,7 @@ define(function(require, exports, module) {
         },
         setTitle : function(title) {
             this.title = title;
+            title = title.length > 0 ? title : ' ';
             this.labelElem.find('.tk_title').text(title);
         },
         getTitle : function() {
@@ -197,6 +198,8 @@ define(function(require, exports, module) {
             if(this.viewObject.autoOpen) {
                 this.openChilds();
             }
+            //重新绑定子节点，因为remove以后jQuery会将data数据清除
+            node._bindToElem();
             this.trigger('appendChild', this, node);
             return true;
         },
@@ -382,6 +385,7 @@ define(function(require, exports, module) {
         leaveEdit : function(value) {
             this._isEdit = false;
             this.labelElem.removeClass('edit');
+            var srcValue = this.getTitle();
             this.setTitle(value.trim());
             this.trigger('leaveEdit');
         },
