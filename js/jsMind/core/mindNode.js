@@ -386,7 +386,7 @@ define(function(require, exports, module) {
             this._isEdit = false;
             this.labelElem.removeClass('edit');
             var srcValue = this.getTitle();
-            this.setTitle(value.trim());
+            this.setTitle($.trim(value));
             this.trigger('leaveEdit');
         },
         getEditPlaceElm : function() {

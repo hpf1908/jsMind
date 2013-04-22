@@ -17,7 +17,7 @@ define(function(require, exports, module) {
         initialize: function(options) {
 
             this.opts = Util.extend({
-                class       : 'default',  //classic,default
+                clazz       : 'default',  //classic,default
                 elem        : null,
                 width       : $(window).width() - 30,
                 height      : $(window).height() -30,
@@ -43,7 +43,7 @@ define(function(require, exports, module) {
 
             var canvas = $('<div class="canvas"></div>');
 
-            canvas.addClass(this.opts.class);
+            canvas.addClass(this.opts.clazz);
 
             this.elem.width(this.opts.width)
                    .height(this.opts.height)

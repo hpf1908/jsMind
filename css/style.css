@@ -152,6 +152,7 @@
     background-image: -moz-linear-gradient(#3fc8ff,#35a7ff);
     background-image: -o-linear-gradient(#3fc8ff,#35a7ff);
     background-image: linear-gradient(#3fc8ff,#35a7ff);
+    background-color: rgb(80 , 186 , 255);
     -webkit-border-radius: 1.8em;
     -moz-border-radius: 1.8em;
     -ms-border-radius: 1.8em;
