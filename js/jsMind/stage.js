@@ -162,7 +162,7 @@ define(function(require, exports, module) {
                 '-ms-transform-y': '50%',
                 '-webkit-transform-origin': '50% 50%',
                 '-moz-transform-origin': '50% 50%',
-                '-o-transform-origin': '50% 50%',
+                '-o-transform-origin': '50% 50%'
             });
         }
     });

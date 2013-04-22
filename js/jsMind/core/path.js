@@ -31,8 +31,7 @@ define(function(require, exports, module) {
             path.attr({
                 'stroke-width' : 2.2,
                 'stroke-linecap' : 'round',
-                'stroke' : '#969696',
-                // 'fill' : '#969696'
+                'stroke' : '#969696'
             });
             this.paths.push(path);
         },
