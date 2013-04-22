@@ -31,8 +31,8 @@ define(function(require, exports, module) {
     return {
         init : function() {
 
-            // var testFunc = this['test root childs'];
-            var testFunc = this['test has with childs'];
+            var testFunc = this['test root childs'];
+            // var testFunc = this['test has with childs'];
             // var testFunc = this['test has edit'];
             // var testFunc = this['test export json'];
             // var testFunc = this['test import from json'];

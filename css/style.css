@@ -54,7 +54,7 @@
     cursor: move;
     line-height: 125%;
     direction: ltr;
-    text-align: center
+    text-align: center;
 }
 
 .tk_open_container {
@@ -89,7 +89,7 @@
 }
 
 .tk_label,.tk_container,.tk_children,.tk_open,.tk_open_container {
-    display: inline-block
+    display: inline-block;
 }
 
 .tk_open {
