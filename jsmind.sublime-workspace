@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"zo",
+				"zoomFactor"
+			],
+			[
+				"sett",
+				"setTitle"
+			],
+			[
+				"c",
+				"closeChilds"
+			],
+			[
+				"no",
+				"nodeElem"
+			],
+			[
+				"des",
+				"destValue"
+			],
+			[
+				"tr",
+				"trim"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"_do",
+				"_doRemove"
+			],
+			[
+				"de",
+				"destValue"
+			],
+			[
+				"op",
+				"operation"
+			],
+			[
+				"ac",
+				"action"
+			],
+			[
 				"is",
 				"isRootChild"
 			],
@@ -40,20 +84,12 @@
 				"MindNode"
 			],
 			[
-				"no",
-				"node"
-			],
-			[
 				"_g",
 				"_generateJsonObject"
 			],
 			[
 				"te",
 				"text"
-			],
-			[
-				"le",
-				"left"
 			],
 			[
 				"lef",
@@ -144,10 +180,6 @@
 				"self"
 			],
 			[
-				"sett",
-				"setTimeout"
-			],
-			[
 				"_is",
 				"_isEdit"
 			],
@@ -208,10 +240,6 @@
 				"select"
 			],
 			[
-				"de",
-				"deselect"
-			],
-			[
 				"remove",
 				"removeClass"
 			],
@@ -258,10 +286,6 @@
 			[
 				"E",
 				"EditTextArea"
-			],
-			[
-				"op",
-				"opts"
 			],
 			[
 				"co",
@@ -412,10 +436,6 @@
 				"Template"
 			],
 			[
-				"tr",
-				"TreeNode"
-			],
-			[
 				"ui",
 				"UINode"
 			],
@@ -494,39 +514,11 @@
 			[
 				"del",
 				"deleteMinusNode"
-			],
-			[
-				"ne",
-				"newLinks"
-			],
-			[
-				"B",
-				"BMinusTreeNode"
-			],
-			[
-				"ind",
-				"indexStack"
-			],
-			[
-				"bra",
-				"branchCount"
-			],
-			[
-				"bn",
-				"BMinusTreeNode"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "js/jsMind/core/map.js",
-			"settings":
-			{
-				"buffer_size": 18252,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -552,17 +544,18 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/screenCapture/rasterize.js",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/actions.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
 		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
@@ -678,8 +671,7 @@
 		"/Users/hpf1908/projects/algorithm/sort/bubble.js",
 		"/Users/hpf1908/projects/algorithm/sort/insert.js",
 		"/Users/hpf1908/projects/algorithm/readme.md",
-		"/Users/hpf1908/projects/gitsearch/views/home/page.html",
-		"/Users/hpf1908/projects/gitsearch/app.js"
+		"/Users/hpf1908/projects/gitsearch/views/home/page.html"
 	],
 	"find":
 	{
@@ -697,6 +689,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_getNodeByChildElm",
+			"mindNode",
+			"_getNodeByChildElm",
+			"_doSelect",
+			"_nodeAppend",
+			"_didClickEnter",
+			"_nodeAppend",
+			"_initialActions",
+			"direction",
+			"remove",
 			"addToLeft",
 			"breadthFirstSearch",
 			"_initialEditPanel",
@@ -814,16 +816,6 @@
 			"reverse",
 			"initialIdsMap",
 			"graph.js",
-			"huffmanEncodeStringByTables",
-			"encodeHuffumanCodes",
-			"huffmanEncodeStringByTables",
-			"getHuffmanCodes",
-			"createHuffmanTree",
-			"decodeHuffmanHeaderString",
-			"huffmanDecodeStringByTables",
-			"encodeHuffmanHeaderString",
-			"huffmanDecodeStringByTables",
-			"ceateHuffmanHeaderString",
 			"huffmanEncodeStringByTables"
 		],
 		"highlight": true,
@@ -842,37 +834,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/jsMind/core/map.js",
-					"settings":
-					{
-						"buffer_size": 18252,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2448,
-								2609
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 791.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

@@ -144,6 +144,26 @@ define(function(require, exports, module) {
             this.opts.height = height;
             this.scrollToCenter();
             this.map.needRepaint();
+        },
+        /**
+         * ie9以下使用font-size百分比实现
+         */
+        scale : function(scale , time) {
+
+            time = time ? time : 500;
+
+            this.elem.css({
+                'transition' : time + 'ms',
+                '-webkit-transition': time + 'ms',
+                '-webkit-transform': 'scale('+ scale +  ')',
+                '-ms-transform': 'scale('+ scale +  ')',
+                '-moz-transform': 'scale('+ scale +  ')',
+                '-ms-transform-x': '50%',
+                '-ms-transform-y': '50%',
+                '-webkit-transform-origin': '50% 50%',
+                '-moz-transform-origin': '50% 50%',
+                '-o-transform-origin': '50% 50%',
+            });
         }
     });
 
