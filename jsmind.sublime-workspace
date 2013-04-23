@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"sc",
+				"scale"
+			],
+			[
+				"ti",
+				"time"
+			],
+			[
 				"zo",
 				"zoomFactor"
 			],
@@ -146,10 +154,6 @@
 			[
 				"par",
 				"parentOffset"
-			],
-			[
-				"ti",
-				"title"
 			],
 			[
 				"_ini",
@@ -310,10 +314,6 @@
 			[
 				"cli",
 				"clientY"
-			],
-			[
-				"sc",
-				"scrollLeft"
 			],
 			[
 				"roo",
@@ -519,6 +519,46 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "readme.md",
+			"settings":
+			{
+				"buffer_size": 1659,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/index.html",
+			"settings":
+			{
+				"buffer_size": 1074,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/index.js",
+			"settings":
+			{
+				"buffer_size": 5117,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/jsMind/core/map.js",
+			"settings":
+			{
+				"buffer_size": 19795,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/jsMind/stage.js",
+			"settings":
+			{
+				"buffer_size": 5189,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -544,28 +584,28 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
-		"/Users/hpf1908/projects/javascript/jsmind/js/screenCapture/rasterize.js",
 		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
+		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/screenCapture/rasterize.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/actions.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
-		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/helper/util.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editPanel.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editTextArea.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/jquery.shortcuts.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/mindRoot.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/editTextArea.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/events.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/const.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/config.js",
@@ -689,6 +729,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mousedown",
+			".tk_label",
+			"class",
+			"tk_root",
 			"_getNodeByChildElm",
 			"mindNode",
 			"_getNodeByChildElm",
@@ -812,11 +856,7 @@
 			"id2Index",
 			"getOuputAdjByIndex",
 			"remove",
-			"addEdge",
-			"reverse",
-			"initialIdsMap",
-			"graph.js",
-			"huffmanEncodeStringByTables"
+			"addEdge"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -834,8 +874,147 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "readme.md",
+					"settings":
+					{
+						"buffer_size": 1659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "test/index.html",
+					"settings":
+					{
+						"buffer_size": 1074,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "test/index.js",
+					"settings":
+					{
+						"buffer_size": 5117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								908,
+								908
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 221.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/jsMind/core/map.js",
+					"settings":
+					{
+						"buffer_size": 19795,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/jsMind/stage.js",
+					"settings":
+					{
+						"buffer_size": 5189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

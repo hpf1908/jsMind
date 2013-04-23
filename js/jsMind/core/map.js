@@ -54,10 +54,10 @@ define(function(require, exports, module) {
             this.alignCenter();
             //聚焦
             Util.focusDocument();
+            //初始化键盘事件
+            this._initialKeyboard();
             //如果允许编辑再处理
             if(this.opts.enableEdit) {
-                //初始化键盘事件
-                this._initialKeyboard();
                 //初始化当前选中节点
                 this._doSelect(this.mindRoot);
                 //初始化编辑
@@ -100,6 +100,14 @@ define(function(require, exports, module) {
         },
         _initialKeyboard : function() {
 
+            if(this.opts.enterEdit) {
+                this._initialEditKeyBoard();
+            } else {
+                this._initialViewKeyBoard();
+            }
+            
+        },
+        _initialEditKeyBoard : function() {
             var self = this;
 
             $.Shortcuts.add({
@@ -182,6 +190,45 @@ define(function(require, exports, module) {
                 handler: function() {
                     self.actions.redo();
                 } 
+            });
+
+            $.Shortcuts.start();
+        },
+        _initialViewKeyBoard : function() {
+
+            var self = this;
+            var stepMove = 15;
+
+            $.Shortcuts.add({
+                type: 'hold',
+                mask: 'Left',
+                handler: function() {
+                    self._move(-stepMove , 0);
+                }
+            });
+
+            $.Shortcuts.add({
+                type: 'hold',
+                mask: 'Right',
+                handler: function() {
+                    self._move(stepMove , 0);
+                }
+            });
+
+            $.Shortcuts.add({
+                type: 'hold',
+                mask: 'Up',
+                handler: function() {
+                    self._move(0 , -stepMove);
+                }
+            });
+
+            $.Shortcuts.add({
+                type: 'hold',
+                mask: 'Down',
+                handler: function() {
+                    self._move(0 , stepMove);
+                }
             });
 
             $.Shortcuts.start();
@@ -354,27 +401,21 @@ define(function(require, exports, module) {
             var from = fromNode.connectPos(parentOffset);
             var to   = toNode.connectPos(parentOffset);
             var middle = toNode.anchorPos(parentOffset);
-            this.addPath(from , middle, to);
+            this.addPath(from , middle, to , fromNode.isRoot);
         },
-        addPath : function(from , middle , to) {
+        addPath : function(from , middle , to , isRoot) {
+            
+            var path = new Path(this.rPaper);
 
-            if(arguments.length == 3) {
-                var path = new Path(this.rPaper);
-
-                // console.log(CaculateDistance(from , middle));
-                if(CaculateDistance(from , middle) < 10) {
-                    path.smoothCurveTo(from, to);
-                } else {
-                    path.smoothCurveTo(from , middle);
-                    path.smoothCurveTo(middle, to);
-                }
-                this.paths.push(path);
+            if(isRoot) {
+                path.smoothRoundTo(from , middle);
+                path.smoothRoundTo(middle, to);
             } else {
-                var path = new Path(this.rPaper);
-                to = middle;
-                path.smoothCurveTo(from , to);
-                this.paths.push(path);
+                path.smoothCurveTo(from , middle);
+                path.smoothCurveTo(middle, to);
             }
+            
+            this.paths.push(path);
         },
         clearPaths : function() {
 
@@ -612,6 +653,15 @@ define(function(require, exports, module) {
                     }
                 }
             }
+        },
+        _move : function(hor , ver) {
+
+            var parentElm = this.elem.parent().parent();
+            var scrollTop = parentElm.scrollTop();
+            var scrollLeft = parentElm.scrollLeft();
+
+            //@todo，加上动画让它平滑过渡
+            parentElm.scrollTop(scrollTop + ver).scrollLeft(scrollLeft + hor);
         }
     });
 

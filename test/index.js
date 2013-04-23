@@ -21,8 +21,8 @@ define(function(require, exports, module) {
 
     var autoResize = function(stage) {
         $(window).bind('resize' , function() {
-            var width = $(window).width() - 30;
-            var height = $(window).height() - 30;
+            var width = $(window).width();
+            var height = $(window).height();
             stage.setSize( width , height );
         });
     }
@@ -31,8 +31,8 @@ define(function(require, exports, module) {
     return {
         init : function() {
 
-            var testFunc = this['test root childs'];
-            // var testFunc = this['test has with childs'];
+            // var testFunc = this['test root childs'];
+            var testFunc = this['test has with childs'];
             // var testFunc = this['test has edit'];
             // var testFunc = this['test export json'];
             // var testFunc = this['test import from json'];

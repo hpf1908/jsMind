@@ -5,17 +5,7 @@ define(function(require, exports, module) {
 
     var Class    = require('Class');
     var Util     = require('../helper/util');
-    var Raphael  = require('Raphael');
-
-    // Raphael.fn.arrow = function (x1, y1, x2, y2, size) {
-
-    //     var angle = Math.atan2(x1-x2,y2-y1);
-    //     angle = (angle / (2 * Math.PI)) * 360;
-    //     var arrowPath = this.path('M' + x2 + ' ' + y2 + ' L' + (x2 - size) + ' ' + (y2 - size) + ' L' + (x2 - size) + ' ' + (y2 + size) + ' L' + x2 + ' ' + y2 ).attr('fill','black').rotate((90+angle),x2,y2);
-    //     var linePath = this.path('M' + x1 + ' ' + y1 + ' L' + x2 + ' ' + y2);
-        
-    //     return [linePath,arrowPath];
-    // }   
+    var Raphael  = require('Raphael'); 
 
     var Path = Class.create({
         initialize: function(paper , options) {
@@ -25,13 +15,29 @@ define(function(require, exports, module) {
             this.paths = [];
         },
         smoothCurveTo : function(from , to) {
+
             var pathStr = Raphael.format("M{0} {1}Q{2} {3} {4} {5}", from.x, from.y, from.x ,to.y , to.x, to.y);
-            // var pathStr = Raphael.format("M{0} {1}Q{2} {3}", from.x, from.y, to.x, to.y);
             var path = this.paper.path(pathStr);
+
             path.attr({
                 'stroke-width' : 2.2,
                 'stroke-linecap' : 'round',
                 'stroke' : '#969696'
+            });
+            this.paths.push(path);
+        },
+        smoothRoundTo : function(from , to) {
+
+            var path1 = Raphael.format("M{0} {1}Q{2} {3} {4} {5}", from.x, from.y, from.x ,to.y , to.x, to.y);
+            var path2 = Raphael.format("Q{0} {1} {2} {3}", from.x ,to.y , from.x - 5, from.y);
+            var pathStr = path1 + path2;
+            
+            var path = this.paper.path(pathStr);
+            path.attr({
+                'stroke-width' : 2.2,
+                'stroke-linecap' : 'round',
+                'stroke' : '#969696',
+                'fill' : '#969696'
             });
             this.paths.push(path);
         },

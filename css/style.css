@@ -1,7 +1,7 @@
 .jsmind-Stage {
     position: relative;
     background-color: white;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .jsmind-Stage  .paper {
@@ -21,6 +21,8 @@
 
 .canvas {
     position: absolute;
+    background-image: url(../images/bg_theme_classic.gif);
+    background-color: rgb(255, 255, 255);
 }
 
 #tk_rootcontainer {

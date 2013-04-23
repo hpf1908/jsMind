@@ -19,8 +19,8 @@ define(function(require, exports, module) {
             this.opts = Util.extend({
                 clazz       : 'default',  //classic,default
                 elem        : null,
-                width       : $(window).width() - 30,
-                height      : $(window).height() -30,
+                width       : $(window).width(),
+                height      : $(window).height(),
                 canvasWidth : 10000,
                 canvasHeight: 6000,
                 enableDrag  : true,
@@ -88,6 +88,8 @@ define(function(require, exports, module) {
                 }
 
             }).bind('mouseup',function(e){
+                self._endDrag();
+            }).bind('mouseout',function(e){
                 self._endDrag();
             });
         },
