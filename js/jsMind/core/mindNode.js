@@ -84,7 +84,7 @@ define(function(require, exports, module) {
         },
         setTitle : function(title) {
             this.title = title;
-            title = title.length > 0 ? title : ' ';
+            title = title.length > 0 ? title : 'S';  //用于占位
             this.labelElem.find('.tk_title').text(title);
         },
         getTitle : function() {

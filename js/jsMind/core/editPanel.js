@@ -130,7 +130,7 @@ define(function(require, exports, module) {
             var offset = mindNode.getEditPlaceElm().offset();
             var parentOffset = this.editPanelElm.parent().offset();
             this.editAreaElm.val(title);
-            title = title.length > 0? title : ' ';
+            title = title.length > 0? title : 'S';
             this.resizeLabelElm.text(title);
 
             var resizeLabelWidth = this.resizeLabelElm.width();

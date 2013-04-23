@@ -100,7 +100,7 @@ define(function(require, exports, module) {
         },
         _initialKeyboard : function() {
 
-            if(this.opts.enterEdit) {
+            if(this.opts.enableEdit) {
                 this._initialEditKeyBoard();
             } else {
                 this._initialViewKeyBoard();
