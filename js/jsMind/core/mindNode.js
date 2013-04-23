@@ -208,7 +208,7 @@ define(function(require, exports, module) {
                 this.isOpened = true;
                 this.openElm.attr('src',Config.node.closeImgSrc);
                 this.openElm.css('visibility','');
-                this.childsElem.css('display','inline-block').css('visibility','');
+                this.childsElem.css('visibility','');
                 this.trigger('openChilds', this);
             } else {
                 this.isOpened = false;

@@ -89,7 +89,7 @@ define(function(require, exports, module) {
 
             }).bind('mouseup',function(e){
                 self._endDrag();
-            }).bind('mouseout',function(e){
+            }).bind('mouseleave',function(e){
                 self._endDrag();
             });
         },
