@@ -41,6 +41,8 @@
 
 #tk_rootchildren_left,#tk_rootchildren_right,#tk_rootcontainer {
     display: inline-block;
+    *display:inline; 
+    *zoom:1;
     vertical-align: middle
 }
 
@@ -92,6 +94,8 @@
 
 .tk_label,.tk_container,.tk_children,.tk_open,.tk_open_container {
     display: inline-block;
+    *display:inline; 
+    *zoom:1;
 }
 
 .tk_open {
