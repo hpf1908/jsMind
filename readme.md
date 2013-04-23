@@ -1,8 +1,8 @@
 #思维导图类库
 
- -- compatible with safari、firefox、chrome、IE8、IE9
-
 ![示例](https://raw.github.com/hpf1908/jsMind/master/images/screenShot.png)
+
+#compatible with safari、firefox、chrome、IE7、8、9
 
 #操作方法
 
