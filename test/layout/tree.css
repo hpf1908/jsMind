@@ -1,0 +1,64 @@
+.jsmind-Stage {
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+}
+
+.jsmind-Stage  .paper {
+
+}
+
+.jsmind-Stage .map {
+    display: block;
+    position: absolute;
+    white-space: pre;
+    top: 0px;
+}
+
+.canvas textarea {
+    outline: 0
+}
+
+.canvas {
+    position: absolute;
+    background-image: url(../images/bg_theme_classic.gif);
+    background-color: rgb(255, 255, 255);
+}
+
+.tk_label {
+    position: relative;
+    padding: .2em 1em;
+    font-size: 100%;
+    z-index: 30;
+    cursor: move;
+    line-height: 125%;
+    direction: ltr;
+    text-align: center;
+}
+
+.tk_container {
+    display: inline-block;
+}
+
+.tk_open_container {
+    position: relative;
+    vertical-align: baseline
+}
+
+.tk_popen {
+    text-align:center;
+}
+
+.tk_open {
+    vertical-align: bottom;
+    position: relative;
+    margin: auto 0;
+    z-index: 60;
+    left: 0.1em;
+    overflow: hidden;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    bottom: -0.50em
+}
+

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"eb",
+				"enableEdit"
+			],
+			[
 				"is",
 				"isRoot"
 			],
@@ -510,20 +514,32 @@
 			[
 				"las",
 				"lastBranchNode"
-			],
-			[
-				"bt",
-				"bTree"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "js/jsMind/core/map.js",
+			"file": "test/layout/tree.html",
 			"settings":
 			{
-				"buffer_size": 21065,
+				"buffer_size": 168,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/hpf1908/projects/javascript/jsMind/test/layout/tree.css",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "readme.md",
+			"settings":
+			{
+				"buffer_size": 1648,
 				"line_ending": "Unix"
 			}
 		}
@@ -552,19 +568,20 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
-		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsMind/test/tree.html",
 		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/screenCapture/rasterize.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/actions.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
@@ -678,8 +695,7 @@
 		"/Users/hpf1908/projects/algorithm/sort/shell.js",
 		"/Users/hpf1908/projects/algorithm/sort/bubble.js",
 		"/Users/hpf1908/projects/algorithm/sort/insert.js",
-		"/Users/hpf1908/projects/algorithm/readme.md",
-		"/Users/hpf1908/projects/gitsearch/views/home/page.html"
+		"/Users/hpf1908/projects/algorithm/readme.md"
 	],
 	"find":
 	{
@@ -697,6 +713,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"inline-block",
+			"show",
+			"leftElm",
+			"inline",
+			"inline-block",
 			"_initialKeyboard",
 			"mousedown",
 			".tk_label",
@@ -819,12 +840,7 @@
 			"branchCount",
 			"deleteIndex",
 			"isLeaf",
-			"keyLinks",
-			"apply",
-			"pos",
-			"id2Index",
-			"getOuputAdjByIndex",
-			"remove"
+			"keyLinks"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -847,28 +863,78 @@
 			[
 				{
 					"buffer": 0,
-					"file": "js/jsMind/core/map.js",
+					"file": "test/layout/tree.html",
 					"settings":
 					{
-						"buffer_size": 21065,
+						"buffer_size": 168,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12376,
-								12376
+								131,
+								131
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 8712.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/hpf1908/projects/javascript/jsMind/test/layout/tree.css",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "readme.md",
+					"settings":
+					{
+						"buffer_size": 1648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
