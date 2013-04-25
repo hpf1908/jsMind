@@ -4,10 +4,6 @@
     overflow: hidden;
 }
 
-.jsmind-Stage  .paper {
-
-}
-
 .jsmind-Stage .map {
     display: block;
     position: absolute;
@@ -66,10 +62,6 @@
     vertical-align: baseline
 }
 
-.ie_vertical_align .tk_open_container,.ie_vertical_align #tk_rootchildren_left,.ie_vertical_align #tk_rootchildren_right,.ie_vertical_align #tk_rootcontainer {
-    vertical-align: middle
-}
-
 .tk_container {
     white-space: pre
 }
@@ -111,16 +103,12 @@
     bottom: -0.50em
 }
 
-#tk_rootchildren_left .tk_open,.left_pane .tk_open {
+#tk_rootchildren_left .tk_open {
     left: -0.1em
 }
 
 .tk_children>.tk_container {
     display: block
-}
-
-.b-ie8 .tk_children {
-    margin-left: .1px
 }
 
 .tk_container>.tk_label,.tk_container>.tk_open,.tk_container>.tk_children {
@@ -129,12 +117,6 @@
 
 .tk_container {
     z-index: 10
-}
-
-.tk_container.left_pane,.tk_children.left_pane {
-    z-index: 10;
-    direction: rtl;
-    text-align: right
 }
 
 .tk_label.root_child {
@@ -200,10 +182,6 @@
     font-size: 100%;
 }
 
-.tk_label.selected {
-    z-index: 65
-}
-
 .jsmind-Stage .map .tk_label.root {
     position: relative
 }
@@ -245,29 +223,34 @@
     font-size: 100%;
 }
 
-.default .tk_label.root.selected, .default .tk_label.root.drop_label {
+/*** 选中状态  *****/
+.tk_label.selected {
+    z-index: 65
+}
+
+.default .tk_label.root.selected {
     border: 2px solid #2c81c2!important;
     margin: 1px!important;
 }
 
-.default .tk_label.root_child.selected.current, .default .tk_label.root_child.drop_label {
+.default .tk_label.root_child.selected.current {
     -moz-border-radius-bottomright: .3em;
     -webkit-border-bottom-right-radius: .3em;
     border-bottom-right-radius: .3em;
 }
 
-.default .tk_label.root_child.selected, .default .tk_label.root_child.drop_label {
+.default .tk_label.root_child.selected {
     border: 2px solid #339ced!important;
     margin: 1px!important;
 }
 
-.default .tk_label.node.selected.current, .default .tk_label.node.drop_label {
+.default .tk_label.node.selected.current{
     -moz-border-radius-bottomright: .3em;
     -webkit-border-bottom-right-radius: .3em;
     border-bottom-right-radius: .3em;
 }
 
-.default .tk_label.node.selected, .default .tk_label.node.drop_label {
+.default .tk_label.node.selected {
     border: 2px solid #339ced!important;
     margin: 1px!important;
 }

@@ -188,9 +188,6 @@ define(function(require, exports, module) {
             }
             
             this.childs.push(node);
-            //添加ui节点
-            parentElem = parentElem ? parentElem : this.childsElem;
-            parentElem.append(node.elem);
             //设置parent
             node.parent = this;
 
@@ -200,7 +197,10 @@ define(function(require, exports, module) {
             }
             //重新绑定子节点，因为remove以后jQuery会将data数据清除
             node._bindToElem();
-            this.trigger('appendChild', this, node);
+
+            //触发回调事件
+            this.trigger('appendChild', this, node , parentElem);
+
             return true;
         },
         openChilds : function() {
@@ -274,10 +274,6 @@ define(function(require, exports, module) {
                 node.leftSibling = null;
                 node.rightSibling = null;
                 node.parent = null;
-                //删除掉ui节点
-                node.elem.remove();
-                //清除循环引用
-                node.editTextArea = null;
                 //回调
                 this.trigger('removeChild', this, node);
                 return node;

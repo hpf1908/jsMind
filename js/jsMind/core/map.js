@@ -1,5 +1,5 @@
 /**
- * shape 
+ * Map 
  */
 define(function(require, exports, module) {
 
@@ -14,6 +14,7 @@ define(function(require, exports, module) {
     var EditPanel = require('./editPanel');
     var JSON      = require('JSON');
     var Actions   = require('./actions');
+    var Layout    = require('./layout');
 
     var DirectionEnum = Const.DirectionEnum;
 
@@ -29,15 +30,18 @@ define(function(require, exports, module) {
                 rPaper : null,
                 canvasWidth : 10000,
                 canvasHeight: 6000,
-                enableEdit : false
+                enableEdit : false,
+                layout : new Layout(this)
             },options);
 
-            this.mindRoot = new MindRoot(null ,{
-                title : 'empty'
-            });
+            //设置布局方式
+            this.layout = this.opts.layout;
+
+            //创建根节点
+            this.mindRoot = this.layout.getRoot();
 
             this.elem = $(this.opts.container);
-            // console.log()
+
             this.mindRoot.elem.appendTo(this.elem);
 
             //当前选中的节点
@@ -46,8 +50,6 @@ define(function(require, exports, module) {
             this.rPaper = this.opts.rPaper;
             //更新连接线的timer
             this._repaintTimer = null;
-            //初始化连线
-            this.paths = [];
             //绑定事件
             this._bindEvents();
             //将map居中
@@ -71,6 +73,7 @@ define(function(require, exports, module) {
             var self = this;
 
             this.mindRoot.on('appendChild' , this._nodeAppend, this);
+            this.mindRoot.on('removeChild' , this._nodeRomove, this);
             this.mindRoot.on('all',this._nodeEventsHandler,this);
 
             this.elem.delegate('.j_open' , 'click' , function() {
@@ -296,9 +299,12 @@ define(function(require, exports, module) {
             var node = nodeElem.data('mindNode');
             return node;
         },
-        _nodeAppend : function(parentNode , appendNode) {
+        _nodeAppend : function(parentNode , appendNode , parentElem) {
 
             var self = this;
+
+            //触发布局添加节点
+            self.layout.doAdd(parentNode , appendNode , parentElem);
 
             //遍历节点，依次添加事件
             appendNode.breadthFirstSearch(function(node) {
@@ -311,12 +317,22 @@ define(function(require, exports, module) {
                 } else {
                     node.setNormalVisibleNode();
                 }
+
+                //当节点属于第二层以下则
+                self.layout.doAdd(node.parent , node);
+                
                 node.on('appendChild' , self._nodeAppend, self);
+                node.on('removeChild' , self._nodeRomove, self);
                 node.on('all' , self._nodeEventsHandler, self);
             });
 
             //需要更新连接线
             this.needRepaint();
+        },
+        _nodeRomove : function(parentNode , rmNode) {
+
+            //删除节点
+            this.layout.doRemove(parentNode , rmNode);
         },
         _nodeEventsHandler : function(event) {
             if(event == 'openChilds') {
@@ -361,70 +377,11 @@ define(function(require, exports, module) {
         _parentOffset : function() {
             return this.elem.parent().offset();
         },
-        getRootPos : function() {
-            var rootWidth  = this.rootElem.width();
-            var rootHeight = this.rootElem.height();
-            var rootOffset = this.rootElem.offset();
-            var parentOffset = this._parentOffset();
-            return {
-                x : rootOffset.left + rootWidth / 2.0 - parentOffset.left,
-                y : rootOffset.top  + rootHeight / 2.0 - parentOffset.top
-            }
-        },
         doRepaint : function() {
 
-            this.updatePaths();
+            this.layout.updatePaths();
 
             this.trigger('doRepaint');
-        },
-        updatePaths : function() {
-
-            var self = this;
-
-            //更新之前先清除之前的
-            this.clearPaths();
-            //更新路径
-            this._addPaths();
-        },
-        _addPaths : function() {
-            var self = this;
-            this.mindRoot.breadthFirstSearch(function(node) {
-                return !node.isOpened;
-            }, function(node){
-                if(!node.isRoot)  {
-                    self.addPathWithNode(node.parent, node);
-                }
-            }); 
-        },
-        addPathWithNode : function(fromNode, toNode) {
-            var parentOffset = this._parentOffset();
-            var from = fromNode.connectPos(parentOffset);
-            var to   = toNode.connectPos(parentOffset);
-            var middle = toNode.anchorPos(parentOffset);
-            this.addPath(from , middle, to , fromNode.isRoot);
-        },
-        addPath : function(from , middle , to , isRoot) {
-            
-            var path = new Path(this.rPaper);
-
-            if(isRoot) {
-                path.smoothRoundTo(from , middle);
-                path.smoothRoundTo(middle, to);
-            } else {
-                path.smoothCurveTo(from , middle);
-                path.smoothCurveTo(middle, to);
-            }
-            
-            this.paths.push(path);
-        },
-        clearPaths : function() {
-
-            for (var i = 0 , len = this.paths.length; i < len; i++) {
-                var path = this.paths[i];
-                path.clear();
-            };
-
-            this.paths = [];
         },
         width : function() {
             return this.elem.width();
