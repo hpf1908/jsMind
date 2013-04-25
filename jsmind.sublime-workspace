@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"inline-block"
+			],
+			[
 				"eb",
 				"enableEdit"
 			],
@@ -464,10 +468,6 @@
 				"util"
 			],
 			[
-				"in",
-				"incrementNum"
-			],
-			[
 				"que",
 				"queue"
 			],
@@ -523,23 +523,31 @@
 			"file": "test/layout/tree.html",
 			"settings":
 			{
-				"buffer_size": 168,
+				"buffer_size": 3183,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/hpf1908/projects/javascript/jsMind/test/layout/tree.css",
+			"file": "js/jsMind/core/map.js",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 21066,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "readme.md",
+			"file": "js/jsMind/core/mindNode.js",
 			"settings":
 			{
-				"buffer_size": 1648,
+				"buffer_size": 13206,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/jsMind/core/mindRoot.js",
+			"settings":
+			{
+				"buffer_size": 4482,
 				"line_ending": "Unix"
 			}
 		}
@@ -568,20 +576,23 @@
 	},
 	"file_history":
 	[
-		"/Users/hpf1908/projects/javascript/jsMind/test/tree.html",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/map.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
-		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
-		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
-		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/editPanel.js",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/layout/tree.html",
+		"/Users/hpf1908/projects/javascript/jsmind/css/style.css",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindRoot.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.js",
+		"/Users/hpf1908/projects/javascript/jsmind/test/index.html",
+		"/Users/hpf1908/projects/javascript/jsmind/test/layout/tree.css",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/mindNode.js",
+		"/Users/hpf1908/projects/javascript/jsMind/test/layout/tree.css",
+		"/Users/hpf1908/projects/javascript/jsmind/readme.md",
+		"/Users/hpf1908/projects/javascript/jsMind/test/tree.html",
+		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/stage.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/jsMind.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/path.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/actions.js",
-		"/Users/hpf1908/projects/javascript/jsmind/js/jsMind/core/config.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/screenCapture/rasterize.js",
 		"/Users/hpf1908/projects/javascript/jsMind/js/jsMind/core/actions.js",
 		"/Users/hpf1908/projects/javascript/jsmind/js/lib/class.js",
@@ -692,10 +703,7 @@
 		"/Users/hpf1908/projects/algorithm/link/node.js",
 		"/Users/hpf1908/projects/algorithm/sort/merge.js",
 		"/Users/hpf1908/projects/algorithm/sort/select.js",
-		"/Users/hpf1908/projects/algorithm/sort/shell.js",
-		"/Users/hpf1908/projects/algorithm/sort/bubble.js",
-		"/Users/hpf1908/projects/algorithm/sort/insert.js",
-		"/Users/hpf1908/projects/algorithm/readme.md"
+		"/Users/hpf1908/projects/algorithm/sort/shell.js"
 	],
 	"find":
 	{
@@ -713,6 +721,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tk_open",
+			"img",
 			"inline-block",
 			"show",
 			"leftElm",
@@ -838,9 +848,7 @@
 			"Debug",
 			"LOG",
 			"branchCount",
-			"deleteIndex",
-			"isLeaf",
-			"keyLinks"
+			"deleteIndex"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -858,7 +866,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -866,20 +874,22 @@
 					"file": "test/layout/tree.html",
 					"settings":
 					{
-						"buffer_size": 168,
+						"buffer_size": 3183,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								131,
-								131
+								1969,
+								1969
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -889,10 +899,10 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/hpf1908/projects/javascript/jsMind/test/layout/tree.css",
+					"file": "js/jsMind/core/map.js",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 21066,
 						"regions":
 						{
 						},
@@ -905,7 +915,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -915,10 +927,10 @@
 				},
 				{
 					"buffer": 2,
-					"file": "readme.md",
+					"file": "js/jsMind/core/mindNode.js",
 					"settings":
 					{
-						"buffer_size": 1648,
+						"buffer_size": 13206,
 						"regions":
 						{
 						},
@@ -931,7 +943,37 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/jsMind/core/mindRoot.js",
+					"settings":
+					{
+						"buffer_size": 4482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

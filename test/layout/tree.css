@@ -38,6 +38,7 @@
 
 .tk_container {
     display: inline-block;
+    text-align:center;
 }
 
 .tk_open_container {
