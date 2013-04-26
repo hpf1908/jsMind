@@ -97,16 +97,26 @@ define(function(require, exports, module) {
             this.labelElem.addClass('node');
         },
         show : function() {
-            this.elem.show();
+            this.elem.css('display','');
         },
         hide : function() {
-            this.elem.hide();
+            this.elem.css('display','none');
         },
         getElement : function() {
             return this.elem;
         },
         offset : function() {
             return this.posElem.offset();
+        },
+        centerPos : function(relativeOffset) {
+
+            var offset = this.offset();
+            var size = this.size();
+
+            return {
+                x : offset.left - relativeOffset.left + size.width / 2.0,
+                y : offset.top  - relativeOffset.top
+            }
         },
         anchorPos : function(relativeOffset) {
 
@@ -178,17 +188,34 @@ define(function(require, exports, module) {
         addTo : function(parent) {
             parent.addChild(this);
         },
-        addChild : function(node , parentElem) {
+        addChildAt : function(index , node, parentElem) {
 
-            if(this.childs.length > 0 ) {
-                var lastNode = this.childs[this.childs.length - 1];
-                lastNode.rightSibling = node;
-                node.leftSibling = lastNode;
-                node.floor = this.floor + 1;
+            var leftSibling, rightSibling;
+
+            if(index > 0 && index < this.childs.length) {
+                leftSibling = this.childs[index - 1];
+            } else if(index >=this.childs.length && this.childs.length > 0) {
+                leftSibling = this.childs[this.childs.length - 1];
             }
-            
-            this.childs.push(node);
-            //设置parent
+
+            if(index >= 0 && index < this.childs.length) {
+                rightSibling = this.childs[index];
+            } else if(index < 0 && this.childs.length > 0) {
+                rightSibling = this.childs[0];
+            }
+
+            node.leftSibling = leftSibling;
+            node.rightSibling = rightSibling;
+
+            if(leftSibling) {
+                leftSibling.rightSibling = node;
+            }
+
+            if(rightSibling) {
+                rightSibling.leftSibling = node;
+            }
+
+            this.childs.splice(index , 0 , node);
             node.parent = this;
 
             //判断是否自动展开子节点
@@ -200,8 +227,11 @@ define(function(require, exports, module) {
 
             //触发回调事件
             this.trigger('appendChild', this, node , parentElem);
+        },
+        addChild : function(node , parentElem) {
 
-            return true;
+            this.addChildAt(this.childs.length , node , parentElem);
+            
         },
         openChilds : function() {
             if(this.childs.length > 0) {

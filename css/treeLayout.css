@@ -1,0 +1,32 @@
+.tree-layout .tk_container {
+   display: inline-block;
+    *display:inline; 
+    *zoom:1;
+   text-align:center;   
+   margin-top: 15px;
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+.tree-layout .tk_label {
+    padding: 10px;
+    border: 2px solid #fff !important;
+}
+
+.tree-layout .tk_title {
+    display: inline-block;
+    *display:inline; 
+    *zoom:1;
+}
+
+.tree-layout .tk_open {
+    margin-top: 5px;
+}
+
+.tree-layout .rhandle {
+    display: none !important;
+}
+
+.default .tree-layout .tk_label.selected {
+    border: 2px solid #2c81c2!important;
+}

@@ -14,9 +14,9 @@ define(function(require, exports, module) {
     var EditPanel = require('./editPanel');
     var JSON      = require('JSON');
     var Actions   = require('./actions');
-    var Layout    = require('./layout');
 
     var DirectionEnum = Const.DirectionEnum;
+    var LayoutType = Const.LayoutType;
 
     var CaculateDistance = function(from , to) {
         return Math.sqrt(Math.pow(to.x - from.x,2) +  Math.pow(to.y - from.y,2));
@@ -31,16 +31,20 @@ define(function(require, exports, module) {
                 canvasWidth : 10000,
                 canvasHeight: 6000,
                 enableEdit : false,
-                layout : new Layout(this)
+                layout : null
             },options);
+
+            //次序不要随意修改
+            this.elem = $(this.opts.container);
 
             //设置布局方式
             this.layout = this.opts.layout;
-
+            //初始化布局
+            this.layout.initialWithMap(this);
             //创建根节点
             this.mindRoot = this.layout.getRoot();
-
-            this.elem = $(this.opts.container);
+            //初始化导航需要在mindRoot初始化之后执行
+            this.layout.initialNavigate();
 
             this.mindRoot.elem.appendTo(this.elem);
 
@@ -241,7 +245,8 @@ define(function(require, exports, module) {
             var self = this;
 
             this.editPanel = new EditPanel({
-                elem       : this.elem
+                elem        : this.elem,
+                alignCenter : this.layout.isEditAliginCenter
             });
 
             this.editPanel.on('leaveEdit' , function(node , srcValue , destValue){
@@ -292,6 +297,8 @@ define(function(require, exports, module) {
             }
 
             this.currentSelected = mindNode;
+
+            this.needRepaint();
         },
         _getNodeByChildElm : function(elm) {
             var nodeElem = $(elm).parents('.j_container');
@@ -392,39 +399,8 @@ define(function(require, exports, module) {
         setPos : function(pos) {
             this.elem.css('left',pos.x + 'px').css('top', pos.y + 'px');
         },
-        /**
-         * 相对于map的中心位置
-         */
-        centerPosInMap : function() {
-
-            var mapOffset = this.elem.offset();
-            var rootOffset = this.mindRoot.rootElem.offset();
-
-            return {
-                x : rootOffset.left - mapOffset.left,
-                y : rootOffset.top - mapOffset.top
-            }
-        },
-        /**
-         * 设置map为中央
-         */
         alignCenter : function() {
-
-            var canvasWidth  = this.opts.canvasWidth;
-            var canvasHeight = this.opts.canvasHeight;
-
-            var posX = canvasWidth / 2.0;
-            var posY = canvasHeight / 2.0;
-
-            var centerPosInMap = this.centerPosInMap();
-
-            posX = posX - centerPosInMap.x;
-            posY = posY - centerPosInMap.y;
-
-            this.setPos({
-                x : posX,
-                y : posY
-            });
+            this.layout.alignCenter();
         },
         _isCurrentSelectedIsRoot : function() {
             return this.currentSelected && this.currentSelected.isRoot;
@@ -438,7 +414,7 @@ define(function(require, exports, module) {
                     title : ''
                 });
 
-                if(this._isCurrentSelectedIsRoot()) {
+                if(this._isCurrentSelectedIsRoot() && this.layout.type == LayoutType.mind) {
                     this.mindRoot.addToRight(node);
                     this.enterEdit(node);
                 } else {
@@ -454,84 +430,31 @@ define(function(require, exports, module) {
                     title : ''
                 });
 
-                if(this._isCurrentSelectedIsRoot()) {
+                if(this._isCurrentSelectedIsRoot() && this.layout.type == LayoutType.mind) {
                     this.mindRoot.addToLeft(node);
                     this.enterEdit(node);
                 } else {
                     var mindNode = this._getCurrentSelectedNode();
-                    mindNode.addChild(node);
+                    mindNode.addChildAt(0 , node);
                     this.enterEdit(node);
                 }
             }
         },
         _didClickRight : function() {
-
-            if(this.currentSelected) {
-                if(this._isCurrentSelectedIsRoot()) {
-                    var firstRightChild = this.mindRoot.getFirstRightChild();
-                    firstRightChild && this._doSelect(firstRightChild);
-                } else {
-                    var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.direction == DirectionEnum.right) {
-                        if(mindNode.getChilds().length > 0) {
-                            this._doSelect(mindNode.getFirstChild());
-                        }
-                    } else {
-                        this._doSelect(mindNode.parent);
-                    }    
-                }
-            }
+            var node = this.layout.navigate.right(this.currentSelected);
+            node && this._doSelect(node);
         },
         _didClickLeft : function() {
-            if(this.currentSelected) {
-                if(this._isCurrentSelectedIsRoot()) {
-                    var firstLeftChild = this.mindRoot.getFirstLeftChild();
-                    firstLeftChild && this._doSelect(firstLeftChild);
-                } else {
-                    var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.direction != DirectionEnum.right) {
-                        if(mindNode.getChilds().length > 0) {
-                            this._doSelect(mindNode.getFirstChild());
-                        }
-                    } else {
-                        this._doSelect(mindNode.parent);
-                    } 
-                }
-            }
+            var node = this.layout.navigate.left(this.currentSelected);
+            node && this._doSelect(node);
         },
         _didClickUp : function() {
-            if(this.currentSelected) {
-                if(!this._isCurrentSelectedIsRoot()) {
-                    var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.parent == this.mindRoot) {
-                        var leftSibling = this.mindRoot.getRootLeftSibling(mindNode);
-                        if(leftSibling) {
-                            this._doSelect(leftSibling);
-                        }
-                    } else {
-                        if(mindNode.leftSibling) {
-                            this._doSelect(mindNode.leftSibling);
-                        }
-                    }
-                }
-            }
+            var node = this.layout.navigate.up(this.currentSelected);
+            node && this._doSelect(node);
         },
         _didClickDown : function() {
-            if(this.currentSelected) {
-                if(!this._isCurrentSelectedIsRoot()) {
-                    var mindNode = this._getCurrentSelectedNode();
-                    if(mindNode.parent == this.mindRoot) {
-                        var rightSibling = this.mindRoot.getRootRightSibling(mindNode);
-                        if(rightSibling) {
-                            this._doSelect(rightSibling);
-                        }
-                    } else {
-                        if(mindNode.rightSibling) {
-                            this._doSelect(mindNode.rightSibling);
-                        }
-                    }
-                }
-            }
+            var node = this.layout.navigate.down(this.currentSelected);
+            node && this._doSelect(node);
         },
         _didClickDelete : function() {
 
@@ -619,6 +542,14 @@ define(function(require, exports, module) {
 
             //@todo，加上动画让它平滑过渡
             parentElm.scrollTop(scrollTop + ver).scrollLeft(scrollLeft + hor);
+        },
+        stageSize : function() {
+            var stageElm = this.elem.parent().parent();
+
+            return {
+                width  : stageElm.width(),
+                height : stageElm.height()
+            }
         }
     });
 

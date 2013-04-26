@@ -18,7 +18,8 @@ define(function(require, exports, module) {
         initialize: function(options) {
 
             this.opts = Util.extend({
-                elem       : ''
+                elem         : '',
+                alignCenter  : false
             }, options);
 
             this.elem = $(this.opts.elem);
@@ -139,7 +140,7 @@ define(function(require, exports, module) {
             var resizeHeight = this.resizeElm.height();
 
             this.editAreaElm.width(resizeWidth - paddingLeft * 2)
-                            .height(resizeHeight - paddingTop * 2)
+                            .height(resizeHeight - paddingTop * 2 )
                             .css({
                                 'top' : paddingTop + 'px',
                                 'left': paddingLeft + 'px'
@@ -150,20 +151,21 @@ define(function(require, exports, module) {
             var top = offset.top - parentOffset.top;
             var left = offset.left - parentOffset.left;
 
-            if(mindNode.direction == DirectionEnum.left) {
-                left = left + mindNode.getEditPlaceElm().width();
-                left -= this.resizeElm.width();
-
-                this.editPanelElm.css({
-                    'top' : top + 'px',
-                    'left': left + 'px'
-                }).show();
+            if(this.opts.alignCenter) {
+                var w = mindNode.getEditPlaceElm().width();
+                left = left + w/2.0 - this.resizeElm.width() / 2.0;
             } else {
-                this.editPanelElm.css({
-                    'top' : top + 'px',
-                    'left': left + 'px'
-                }).show();
+                if(mindNode.direction == DirectionEnum.left) {
+                    left = left + mindNode.getEditPlaceElm().width();
+                    left -= this.resizeElm.width();  
+                } 
             }
+
+            this.editPanelElm.css({
+                'top' : top + 'px',
+                'left': left + 'px'
+            }).show();
+            
         },
         leaveEdit : function(mindNode) {
 

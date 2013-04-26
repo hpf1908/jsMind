@@ -1,0 +1,239 @@
+.mind-layout #tk_rootcontainer {
+    margin: 0 50px
+}
+
+.mind-layout #tk_rootchildren_left {
+    direction: rtl;
+    text-align: right
+}
+
+.mind-layout #tk_rootchildren_right {
+    direction: ltr;
+    text-align: left
+}
+
+.mind-layout #tk_rootchildren_left,.mind-layout #tk_rootchildren_right,#tk_rootcontainer {
+    display: inline-block;
+    *display:inline; 
+    *zoom:1;
+    vertical-align: middle
+}
+
+.mind-layout #tk_rootchildren_left>.tk_container,.mind-layout #tk_rootchildren_right>.tk_container {
+    margin-bottom: 20px
+}
+
+.mind-layout .tk_label {
+    position: relative;
+    padding: .2em 1em;
+    font-size: 100%;
+    z-index: 30;
+    cursor: move;
+    line-height: 125%;
+    direction: ltr;
+    text-align: center;
+}
+
+.mind-layout .tk_label,
+.mind-layout .tk_children,
+.mind-layout .tk_open,
+.mind-layout .tk_open_container {
+    display: inline-block;
+    *display:inline; 
+    *zoom:1;
+}
+
+.mind-layout .tk_open {
+    vertical-align: bottom;
+    position: relative;
+    margin: 0;
+    z-index: 60;
+    left: 0.1em;
+    overflow: hidden;
+    bottom: -0.50em
+}
+
+.mind-layout #tk_rootchildren_left .tk_open {
+    left: -0.1em
+}
+
+.mind-layout tk_children>.tk_container {
+    display: block
+}
+
+
+.mind-layout .tk_label.root_child {
+    padding: .2em 1em;
+    padding-bottom: 0.1em;
+}
+
+.mind-layout .tk_label.root {
+    padding: .6em 1em;
+    position: absolute;
+    z-index: 20
+}
+
+.default .mind-layout .tk_label.root {
+    border: 2px solid #3096e5;
+    margin: 1px;
+    color: #fff;
+    background-size: 100%;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#3fc8ff),color-stop(100%,#35a7ff));
+    background-image: -webkit-linear-gradient(#3fc8ff,#35a7ff);
+    background-image: -moz-linear-gradient(#3fc8ff,#35a7ff);
+    background-image: -o-linear-gradient(#3fc8ff,#35a7ff);
+    background-image: linear-gradient(#3fc8ff,#35a7ff);
+    background-color: rgb(80 , 186 , 255);
+    -webkit-border-radius: 1.8em;
+    -moz-border-radius: 1.8em;
+    -ms-border-radius: 1.8em;
+    -o-border-radius: 1.8em;
+    border-radius: 1.8em;
+    -webkit-box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    -moz-box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 120%;
+}
+
+.classic .mind-layout .tk_label.root {
+    border: 3px solid #1d93ff;
+    margin: 0;
+    color: #000;
+    background-color: #50baff;
+    -webkit-border-radius: .7em;
+    -moz-border-radius: .7em;
+    -ms-border-radius: .7em;
+    -o-border-radius: .7em;
+    border-radius: .7em;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 120%;
+}
+
+.default .mind-layout .tk_label.node {
+    border: 0 solid white;
+    color: #4c5053;
+    margin: 3px;
+    -webkit-border-radius: 1.8em;
+    -moz-border-radius: 1.8em;
+    -ms-border-radius: 1.8em;
+    -o-border-radius: 1.8em;
+    border-radius: 1.8em;
+    font-style: normal;
+    font-size: 100%;
+}
+
+.default .mind-layout .tk_label.root_child {
+    border: 0 solid white;
+    color: #000;
+    margin: 3px;
+    -webkit-border-radius: .7em;
+    -moz-border-radius: .7em;
+    -ms-border-radius: .7em;
+    -o-border-radius: .7em;
+    border-radius: .7em;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 120%;
+}
+
+.classic .mind-layout .tk_label.root_child {
+    border: 2px solid #bdbfc1;
+    margin: 1px;
+    color: #4c5053;
+    background-size: 100%;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#fff),color-stop(100%,#f4faff));
+    background-image: -webkit-linear-gradient(#fff,#f4faff);
+    background-image: -moz-linear-gradient(#fff,#f4faff);
+    background-image: -o-linear-gradient(#fff,#f4faff);
+    background-image: linear-gradient(#fff,#f4faff);
+    -webkit-border-radius: 1.8em;
+    -moz-border-radius: 1.8em;
+    -ms-border-radius: 1.8em;
+    -o-border-radius: 1.8em;
+    border-radius: 1.8em;
+    -webkit-box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    -moz-box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    box-shadow: rgba(0,0,0,0.2) 1px 3px 4px 0;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 100%;
+}
+
+/***** 可编辑状态 ******/
+.mind-layout .tk_label.root textarea {
+    color: white;
+}
+
+.default .mind-layout .tk_label.root.selected {
+    border: 2px solid #2c81c2!important;
+    margin: 1px!important;
+}
+
+.default .mind-layout .tk_label.root_child.selected.current {
+    -moz-border-radius-bottomright: .3em;
+    -webkit-border-bottom-right-radius: .3em;
+    border-bottom-right-radius: .3em;
+}
+
+.default .mind-layout .tk_label.root_child.selected {
+    border: 2px solid #339ced!important;
+    margin: 1px!important;
+}
+
+.default .mind-layout .tk_label.node.selected.current{
+    -moz-border-radius-bottomright: .3em;
+    -webkit-border-bottom-right-radius: .3em;
+    border-bottom-right-radius: .3em;
+}
+
+.default .mind-layout .tk_label.node.selected {
+    border: 2px solid #339ced!important;
+    margin: 1px!important;
+}
+
+.default .mind-layout .tk_label.root_child .rhandle {
+    background-color: #339ced;
+}
+
+.default .mind-layout .tk_label.node .rhandle {
+    background-color: #339ced;
+}
+
+.default .mind-layout .tk_label.root .rhandle {
+    background-color: #2c81c2;
+}
+
+.mind-layout .tk_label.selected.current .rhandle {
+    display: inline;
+}
+
+.mind-layout .tk_label .rhandle {
+    display: none;
+    position: absolute;
+    right: -0.3em;
+    bottom: -0.3em;
+    width: 6px;
+    height: 6px;
+    overflow: hidden;
+    cursor: e-resize;
+    z-index: 50;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.mind-layout .tk_label.root .rhandle {
+    width: 12px;
+    height: 12px;
+    right: 0.1em;
+    bottom: -0.2em;
+}
+
+.mind-layout .editPanel textarea {
+    position: absolute;
+}

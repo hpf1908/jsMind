@@ -12,6 +12,7 @@ define(function(require, exports, module) {
     var Path     = require('./core/path');
     var Map      = require('./core/map');
     var Events   = require('Events');
+    var Layout    = require('./core/layout');
 
     var Stage = Class.create({
         initialize: function(options) {
@@ -24,7 +25,8 @@ define(function(require, exports, module) {
                 canvasWidth : 10000,
                 canvasHeight: 6000,
                 enableDrag  : true,
-                enableEdit  : false
+                enableEdit  : false,
+                layout      : new Layout()
             },options);
 
             this.elem = $(this.opts.elem);
@@ -69,7 +71,8 @@ define(function(require, exports, module) {
             this.map = new Map({
                 container : this.mapElm,
                 rPaper: this.rPaper,
-                enableEdit  : this.opts.enableEdit
+                enableEdit  : this.opts.enableEdit,
+                layout : this.opts.layout
             });
 
             this.map.on('doRepaint' , this._didMapRepaint, this);

@@ -1,5 +1,5 @@
 /**
- * Map 
+ * Layout 
  */
 define(function(require, exports, module) {
 
@@ -7,14 +7,31 @@ define(function(require, exports, module) {
     var Util      = require('../helper/util');
     var MindRoot  = require('./mindRoot');
     var Path      = require('./path');
+    var Navigate  = require('./navigate');
+    var Const     = require('./const');
+    var LayoutType = Const.LayoutType;
 
     var Layout = Class.create({
-        initialize : function(map) {
-
+        initialize : function() {
+            this.isEditAliginCenter = false;
+            this.type = LayoutType.mind;
+        },
+        initialWithMap : function(map) {
             this.map = map;
             this.paths = [];
             this.posCache = {};
             this.root = this.getRoot();
+            this._setClass();
+        },
+        initialNavigate : function() {
+
+            this.navigate = new Navigate({
+                mindRoot : this.map.mindRoot
+            });
+        },
+        _setClass : function() {
+            //添加对应布局的class
+            this.map.elem.addClass('mind-layout');
         },
         /**
          * 通过layout去控制根节点
@@ -33,7 +50,12 @@ define(function(require, exports, module) {
             //添加ui节点
             if(parentElem || !parentNode.isRoot) {
                 parentElem = parentElem ? parentElem : parentNode.childsElem;
-                parentElem.append(appendNode.elem);
+
+                if(parentNode.getFirstChild() == appendNode) {
+                    parentElem.prepend(appendNode.elem);
+                } else {
+                    parentElem.append(appendNode.elem);
+                }
             }
         },
         doRemove : function(parentNode , rmNode) {
@@ -58,6 +80,16 @@ define(function(require, exports, module) {
 
             if(!pos) {
                 pos = node.connectPos(parentOffset);
+            }
+
+            return pos;
+        },
+        centerPos : function(node , parentOffset) {
+
+            var pos = this.posCache['center_'+node.id];
+
+            if(!pos) {
+                pos = node.centerPos(parentOffset);
             }
 
             return pos;
@@ -116,6 +148,40 @@ define(function(require, exports, module) {
             };
 
             this.paths = [];
+        },
+        /**
+         * 相对于map的中心位置
+         */
+        centerPosInMap : function() {
+
+            var mapOffset = this.map.elem.offset();
+            var rootOffset = this.root.rootElem.offset();
+
+            return {
+                x : rootOffset.left - mapOffset.left,
+                y : rootOffset.top - mapOffset.top
+            }
+        },
+        /**
+         * 设置map为中央
+         */
+        alignCenter : function() {
+
+            var canvasWidth  = this.map.opts.canvasWidth;
+            var canvasHeight = this.map.opts.canvasHeight;
+
+            var posX = canvasWidth / 2.0;
+            var posY = canvasHeight / 2.0;
+
+            var centerPosInMap = this.centerPosInMap();
+
+            posX = posX - centerPosInMap.x;
+            posY = posY - centerPosInMap.y;
+
+            this.map.setPos({
+                x : posX,
+                y : posY
+            });
         }
     });
 

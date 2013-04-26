@@ -3,10 +3,11 @@
  */
 define(function(require, exports, module) {
 
-    var Stage    = require('js/jsMind/stage');
-    var MindNode = require('js/jsMind/core/MindNode');
-    var $        = require('jQuery');
-    var JSON     = require('JSON');
+    var Stage       = require('js/jsMind/stage');
+    var MindNode    = require('js/jsMind/core/mindNode');
+    var TreeLayout  = require('js/jsMind/core/treeLayout');
+    var $           = require('jQuery');
+    var JSON        = require('JSON');
 
     var addChildsToNode = function(node , childsNum) {
 
@@ -31,11 +32,13 @@ define(function(require, exports, module) {
     return {
         init : function() {
 
-            var testFunc = this['test root childs'];
+            // var testFunc = this['test root childs'];
             // var testFunc = this['test has with childs'];
-            // var testFunc = this['test has edit'];
+            var testFunc = this['test has edit'];
             // var testFunc = this['test export json'];
             // var testFunc = this['test import from json'];
+            // var testFunc = this['test treeLayout'];
+            // var testFunc = this['test treeLayout widht edit'];
             testFunc();
         },
         'test root childs' : function() {
@@ -151,6 +154,39 @@ define(function(require, exports, module) {
             });
 
             stage.getMap().importFromJson(jsonStr);
+        },
+        'test treeLayout' : function() {
+
+            var stage = new Stage({
+                elem   : '#stage',
+                enableEdit  : false,
+                layout : new TreeLayout()
+              });
+
+            var map = stage.getMap();
+            var leftNum = 3;
+
+            autoResize(stage);
+
+            for (var i = 0; i < 3; i++) {
+                 var node = new MindNode(null , {
+                    title : '测试节点'
+                 });
+
+                 addChildsToNode(node , 3);
+
+                 map.addToLeftTree(node);
+             }
+        },
+        'test treeLayout widht edit' : function() {
+            
+            var stage = new Stage({
+                elem   : '#stage',
+                enableEdit  : true,
+                layout : new TreeLayout()
+            });
+
+            autoResize(stage);
         }
     }
 });
