@@ -2,6 +2,8 @@
 
 ![示例](https://raw.github.com/hpf1908/jsMind/master/images/screenShot.png)
 
+![示例](https://raw.github.com/hpf1908/jsMind/master/images/screenShotTreeLayout.png)
+
 #compatible with safari、firefox、chrome、IE7、8、9
 
 #操作方法
@@ -22,6 +24,7 @@
 4. 支持撤销以及重做
 5. xss处理
 6. 支持放大缩小
+7. 支持树型布局
 
 #todolist: 
 
@@ -30,7 +33,6 @@
 3. 性能优化 ***
 4. 兼容性 ***
 5. 支持非图形化的描述 *
-6. 支持多种布局方式 ***
 
 #依赖项：
 
