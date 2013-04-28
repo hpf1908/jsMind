@@ -1,6 +1,10 @@
 #思维导图类库
 
+- 思维导图布局
+
 ![示例](https://raw.github.com/hpf1908/jsMind/master/images/screenShot.png)
+
+- 树形布局 
 
 ![示例](https://raw.github.com/hpf1908/jsMind/master/images/screenShotTreeLayout.png)
 
