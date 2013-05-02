@@ -106,7 +106,6 @@
 .editPanel {
     position: absolute;
     z-index: 100;
-    background-color: #fff;
 }
 
 .edit.tk_label {

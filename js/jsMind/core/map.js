@@ -550,6 +550,12 @@ define(function(require, exports, module) {
                 width  : stageElm.width(),
                 height : stageElm.height()
             }
+        },
+        mapSize : function() {
+            return {
+                width  : this.elem.width(),
+                height : this.elem.height()
+            }
         }
     });
 

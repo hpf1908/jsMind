@@ -31,3 +31,7 @@
 .default .tree-layout .tk_label.selected {
     border: 2px solid #2c81c2!important;
 }
+
+.tree-layout .editPanel {
+    background-color: #fff;
+}
