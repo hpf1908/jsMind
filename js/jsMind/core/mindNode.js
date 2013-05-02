@@ -273,6 +273,11 @@ define(function(require, exports, module) {
                     this.removeChildAt(i);
                 }
             };
+
+            if(this.childs.length == 0) {
+                this.openElm.css('visibility','hidden');
+                this.isOpened = false;
+            }
         },
         remove : function(){
             if(this.parent) {

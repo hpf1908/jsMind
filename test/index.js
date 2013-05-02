@@ -34,11 +34,11 @@ define(function(require, exports, module) {
 
             // var testFunc = this['test root childs'];
             // var testFunc = this['test has with childs'];
-            // var testFunc = this['test has edit'];
+            var testFunc = this['test has edit'];
             // var testFunc = this['test export json'];
             // var testFunc = this['test import from json'];
             // var testFunc = this['test treeLayout'];
-            var testFunc = this['test treeLayout widht edit'];
+            // var testFunc = this['test treeLayout widht edit'];
             testFunc();
         },
         'test root childs' : function() {
